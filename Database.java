@@ -6,25 +6,84 @@ import org.xml.sax.*;
 import org.xml.sax.helpers.*;
 import java.util.*;
 import java.io.*;
+class DataRecords{
+	private String author;
+	private String title;
+	private String pages;
+	private String year;
+	private String volume;
+	private String journal;
+	private String booktitle;
+	private String url;
+	public DataRecords(String _author, String _title, String _pages, String _voulme, String _year, String _journal, String _booktitle, String _url){
+		author = _author;
+		title = _title;
+		pages = _pages;
+		volume = _voulme;
+		year = _year;
+		journal = _journal;
+		booktitle = _booktitle;
+		url = _url;
+	}
+	public String getAuthor(){
+		return author;
+	}
+	public String getTitle(){
+		return title;
+	}
+	public String getPages(){
+		return pages;
+	}
+	public String getVolume(){
+		return volume;
+	}
+	public String getYear(){
+		return year;
+	}
+	public String getJournal(){
+		return journal;
+	}
+	public String getBookTitle(){
+		return booktitle;
+	}
+	public String getURL(){
+		return url;
+	}
+}
 public class Database{
 	private SAXParser parser;
+	private ArrayList<DataRecords> dataRec = new ArrayList<DataRecords>();
 	public Database(String filename){
 		try{
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			parser = factory.newSAXParser();
-			Handler handle = new Handler();
+			Handler handle = new Handler(this);
 			parser.parse(filename, handle);
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
+		this.printData();
 	}
 	public static void main(String[] args){
 		// XMLInputFactory inputFactory = XMLInputFactory.newInstance(); 
 		// inputFactory.setProperty(JDK_ENTITY_EXPANSION_LIMIT, "0");
 		System.setProperty("jdk.xml.entityExpansionLimit", "0");
 		Database d = new Database("dblp.xml");
+		d.printData();
 		System.clearProperty("jdk.xml.entityExpansionLimit");
+	}
+	public void check(DataRecords d){
+		if (d.getAuthor() !=null && d.getAuthor().equalsIgnoreCase("Wei Wang")){
+			// System.out.println("wang");
+			dataRec.add(d);
+		}
+	}
+	public void printData(){
+		for (DataRecords d : dataRec){
+			System.out.println(d.getTitle());
+			System.out.println(d.getAuthor());
+		}
 	}
 }
 class Handler extends DefaultHandler{
@@ -37,66 +96,94 @@ class Handler extends DefaultHandler{
 	private boolean bBookTitle = false;
 	private boolean bURL = false;
 	private String author;
+	private String title;
+	private String pages;
+	private String year;
+	private String volume;
+	private String journal;
+	private String booktitle;
+	private String url;
+	private Database dbase;
+	public Handler(Database _dbase){
+		dbase = _dbase;
+	}
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException{
 		if (qName.equalsIgnoreCase("author")){
 			bAuthor = true;
 		}
-		if (qName.equalsIgnoreCase("title")){
+		else if (qName.equalsIgnoreCase("title")){
 			bTitle = true;
 		}
-		if (qName.equalsIgnoreCase("pages")){
+		else if (qName.equalsIgnoreCase("pages")){
 			bPages = true;
 		}
-		if (qName.equalsIgnoreCase("year")){
+		else if (qName.equalsIgnoreCase("year")){
 			bYear = true;
 		}
-		if (qName.equalsIgnoreCase("volume")){
+		else if (qName.equalsIgnoreCase("volume")){
 			bVolume = true;
 		}
-		if (qName.equalsIgnoreCase("journal")){
+		else if (qName.equalsIgnoreCase("journal")){
 			bJournal = true;
 		}
-		if (qName.equalsIgnoreCase("booktitle")){
+		else if (qName.equalsIgnoreCase("booktitle")){
 			bBookTitle = true;
 		}
-		if (qName.equalsIgnoreCase("url")){
+		else if (qName.equalsIgnoreCase("url")){
 			bURL = true;
 		}
 	}
-	public void endDocument() throws SAXException{
-		System.out.println(author);
+	public void endElement(String uri, String localName, String qName) throws SAXException{
+		if (qName.equalsIgnoreCase("article") || qName.equalsIgnoreCase("inproceedings") || qName.equalsIgnoreCase("proceedings") || qName.equalsIgnoreCase("book") || qName.equalsIgnoreCase("incollection") || qName.equalsIgnoreCase("phdthesis") || qName.equalsIgnoreCase("mastersthesis") || qName.equalsIgnoreCase("www")){
+			if (title == null || !title.equalsIgnoreCase("Home Page")){
+				DataRecords d = new DataRecords(author, title, pages, year, volume, journal, booktitle, url);
+				// System.out.println(author);
+				// dbase.check(d);
+			}
+			else{
+				System.out.println(author);
+			}
+			author = title = pages = year = volume = journal = booktitle = url = null;
+		}
 	}
+	// public void endDocument() throws SAXException{
+	// 	System.out.println("here" + author);
+	// }
 	public void characters(char ch[], int start, int length) throws SAXException{
 		if (bAuthor){
-			author = new String(ch, start, length);
+			if (author != null){
+				author = author + "," + new String(ch, start, length);
+			}
+			else
+				author = new String(ch, start, length);
 			bAuthor = false;
 		}
 		else if (bTitle){
-			new String(ch, start, length);
+			title = new String(ch, start, length);
 			bTitle = false;
 		}
 		else if (bPages){
-			new String(ch, start, length);
+			pages = new String(ch, start, length);
 			bPages = false;
 		}
 		else if (bYear){
-			new String(ch, start, length);
+			year = new String(ch, start, length);
 			bYear = false;
 		}
 		else if (bVolume){
-			new String(ch, start, length);
+			volume = new String(ch, start, length);
 			bVolume = false;
 		}
 		else if (bJournal){
-			new String(ch, start, length);
+			journal = new String(ch, start, length);
 			bJournal = false;
 		}
 		else if (bBookTitle){
-			new String(ch, start, length);
+			booktitle = new String(ch, start, length);
 			bBookTitle = false;
 		}
 		else if (bURL){
-			new String(ch, start, length);
+			url = new String(ch, start, length);
 			bURL = false;
 		}
 	}
