@@ -19,6 +19,13 @@ public class Database{
 			e.printStackTrace();
 		}
 	}
+	public static void main(String[] args){
+		// XMLInputFactory inputFactory = XMLInputFactory.newInstance(); 
+		// inputFactory.setProperty(JDK_ENTITY_EXPANSION_LIMIT, "0");
+		System.setProperty("jdk.xml.entityExpansionLimit", "0");
+		Database d = new Database("dblp.xml");
+		System.clearProperty("jdk.xml.entityExpansionLimit");
+	}
 }
 class Handler extends DefaultHandler{
 	private boolean bAuthor = false;
@@ -29,6 +36,7 @@ class Handler extends DefaultHandler{
 	private boolean bJournal = false;
 	private boolean bBookTitle = false;
 	private boolean bURL = false;
+	private String author;
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException{
 		if (qName.equalsIgnoreCase("author")){
 			bAuthor = true;
@@ -55,9 +63,12 @@ class Handler extends DefaultHandler{
 			bURL = true;
 		}
 	}
-	public void characters(char c[], int start, int length) throws SAXException{
+	public void endDocument() throws SAXException{
+		System.out.println(author);
+	}
+	public void characters(char ch[], int start, int length) throws SAXException{
 		if (bAuthor){
-			new String(ch, start, length);
+			author = new String(ch, start, length);
 			bAuthor = false;
 		}
 		else if (bTitle){
