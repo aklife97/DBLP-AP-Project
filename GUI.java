@@ -107,4 +107,80 @@ public class GUI
 	{
 		GUI a = new GUI();
 	}
+
+    private void setQuery1()
+    {
+    	queries.removeItem("Queries");
+    	sidePanel.removeAll();
+    	displayPanel.removeAll();
+    	queries.setBounds(50,40,100,20);
+    	queries.setSelectedItem("Query 1");
+    	JComboBox<String> searchBy = new JComboBox<String>();
+    	searchBy.addItem("Search By:");
+    	searchBy.addItem("Name/Title Tag");
+    	searchBy.addItem("since Year");
+    	searchBy.addItem("Custom Year Range");
+    	searchBy.setSelectedItem("Search By");
+    	searchBy.setBounds(50,80,100,20);
+    	searchBy.setFont(new Font("Calibri", Font.PLAIN, 10));
+    	JLabel title1 = new JLabel("Name / Title tags");
+    	JLabel title2 = new JLabel("Since Year");
+    	JLabel title3 = new JLabel("Custom Range");	
+    	JLabel result = new JLabel();
+    	JLabel dash = new JLabel("-");
+    	title1.setFont(new Font("Calibri", Font.PLAIN, 10));
+    	title2.setFont(new Font("Calibri", Font.PLAIN, 10));
+    	title3.setFont(new Font("Calibri", Font.PLAIN, 10));
+    	dash.setFont(new Font("Calibri", Font.PLAIN, 10));	
+    	result.setFont(new Font("Calibri", Font.PLAIN, 15));	
+    	title1.setBounds(30,120,100,20);
+    	title1.setBounds(30,120,100,20);
+    	title2.setBounds(30,160,100,20);
+    	title3.setBounds(30,200,100,20);
+    	dash.setBounds(170,200,10,20);
+    	result.setBounds(50,200,350,50);
+    	JTextField title =new JTextField();
+    	JTextField year1 =new JTextField("YYYY");
+    	JTextField year2 =new JTextField("YYYY");
+    	JTextField year3 =new JTextField("YYYY");
+    	year1.setHorizontalAlignment(JTextField.CENTER);
+    	year2.setHorizontalAlignment(JTextField.CENTER);
+    	year3.setHorizontalAlignment(JTextField.CENTER);
+    	title.setBounds(140,120,70,20);
+    	year1.setBounds(140,160,50,20);
+    	year2.setBounds(110,200,50,20);
+    	year3.setBounds(190,200,50,20);
+    	final JRadioButton sortRel = new JRadioButton("Sort by Relevance");
+    	final JRadioButton sortYear = new JRadioButton("Sort by Year",true);
+    	ButtonGroup sortButtons = new ButtonGroup();
+        sortButtons.add(sortRel);
+        sortButtons.add(sortYear);
+        sortYear.setBounds(60,240,150,20);
+        sortRel.setBounds(60,260,150,20);
+        sortYear.setFont(new Font("Calibri", Font.PLAIN, 10));
+        sortRel.setFont(new Font("Calibri", Font.PLAIN, 10));
+        submit.setBounds(30,300,80,30);
+        reset.setBounds(140,300,80,30);
+        submit.setFont(new Font("Calibri", Font.PLAIN, 12));
+        reset.setFont(new Font("Calibri", Font.PLAIN, 12));
+    	sidePanel.add(searchBy);
+    	sidePanel.add(queries);
+    	sidePanel.add(title1);
+    	sidePanel.add(title);
+    	sidePanel.add(title2);
+    	sidePanel.add(year1);
+    	sidePanel.add(title3);
+    	sidePanel.add(year2);
+    	sidePanel.add(dash);
+    	sidePanel.add(year3);
+    	sidePanel.add(sortYear);
+    	sidePanel.add(sortRel);
+    	sidePanel.add(submit);
+    	sidePanel.add(reset);
+    	displayPanel.add(result);
+    	mainFrame.revalidate();
+	 	mainFrame.repaint();
+
+    }	
+   
 }
