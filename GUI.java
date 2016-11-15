@@ -269,7 +269,42 @@ public class GUI
 				}
 			});
     }	
-   
+    private void setQuery2()
+    {
+    	String ans="Query 2 - ";
+    	queries.removeItem("Queries");
+    	sidePanel.removeAll();
+    	queries.setBounds(50,50,100,20);
+    	queries.setSelectedItem("Query 2");
+    	JLabel title = new JLabel("No. of Publications");
+    	title.setFont(new Font("Calibri", Font.PLAIN, 12));
+    	title.setBounds(30,80,130,30);
+		JTextField publk =new JTextField();
+		publk.setBounds(170,80,50,20);
+ 		submit.setBounds(30,140,80,30);
+        reset.setBounds(140,140,80,30);
+        submit.setFont(new Font("Calibri", Font.PLAIN, 12));
+        reset.setFont(new Font("Calibri", Font.PLAIN, 12));
+        queries.removeItem("Queries");
+		displayPanel.removeAll();
+		JLabel result = new JLabel();
+		result.setFont(new Font("Calibri", Font.PLAIN, 15));
+		result.setBounds(50,200,350,50);
+		JLabel warning = new JLabel(" ");
+		warning.setFont(new Font("Calibri", Font.PLAIN, 12));
+    	warning.setForeground(Color.RED);
+		warning.setBounds(30,340,190,20);
+		sidePanel.add(warning);
+		displayPanel.add(result);
+    	sidePanel.add(title);
+    	sidePanel.add(queries);
+    	sidePanel.add(publk);
+    	sidePanel.add(submit);
+    	sidePanel.add(reset);
+    	mainFrame.revalidate();
+	 	mainFrame.repaint();
+	 	
+    }	
     public static boolean isInteger(String s) {
       boolean isValidInteger = false;
       try
