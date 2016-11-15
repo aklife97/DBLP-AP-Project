@@ -108,6 +108,11 @@ public class GUI
 		GUI a = new GUI();
 	}
 
+	public void change(int i)
+	{
+		flag=i;
+	}
+
     private void setQuery1()
     {
     	String ans="Query 1 - ";
@@ -191,6 +196,18 @@ public class GUI
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
 
+		sortRel.addItemListener(new ItemListener() {
+	         public void itemStateChanged(ItemEvent e) {         
+	            	    change(1);    
+	            }           
+	      });
+		
+		sortYear.addItemListener(new ItemListener() {
+	         public void itemStateChanged(ItemEvent e) {         
+	            change(0);
+	         }           
+	      });
+
 		submit.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e)
 				{
@@ -252,6 +269,7 @@ public class GUI
 				}
 			});
     }	
+   
     public static boolean isInteger(String s) {
       boolean isValidInteger = false;
       try
