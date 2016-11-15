@@ -110,6 +110,7 @@ public class GUI
 
     private void setQuery1()
     {
+    	String ans="Query 1 - ";
     	queries.removeItem("Queries");
     	sidePanel.removeAll();
     	displayPanel.removeAll();
@@ -127,18 +128,25 @@ public class GUI
     	JLabel title2 = new JLabel("Since Year");
     	JLabel title3 = new JLabel("Custom Range");	
     	JLabel result = new JLabel();
+    	JLabel warning = new JLabel(" ");
+    	// JLabel warning2 = new JLabel();
     	JLabel dash = new JLabel("-");
     	title1.setFont(new Font("Calibri", Font.PLAIN, 10));
     	title2.setFont(new Font("Calibri", Font.PLAIN, 10));
     	title3.setFont(new Font("Calibri", Font.PLAIN, 10));
     	dash.setFont(new Font("Calibri", Font.PLAIN, 10));	
     	result.setFont(new Font("Calibri", Font.PLAIN, 15));	
+    	warning.setFont(new Font("Calibri", Font.PLAIN, 12));
+    	warning.setForeground(Color.RED);
+    	// warning2.setFont(new Font("Calibri", Font.PLAIN, 12));
     	title1.setBounds(30,120,100,20);
     	title1.setBounds(30,120,100,20);
     	title2.setBounds(30,160,100,20);
     	title3.setBounds(30,200,100,20);
     	dash.setBounds(170,200,10,20);
     	result.setBounds(50,200,350,50);
+    	warning.setBounds(30,340,190,20);
+    	// warning2.setBounds(30,360,190,20);
     	JTextField title =new JTextField();
     	JTextField year1 =new JTextField("YYYY");
     	JTextField year2 =new JTextField("YYYY");
@@ -177,10 +185,82 @@ public class GUI
     	sidePanel.add(sortRel);
     	sidePanel.add(submit);
     	sidePanel.add(reset);
+    	sidePanel.add(warning);
+    	// sidePanel.add(warning2);
     	displayPanel.add(result);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
 
+		submit.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e)
+				{
+					String res=" ";
+					String selectedOption = (String) searchBy.getSelectedItem();
+			        if (selectedOption.equals("Name/Title Tag")) {
+			            res="title - "+title.getText();
+			        } else if (selectedOption.equals("since Year")) {
+			            if(isInteger(year1.getText()))
+			            {
+			            	warning.setText(" ");
+			            	res="since year - "+(String)year1.getText();
+			            }
+			            else
+			            {
+			            	res=" ";
+			            	warning.setText("Year field should be numbers");
+			            }
+			        } else if(selectedOption.equals("Custom Year Range")) {
+			        	if(isInteger(year2.getText()) && isInteger(year3.getText()))
+			            {
+			            	warning.setText(" ");
+			            	res="year between - "+(String)year2.getText()+" and "+(String)year3.getText();
+			            }
+			            else
+			        	{
+			                warning.setText("Year field should be numbers");
+			            }
+			        }
+			        else
+			        {
+			        	res=" ";
+			        	result.setText(" ");
+			        	warning.setText("Select option");
+			        }
+			        String sortop=" ";
+			        if(flag==0)
+			        {
+			        	sortop=" sort by year";
+			        }
+			        else
+			        {
+			        	sortop=" sort by relevance";	
+			        }
+			        if(warning.getText().equals(new String(" ")))
+			        {
+			        	result.setText(ans+res+sortop);
+			        }
+			         else
+			        {
+			        	result.setText(" ");
+			        }
+				}
+			});
+		reset.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e)
+				{
+					setQuery1();
+				}
+			});
     }	
-   
+    public static boolean isInteger(String s) {
+      boolean isValidInteger = false;
+      try
+      {
+         Integer.parseInt(s);
+         isValidInteger = true;
+      }
+      catch (NumberFormatException ex)
+      {}
+      return isValidInteger;
+   }
 }
