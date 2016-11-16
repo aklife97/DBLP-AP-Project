@@ -303,7 +303,38 @@ public class GUI
     	sidePanel.add(reset);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
-	 	
+	 	submit.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e)
+				{
+					String res=" ";
+			        res="title - "+title.getText();
+			            if(isInteger(publk.getText()))
+			            {
+			            	warning.setText(" ");
+			            	res="since year - "+(String)publk.getText();
+			            }
+			            else
+			            {
+			            	res=" ";
+			            	warning.setText("Year field should be numbers");
+			            }
+			        
+			        if(warning.getText().equals(new String(" ")))
+			        {
+			        	result.setText(ans+res);
+			        }
+			        else
+			        {
+			        	result.setText(" ");
+			        }
+				}
+			});
+		reset.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e)
+				{
+					setQuery2();
+				}
+			});
     }	
     public static boolean isInteger(String s) {
       boolean isValidInteger = false;
