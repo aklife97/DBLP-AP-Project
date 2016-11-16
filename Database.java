@@ -66,16 +66,13 @@ public class Database{
 		this.printData();
 	}
 	public static void main(String[] args){
-		// XMLInputFactory inputFactory = XMLInputFactory.newInstance(); 
-		// inputFactory.setProperty(JDK_ENTITY_EXPANSION_LIMIT, "0");
 		System.setProperty("jdk.xml.entityExpansionLimit", "0");
 		Database d = new Database("dblp.xml");
 		d.printData();
 		System.clearProperty("jdk.xml.entityExpansionLimit");
 	}
 	public void check(DataRecords d){
-		if (d.getAuthor() !=null && d.getAuthor().equalsIgnoreCase("Wei Wang")){
-			// System.out.println("wang");
+		if (d.getAuthor() !=null && d.getAuthor().equalsIgnoreCase("Arnold Schönhage")){
 			dataRec.add(d);
 		}
 	}
@@ -135,15 +132,33 @@ class Handler extends DefaultHandler{
 	}
 	public void endElement(String uri, String localName, String qName) throws SAXException{
 		if (qName.equalsIgnoreCase("article") || qName.equalsIgnoreCase("inproceedings") || qName.equalsIgnoreCase("proceedings") || qName.equalsIgnoreCase("book") || qName.equalsIgnoreCase("incollection") || qName.equalsIgnoreCase("phdthesis") || qName.equalsIgnoreCase("mastersthesis") || qName.equalsIgnoreCase("www")){
+			if (author != null)
+				author = author.substring(0, author.length()-1);
 			if (title == null || !title.equalsIgnoreCase("Home Page")){
 				DataRecords d = new DataRecords(author, title, pages, year, volume, journal, booktitle, url);
 				// System.out.println(author);
-				// dbase.check(d);
+				dbase.check(d);
 			}
-			else{
-				System.out.println(author);
-			}
+			// else{
+			// 	System.out.println(author);
+			// }
 			author = title = pages = year = volume = journal = booktitle = url = null;
+		}
+		else if (qName.equalsIgnoreCase("author")){
+			author = author + ",";
+			bAuthor = false;
+		}
+		else if (qName.equalsIgnoreCase("title")){
+			bTitle = false;
+		}
+		else if (qName.equalsIgnoreCase("journal")){
+			bJournal = false;
+		}
+		else if (qName.equalsIgnoreCase("booktitle")){
+			bBookTitle = false;
+		}
+		else if (qName.equalsIgnoreCase("url")){
+			bURL = false;
 		}
 	}
 	// public void endDocument() throws SAXException{
@@ -152,15 +167,18 @@ class Handler extends DefaultHandler{
 	public void characters(char ch[], int start, int length) throws SAXException{
 		if (bAuthor){
 			if (author != null){
-				author = author + "," + new String(ch, start, length);
+				author = author + new String(ch, start, length);
 			}
-			else
-				author = new String(ch, start, length);
-			bAuthor = false;
+			else{
+				author = (new String(ch, start, length));
+			}
 		}
 		else if (bTitle){
-			title = new String(ch, start, length);
-			bTitle = false;
+			if (title == null)
+				title = new String(ch, start, length);
+			else
+				title += new String(ch, start, length);
+			// bTitle = false;
 		}
 		else if (bPages){
 			pages = new String(ch, start, length);
@@ -175,16 +193,25 @@ class Handler extends DefaultHandler{
 			bVolume = false;
 		}
 		else if (bJournal){
-			journal = new String(ch, start, length);
-			bJournal = false;
+			if (journal == null)
+				journal = new String(ch, start, length);
+			else
+				journal += new String(ch, start, length);
+			// bJournal = false;
 		}
 		else if (bBookTitle){
-			booktitle = new String(ch, start, length);
-			bBookTitle = false;
+			if (booktitle == null)
+				booktitle = new String(ch, start, length);
+			else
+				booktitle += new String(ch, start, length);
+			// bBookTitle = false;
 		}
 		else if (bURL){
-			url = new String(ch, start, length);
-			bURL = false;
+			if (url == null)
+				url = new String(ch, start, length);
+			else
+				url += new String(ch, start, length);
+			// bURL = false;
 		}
 	}
 }

@@ -1,4 +1,7 @@
 *~
 Test.*
+test.*
+test/*
+c*/*
 *.class
 dblp.*
