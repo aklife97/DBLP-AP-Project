@@ -13,7 +13,18 @@ public class AuthorManager{
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			parser = factory.newSAXParser();
 			DefaultHandler handle = new DefaukltHandler(){
-				
+				private boolean bAuthor = false;
+				public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException{
+					if (qName.equalsIgnoreCase("author")){
+						bAuthor = true;
+					}
+				}
+				public void endElement(String uri, String localName, String qName) throws SAXException{
+					if (qName.equalsIgnoreCase("author")){
+						author = author + ",";
+						bAuthor = false;
+					}
+				}
 			}
 			parser.parse(filename, handle);
 		}
