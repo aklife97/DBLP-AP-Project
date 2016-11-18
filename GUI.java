@@ -150,8 +150,17 @@ public class GUI
 		query1Table.addColumn("Url");
 		query1Table.addRow(new Object[]{"v1", "v2" , "v3" , "v4", "v5", "v6", "v7","v8"});
 		//---
+		JButton next = new JButton("NEXT");
+		next.setBounds(540,335,80,40);
+		next.setBackground(Color.RED);
+		next.setFont(new Font("Calibri", Font.PLAIN, 10));
+		JButton back = new JButton("BACK");
+		back.setBounds(30,335,80,40);
+		back.setBackground(Color.BLACK);
+		back.setFont(new Font("Calibri", Font.PLAIN, 10));
+		//--
     	JComboBox<String> searchBy = new JComboBox<String>();
-    	searchBy.addItem("Search By:");
+    	searchBy.addItem("Search By");
     	searchBy.addItem("Author name");
     	searchBy.addItem("Title Tag");
     	searchBy.setSelectedItem("Search By");
@@ -232,8 +241,9 @@ public class GUI
     	sidePanel.add(warning);
     	sidePanel.add(sinceYear);
     	sidePanel.add(customYear);
-    	// sidePanel.add(warning2);
     	displayPanel.add(dispTable);
+    	displayPanel.add(next);
+    	displayPanel.add(back);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
 
@@ -260,29 +270,41 @@ public class GUI
 	         }           
 	      });
 
+		next.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+
+			}
+		});
+
+		back.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+
+			}
+		});
+
 		submit.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e)
 				{
 					String res=" ";
 					String selectedOption =(String) searchBy.getSelectedItem();
 			        if (selectedOption.equals("Author Name")) {
-			            res="selected - "+title.getText();
+
 			        } else if (selectedOption.equals("Title Tag")) {
 			            if(isInteger(year1.getText()))
 			            {
 			            	warning.setText(" ");
-			            	res="since year - "+year1.getText();
 			            }
 			            else
 			            {
-			            	res=" ";
+			            	
 			            	warning.setText("Year field should be numbers");
 			            }
 			        } else if(selectedOption.equals("Custom Year Range")) {
 			        	if(isInteger(year2.getText()) && isInteger(year3.getText()))
 			            {
 			            	warning.setText(" ");
-			            	res="year between - "+year2.getText()+" and "+year3.getText();
 			            }
 			            else
 			        	{
@@ -291,8 +313,6 @@ public class GUI
 			        }
 			        else
 			        {
-			        	res=" ";
-			        	result.setText(" ");
 			        	warning.setText("Select option");
 			        }
 			        String sortop=" ";
@@ -323,7 +343,6 @@ public class GUI
     }	
     private void setQuery2()
     {
-    	String ans="Query 2 - ";
     	queries.removeItem("Queries");
     	sidePanel.removeAll();
     	queries.setBounds(50,50,100,20);
@@ -339,15 +358,40 @@ public class GUI
         reset.setFont(new Font("Calibri", Font.PLAIN, 12));
         queries.removeItem("Queries");
 		displayPanel.removeAll();
-		JLabel result = new JLabel();
-		result.setFont(new Font("Calibri", Font.PLAIN, 15));
-		result.setBounds(50,200,350,50);
+
+		DefaultTableModel query1Table= new DefaultTableModel();
+		JTable displayTable = new JTable(query1Table);
+		JScrollPane dispTable = new JScrollPane(displayTable);
+		displayTable.setDefaultEditor(Object.class, null);
+		dispTable.setBounds(20,5,610,330);
+		query1Table.addColumn("S.No.");
+		query1Table.addColumn("Authors");
+		query1Table.addColumn("Title");
+		query1Table.addColumn("Pages");
+		query1Table.addColumn("Year");
+		query1Table.addColumn("Volume");
+		query1Table.addColumn("Journal/Booktitle");
+		query1Table.addColumn("Url");
+		query1Table.addRow(new Object[]{"v11", "v21" , "v31" , "v41", "v51", "v61", "v71","v81"});
+		// JLabel result = new JLabel();
+		// result.setFont(new Font("Calibri", Font.PLAIN, 15));
+		// result.setBounds(50,200,350,50);
 		JLabel warning = new JLabel(" ");
 		warning.setFont(new Font("Calibri", Font.PLAIN, 12));
     	warning.setForeground(Color.RED);
 		warning.setBounds(30,340,190,20);
+		JButton next = new JButton("NEXT");
+		next.setBounds(540,335,80,40);
+		next.setBackground(Color.RED);
+		next.setFont(new Font("Calibri", Font.PLAIN, 10));
+		JButton back = new JButton("BACK");
+		back.setBounds(30,335,80,40);
+		back.setBackground(Color.BLACK);
+		back.setFont(new Font("Calibri", Font.PLAIN, 10));
+		displayPanel.add(next);
+    	displayPanel.add(back);
+    	displayPanel.add(dispTable);
 		sidePanel.add(warning);
-		displayPanel.add(result);
     	sidePanel.add(title);
     	sidePanel.add(queries);
     	sidePanel.add(publk);
@@ -358,26 +402,20 @@ public class GUI
 	 	submit.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e)
 				{
-					String res=" ";
-			        res="title - "+title.getText();
 			            if(isInteger(publk.getText()))
 			            {
 			            	warning.setText(" ");
-			            	res="since year - "+publk.getText();
 			            }
 			            else
 			            {
-			            	res=" ";
 			            	warning.setText("Year field should be numbers");
 			            }
 			        
 			        if(warning.getText().equals(new String(" ")))
 			        {
-			        	result.setText(ans+res);
 			        }
 			        else
 			        {
-			        	result.setText(" ");
 			        }
 				}
 			});
@@ -387,11 +425,124 @@ public class GUI
 					setQuery2();
 				}
 			});
+		next.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+
+			}
+		});
+
+		back.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+
+			}
+		});
     }	
     private void setQuery3()
     {
     	queries.removeItem("Queries");
     	sidePanel.removeAll();
+    	queries.setBounds(50,50,100,20);
+    	queries.setSelectedItem("Query 3");
+    	JLabel title = new JLabel("Name of Author");
+    	title.setFont(new Font("Calibri", Font.PLAIN, 12));
+    	title.setBounds(30,80,130,30);
+    	JLabel title1 = new JLabel("Prediction after year");
+    	title1.setFont(new Font("Calibri", Font.PLAIN, 12));
+    	title1.setBounds(30,115,130,30);
+		JTextField authName =new JTextField();
+		authName.setBounds(170,80,50,20);
+        JTextField predYear =new JTextField();
+		predYear.setBounds(190,115,30,20);
+ 		submit.setBounds(30,155,80,30);
+        reset.setBounds(140,155,80,30);
+        submit.setFont(new Font("Calibri", Font.PLAIN, 12));
+        reset.setFont(new Font("Calibri", Font.PLAIN, 12));
+        queries.removeItem("Queries");
+        displayPanel.removeAll();
+        //--
+        DefaultTableModel query1Table= new DefaultTableModel();
+		JTable displayTable = new JTable(query1Table);
+		JScrollPane dispTable = new JScrollPane(displayTable);
+		displayTable.setDefaultEditor(Object.class, null);
+		dispTable.setBounds(20,5,610,330);
+		query1Table.addColumn("S.No.");
+		query1Table.addColumn("Authors");
+		query1Table.addColumn("Title");
+		query1Table.addColumn("Pages");
+		query1Table.addColumn("Year");
+		query1Table.addColumn("Volume");
+		query1Table.addColumn("Journal/Booktitle");
+		query1Table.addColumn("Url");
+		query1Table.addRow(new Object[]{"v12", "v22" , "v32" , "v42", "v52", "v62", "v72","v82"});
+		// JLabel result = new JLabel();
+		// result.setFont(new Font("Calibri", Font.PLAIN, 15));
+		// result.setBounds(50,200,350,50);
+		JLabel warning = new JLabel(" ");
+		warning.setFont(new Font("Calibri", Font.PLAIN, 12));
+    	warning.setForeground(Color.RED);
+		warning.setBounds(30,340,190,20);
+		JButton next = new JButton("NEXT");
+		next.setBounds(540,335,80,40);
+		next.setBackground(Color.RED);
+		next.setFont(new Font("Calibri", Font.PLAIN, 10));
+		JButton back = new JButton("BACK");
+		back.setBounds(30,335,80,40);
+		back.setBackground(Color.BLACK);
+		back.setFont(new Font("Calibri", Font.PLAIN, 10));
+		displayPanel.add(next);
+    	displayPanel.add(back);
+    	displayPanel.add(dispTable);
+		sidePanel.add(warning);
+    	sidePanel.add(title);
+    	sidePanel.add(queries);
+    	sidePanel.add(title1);
+    	sidePanel.add(predYear);
+    	sidePanel.add(authName);
+    	sidePanel.add(submit);
+    	sidePanel.add(reset);
+    	mainFrame.revalidate();
+	 	mainFrame.repaint();
+	 	next.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+
+			}
+		});
+
+		back.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+
+			}
+		});
+	 	submit.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e)
+				{
+			            if(isInteger(authName.getText()))
+			            {
+			            	warning.setText(" ");
+			            }
+			            else
+			            {
+			            	warning.setText("Year field should be numbers");
+			            }
+			        
+			        if(warning.getText().equals(new String(" ")))
+			        {
+			        }
+			        else
+			        {
+			        }
+				}
+			});
+		reset.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e)
+				{
+					setQuery2();
+				}
+			});
     }
     public static boolean isInteger(String s) {
       boolean isValidInteger = false;
