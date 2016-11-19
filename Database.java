@@ -63,12 +63,12 @@ public class Database{
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		this.printData();
 	}
 	public static void main(String[] args){
 		System.setProperty("jdk.xml.entityExpansionLimit", "0");
+		AuthorManager.createMap("dblp.xml");
 		Database d = new Database("dblp.xml");
-		d.printData();
+		AuthorManager.printData();
 		System.clearProperty("jdk.xml.entityExpansionLimit");
 	}
 	public void check(DataRecords d){

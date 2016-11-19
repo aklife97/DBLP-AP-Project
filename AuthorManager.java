@@ -10,10 +10,10 @@ public class AuthorManager{
 	private static HashMap<String, Author> authorMap = new HashMap<String, Author>();
 	public static void printData(){
 		for (Map.Entry m : authorMap.entrySet()){
-			System.out.println(m.getKey()+" "+m.getValue());
+			System.out.println(m.getKey()+" "+((Author)m.getValue()).getName());
 		}
 	}
-	public Author resolveAuthor(String name){
+	public static Author resolveAuthor(String name){
 		Author value = 	authorMap.get(name);
 		if (value == null){
 			value = new Author(name);
@@ -24,8 +24,8 @@ public class AuthorManager{
 	public static void createMap(String filename){
 		try{
 			SAXParserFactory factory = SAXParserFactory.newInstance();
-			parser = factory.newSAXParser();
-			DefaultHandler handle = new DefaukltHandler(){
+			SAXParser parser = factory.newSAXParser();
+			DefaultHandler handle = new DefaultHandler(){
 				private boolean bAuthor = false;
 				private boolean bTitle = false;
 				private boolean bHomePage = false;
@@ -73,11 +73,17 @@ public class AuthorManager{
 						title = new String(ch, start, length);
 					}
 				}
-			}
+			};
 			parser.parse(filename, handle);
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
 	}
+	// public static void main(String[] args){
+	// 	System.setProperty("jdk.xml.entityExpansionLimit", "0");
+	// 	AuthorManager.createMap("dblp.xml");
+	// 	AuthorManager.printData();
+	// 	System.clearProperty("jdk.xml.entityExpansionLimit");
+	// }
 }
