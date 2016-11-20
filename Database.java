@@ -8,11 +8,11 @@ import java.util.*;
 import java.io.*;
 public class Database{
 	private SAXParser parser;
-	private Query query;
+	// private Query query;
 	private ArrayList<DataRecords> dataRec = new ArrayList<DataRecords>();
-	public Database(String filename, Query _query){
+	public Database(String filename){
 		try{
-			query = _query;
+			// query = _query;
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			parser = factory.newSAXParser();
 			Handler handle = new Handler(this);
@@ -24,15 +24,16 @@ public class Database{
 	}
 	public static void main(String[] args){
 		System.setProperty("jdk.xml.entityExpansionLimit", "0");
-		AuthorManager.createMap("dblp.xml");
+		AuthorManager.addFile("dblp.xml");
+		AuthorManager.createMap();
 		Database d = new Database("dblp.xml");
 		AuthorManager.printData();
 		System.clearProperty("jdk.xml.entityExpansionLimit");
 	}
 	public void check(DataRecords d){
-		if (d.getAuthor() !=null && d.getAuthor().equalsIgnoreCase("Arnold Schönhage")){
-			dataRec.add(d);
-		}
+		// if (query.check(d)){
+		// 	dataRec.add(d);
+		// }
 	}
 	public void printData(){
 		for (DataRecords d : dataRec){
