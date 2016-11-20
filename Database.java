@@ -8,11 +8,11 @@ import java.util.*;
 import java.io.*;
 public class Database{
 	private SAXParser parser;
-	// private Query query;
-	private ArrayList<DataRecords> dataRec = new ArrayList<DataRecords>();
-	public Database(String filename){
+	private Query1 query;
+	// private ArrayList<DataRecords> dataRec = new ArrayList<DataRecords>();
+	public Database(String filename, Query1 _query){
 		try{
-			// query = _query;
+			query = _query;
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			parser = factory.newSAXParser();
 			Handler handle = new Handler(this);
@@ -24,23 +24,29 @@ public class Database{
 	}
 	public static void main(String[] args){
 		System.setProperty("jdk.xml.entityExpansionLimit", "0");
-		AuthorManager.addFile("dblp.xml");
-		AuthorManager.createMap();
-		Database d = new Database("dblp.xml");
-		AuthorManager.printData();
+		// AuthorManager.addFile("dblp.xml");
+		// AuthorManager.createMap();
+		// Database d = new Database("dblp.xml");
+		// AuthorManager.printData();
+		Query1 q = new Query1("dblp.xml");
+		// q.find(1, "mayank vatsa", 0, 9999);
+		// q.printData();
+		q.find(2, "Facedcaptcha: Face detection based color image CAPTCHA.", 0 ,9999);
+		q.printData();
 		System.clearProperty("jdk.xml.entityExpansionLimit");
 	}
 	public void check(DataRecords d){
 		// if (query.check(d)){
 		// 	dataRec.add(d);
 		// }
+		// query.check(d);
 	}
-	public void printData(){
-		for (DataRecords d : dataRec){
-			System.out.println(d.getTitle());
-			System.out.println(d.getAuthor());
-		}
-	}
+	// public void printData(){
+	// 	for (DataRecords d : dataRec){
+	// 		System.out.println(d.getTitle());
+	// 		System.out.println(d.getAuthor());
+	// 	}
+	// }
 }
 class Handler extends DefaultHandler{
 	private boolean bAuthor = false;

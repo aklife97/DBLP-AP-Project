@@ -10,6 +10,10 @@ public class Query2{
 	// 	k = _k;
 	// 	dbase = new Database(filename);
 	// }
+	private String filename;
+	public Query1(String _filename){
+		filename = _filename;
+	}
 	public ArrayList<Author> find(int k){
 		// if (!AuthorManager.isCountAdded()){
 		// 	AuthorManager.addCount();
@@ -20,7 +24,7 @@ public class Query2{
 		System.setProperty("jdk.xml.entityExpansionLimit", "0");
 		AuthorManager.addFile("dblp.xml");
 		Query2 q = new Query2();
-		ArrayList<Author> a = q.find(1);
+		ArrayList<Author> a = q.find(125);
 		for (Author au : a){
 			System.out.println(au.getName() + " " + au.getCount());
 		}

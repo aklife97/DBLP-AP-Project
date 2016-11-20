@@ -85,7 +85,7 @@ public class AuthorManager{
 							Author au = new Author(authors[0]);
 							authorsList.add(au);
 							for (String a : authors){
-								authorMap.put(a, au);
+								authorMap.put(a.toLowerCase(), au);
 							}
 						}
 						author = title = null;
