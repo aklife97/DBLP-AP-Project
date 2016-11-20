@@ -25,6 +25,23 @@ public class Query1{
 		q = _q.toLowerCase();
 		dbase = new Database(filename, this);
 	}
+	public void check(DataRecords d){
+		// System.out.println(d.getAuthor());
+		if (mode == 1 && d.getAuthor() != null){
+			String[] authors = d.getAuthor().split(",");
+			for (String a : authors){
+				if (AuthorManager.resolveAuthor(a.toLowerCase()) == AuthorManager.resolveAuthor(q) && d.getYear() >= since && d.getYear() <= to){
+					dataRec.add(d);
+					// System.out.println("here");
+				}
+			}
+		}
+		
+		else if (mode == 2 && d.getTitle()!=null && d.getTitle().equalsIgnoreCase(q) && d.getYear() >= since && d.getYear() <= to){
+			dataRec.add(d);
+		}
+
+	}
 	public void printData(){
 		for (DataRecords d : dataRec){
 			System.out.println(d.getTitle());

@@ -39,7 +39,7 @@ public class Database{
 		// if (query.check(d)){
 		// 	dataRec.add(d);
 		// }
-		// query.check(d);
+		query.check(d);
 	}
 	// public void printData(){
 	// 	for (DataRecords d : dataRec){
