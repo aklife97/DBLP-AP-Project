@@ -10,24 +10,32 @@ public class Query2{
 	// 	k = _k;
 	// 	dbase = new Database(filename);
 	// }
+	private ArrayList<Author> result;
 	private String filename;
-	public Query1(String _filename){
+	public Query2(String _filename){
 		filename = _filename;
 	}
-	public ArrayList<Author> find(int k){
+	public void find(int k){
 		// if (!AuthorManager.isCountAdded()){
 		// 	AuthorManager.addCount();
 		// }
-		return AuthorManager.getGreaterK(k);
+		result = AuthorManager.getGreaterK(k);
+		// return AuthorManager.getGreaterK(k);
 	}
-	public static void main(String[] args){
-		System.setProperty("jdk.xml.entityExpansionLimit", "0");
-		AuthorManager.addFile("dblp.xml");
-		Query2 q = new Query2();
-		ArrayList<Author> a = q.find(125);
-		for (Author au : a){
-			System.out.println(au.getName() + " " + au.getCount());
+	public void printData(){
+		for (Author a : result){
+			System.out.println(a.getName() + " " + a.getCount());
+			// System.out.println(d.getAuthor());
 		}
-		System.clearProperty("jdk.xml.entityExpansionLimit");
 	}
+	// public static void main(String[] args){
+	// 	System.setProperty("jdk.xml.entityExpansionLimit", "0");
+	// 	AuthorManager.addFile("dblp.xml");
+	// 	Query2 q = new Query2();
+	// 	// ArrayList<Author> a = q.find(125);
+	// 	// for (Author au : a){
+	// 	// 	System.out.println(au.getName() + " " + au.getCount());
+	// 	// }
+	// 	System.clearProperty("jdk.xml.entityExpansionLimit");
+	// }
 }

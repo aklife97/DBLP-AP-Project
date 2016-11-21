@@ -24,8 +24,8 @@ public class Database{
 	}
 	public static void main(String[] args){
 		System.setProperty("jdk.xml.entityExpansionLimit", "0");
-		// AuthorManager.addFile("dblp.xml");
-		// AuthorManager.createMap();
+		AuthorManager.addFile("dblp.xml");
+		AuthorManager.createMap();
 		// Database d = new Database("dblp.xml");
 		// AuthorManager.printData();
 		Query1 q = new Query1("dblp.xml");
@@ -33,6 +33,9 @@ public class Database{
 		// q.printData();
 		q.find(2, "Facedcaptcha: Face detection based color image CAPTCHA.", 0 ,9999);
 		q.printData();
+		Query2 q2 = new Query2("dblp.xml");
+		q2.find(125);
+		q2.printData();
 		System.clearProperty("jdk.xml.entityExpansionLimit");
 	}
 	public void check(DataRecords d){

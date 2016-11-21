@@ -146,7 +146,7 @@ public class AuthorManager{
 						if (author != null && title != null && !title.equalsIgnoreCase("Home Page")){
 							String[] authors = author.split(",");
 							for (String a : authors){
-								Author au = authorMap.get(a);
+								Author au = authorMap.get(a.toLowerCase());
 								au.increaseCount();
 							}
 						}
