@@ -28,7 +28,7 @@ public class Database{
 		Query1 q = new Query1("dblp.xml");
 		// q.find(1, "mayank vatsa", 0, 9999);
 		// q.printData();
-		q.find(2, "Facedcaptcha: Face detection based color image CAPTCHA.", 0 ,9999);
+		q.find(2, "Facedcaptcha: Face detection based color image CAPTCHA.", 2020 ,9999);
 		q.printData();
 		Query2 q2 = new Query2("dblp.xml");
 		q2.find(125);

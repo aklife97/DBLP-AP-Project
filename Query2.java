@@ -12,6 +12,15 @@ public class Query2{
 	public void find(int k){
 		result = AuthorManager.getGreaterK(k);
 	}
+	public Author getData(){
+		if (result.size() == 0)
+			return null;
+		else{
+			Author a = result.get(0);
+			result.remove(0);
+			return a;
+		}
+	}
 	public void printData(){
 		for (Author a : result){
 			System.out.println(a.getName() + " " + a.getCount());
