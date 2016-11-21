@@ -17,11 +17,6 @@ public class DataRecords{
 		title = _title;
 		pages = _pages;
 		volume = _voulme;
-		// if (_year == null){
-		// 	System.out.println("hi");
-		// 	year = -1;
-		// }
-		// else
 		try{	
 			year = Integer.parseInt(_year);
 		}

@@ -9,7 +9,6 @@ import java.io.*;
 public class Database{
 	private SAXParser parser;
 	private Query1 query;
-	// private ArrayList<DataRecords> dataRec = new ArrayList<DataRecords>();
 	public Database(String filename, Query1 _query){
 		try{
 			query = _query;
@@ -26,8 +25,6 @@ public class Database{
 		System.setProperty("jdk.xml.entityExpansionLimit", "0");
 		AuthorManager.addFile("dblp.xml");
 		AuthorManager.createMap();
-		// Database d = new Database("dblp.xml");
-		// AuthorManager.printData();
 		Query1 q = new Query1("dblp.xml");
 		// q.find(1, "mayank vatsa", 0, 9999);
 		// q.printData();
@@ -39,17 +36,8 @@ public class Database{
 		System.clearProperty("jdk.xml.entityExpansionLimit");
 	}
 	public void check(DataRecords d){
-		// if (query.check(d)){
-		// 	dataRec.add(d);
-		// }
 		query.check(d);
 	}
-	// public void printData(){
-	// 	for (DataRecords d : dataRec){
-	// 		System.out.println(d.getTitle());
-	// 		System.out.println(d.getAuthor());
-	// 	}
-	// }
 }
 class Handler extends DefaultHandler{
 	private boolean bAuthor = false;
@@ -104,12 +92,8 @@ class Handler extends DefaultHandler{
 				author = author.substring(0, author.length()-1);
 			if (title == null || !title.equalsIgnoreCase("Home Page")){
 				DataRecords d = new DataRecords(author, title, pages, year, volume, journal, booktitle, url);
-				// System.out.println(author);
 				dbase.check(d);
 			}
-			// else{
-			// 	System.out.println(author);
-			// }
 			author = title = pages = year = volume = journal = booktitle = url = null;
 		}
 		else if (qName.equalsIgnoreCase("author")){
@@ -129,9 +113,6 @@ class Handler extends DefaultHandler{
 			bURL = false;
 		}
 	}
-	// public void endDocument() throws SAXException{
-	// 	System.out.println("here" + author);
-	// }
 	public void characters(char ch[], int start, int length) throws SAXException{
 		if (bAuthor){
 			if (author != null){
@@ -146,7 +127,6 @@ class Handler extends DefaultHandler{
 				title = new String(ch, start, length);
 			else
 				title += new String(ch, start, length);
-			// bTitle = false;
 		}
 		else if (bPages){
 			pages = new String(ch, start, length);
@@ -165,21 +145,18 @@ class Handler extends DefaultHandler{
 				journal = new String(ch, start, length);
 			else
 				journal += new String(ch, start, length);
-			// bJournal = false;
 		}
 		else if (bBookTitle){
 			if (booktitle == null)
 				booktitle = new String(ch, start, length);
 			else
 				booktitle += new String(ch, start, length);
-			// bBookTitle = false;
 		}
 		else if (bURL){
 			if (url == null)
 				url = new String(ch, start, length);
 			else
 				url += new String(ch, start, length);
-			// bURL = false;
 		}
 	}
 }

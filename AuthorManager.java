@@ -174,10 +174,4 @@ public class AuthorManager{
 			e.printStackTrace();
 		}
 	}
-	// public static void main(String[] args){
-	// 	System.setProperty("jdk.xml.entityExpansionLimit", "0");
-	// 	AuthorManager.createMap("dblp.xml");
-	// 	AuthorManager.printData();
-	// 	System.clearProperty("jdk.xml.entityExpansionLimit");
-	// }
 }

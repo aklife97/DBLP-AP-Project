@@ -8,17 +8,12 @@ public class Query1{
 	private String filename;
 	private int mode, since, to;
 	private String q;
-	private ArrayList<DataRecords> dataRec;
-	// public Query1(String filename, int _mode, String _q){ // try make mode enum
-	// 	dbase = new Database(filename, this);
-	// 	mode = _mode;
-	// 	q = _q.toLowerCase();
-	// }
+	private PriorityQueue<DataRecords> dataRec;
 	public Query1(String _filename){
 		filename = _filename;
 	}
-	public void find(int _mode, String _q, int _since, int _to){ // try make mode enum, see if make return type array
-		dataRec = new ArrayList<DataRecords>();
+	public void find(int _mode, String _q, int _since, int _to){
+		dataRec = new PriorityQueue<DataRecords>();
 		mode = _mode;
 		since = _since;
 		to = _to;
@@ -26,13 +21,11 @@ public class Query1{
 		dbase = new Database(filename, this);
 	}
 	public void check(DataRecords d){
-		// System.out.println(d.getAuthor());
 		if (mode == 1 && d.getAuthor() != null){
 			String[] authors = d.getAuthor().split(",");
 			for (String a : authors){
 				if (AuthorManager.resolveAuthor(a.toLowerCase()) == AuthorManager.resolveAuthor(q) && d.getYear() >= since && d.getYear() <= to){
 					dataRec.add(d);
-					// System.out.println("here");
 				}
 			}
 		}
@@ -42,8 +35,12 @@ public class Query1{
 		}
 
 	}
+	public DataRecords getData(){
+		return dataRec.poll();
+	}
 	public void printData(){
-		for (DataRecords d : dataRec){
+		DataRecords d;
+		while ((d = dataRec.poll())!=null){
 			System.out.println(d.getTitle());
 			System.out.println(d.getAuthor());
 		}
