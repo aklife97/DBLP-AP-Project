@@ -3,7 +3,7 @@
 */
 import java.util.*;
 import java.io.*;
-public class Query1{
+public class Query1 implements Query13{
 	private Database dbase;
 	private String filename;
 	private int mode, since, to;

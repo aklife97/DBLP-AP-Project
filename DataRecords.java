@@ -60,6 +60,12 @@ public class DataRecords{
 	public String getBookTitle(){
 		return booktitle;
 	}
+	public String getJournalTitle(){
+		if (journal == null){
+			return booktitle;
+		}
+		return journal;
+	}
 	public String getURL(){
 		return url;
 	}

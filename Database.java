@@ -8,8 +8,8 @@ import java.util.*;
 import java.io.*;
 public class Database{
 	private SAXParser parser;
-	private Query1 query;
-	public Database(String filename, Query1 _query){
+	private Query13 query;
+	public Database(String filename, Query13 _query){
 		try{
 			query = _query;
 			SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -28,11 +28,12 @@ public class Database{
 		Query1 q = new Query1("dblp.xml");
 		// q.find(1, "mayank vatsa", 0, 9999);
 		// q.printData();
-		q.find(2, "Facedcaptcha: Face detection based color image CAPTCHA.", 2020 ,9999);
+		q.find(2, "Facedcaptcha: Face detection based color image CAPTCHA.",0 ,9999);
 		q.printData();
 		Query2 q2 = new Query2("dblp.xml");
 		q2.find(125);
 		q2.printData();
+		Query3 q3 = new Query3("dblp.xml");
 		System.clearProperty("jdk.xml.entityExpansionLimit");
 	}
 	public void check(DataRecords d){
