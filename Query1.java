@@ -42,7 +42,7 @@ public class Query1 implements Query13{
 		DataRecords d;
 		while ((d = dataRec.poll())!=null){
 			System.out.println(d.getTitle());
-			System.out.println(d.getAuthor());
+			System.out.println(d.getYear());
 		}
 	}
 }

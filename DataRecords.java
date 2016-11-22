@@ -3,7 +3,7 @@
 */
 import java.util.*;
 import java.io.*;
-public class DataRecords{
+public class DataRecords implements Comparable<DataRecords>{
 	private String author;
 	private String title;
 	private String pages;
@@ -12,11 +12,11 @@ public class DataRecords{
 	private String journal;
 	private String booktitle;
 	private String url;
-	public DataRecords(String _author, String _title, String _pages, String _voulme, String _year, String _journal, String _booktitle, String _url){
+	public DataRecords(String _author, String _title, String _pages, String _volume, String _year, String _journal, String _booktitle, String _url){
 		author = _author;
 		title = _title;
 		pages = _pages;
-		volume = _voulme;
+		volume = _volume;
 		try{	
 			year = Integer.parseInt(_year);
 		}
@@ -29,12 +29,12 @@ public class DataRecords{
 	}
 	public int compareTo(DataRecords d2){
 		if (d2.getYear() > year){
-			return -1;
+			return 1;
 		}
 		else if (d2.getYear() == year){
 			return 0;
 		}
-		return 1;
+		return -1;
 	}
 	public boolean equals(DataRecords d2){
 		return d2.getYear() == year;

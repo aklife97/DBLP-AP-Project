@@ -26,14 +26,14 @@ public class Database{
 		AuthorManager.addFile("dblp.xml");
 		AuthorManager.createMap();
 		Query1 q = new Query1("dblp.xml");
-		// q.find(1, "mayank vatsa", 0, 9999);
-		// q.printData();
-		q.find(2, "Facedcaptcha: Face detection based color image CAPTCHA.",0 ,9999);
+		q.find(1, "vinayak naik", 0, 9999);
 		q.printData();
-		Query2 q2 = new Query2("dblp.xml");
-		q2.find(125);
-		q2.printData();
-		Query3 q3 = new Query3("dblp.xml");
+		// q.find(2, "Facedcaptcha: Face detection based color image CAPTCHA.",0 ,9999);
+		// q.printData();
+		// Query2 q2 = new Query2("dblp.xml");
+		// q2.find(125);
+		// q2.printData();
+		// Query3 q3 = new Query3("dblp.xml");
 		System.clearProperty("jdk.xml.entityExpansionLimit");
 	}
 	public void check(DataRecords d){
@@ -92,7 +92,7 @@ class Handler extends DefaultHandler{
 			if (author != null)
 				author = author.substring(0, author.length()-1);
 			if (title == null || !title.equalsIgnoreCase("Home Page")){
-				DataRecords d = new DataRecords(author, title, pages, year, volume, journal, booktitle, url);
+				DataRecords d = new DataRecords(author, title, pages, volume, year, journal, booktitle, url);
 				dbase.check(d);
 			}
 			author = title = pages = year = volume = journal = booktitle = url = null;
