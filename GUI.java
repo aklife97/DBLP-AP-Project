@@ -16,7 +16,7 @@ public class GUI
 	private JButton submit,reset;
 	// private DefaultTableModel modelTable;
 	// private JTable displayTable;
-	private int flag=0,flag2=0;
+	private int flag=0,flag2=0,tableWorking=0,pages=0;
 
 	public GUI()
 	{
@@ -128,7 +128,7 @@ public class GUI
     {
     	flag=0;
     	flag2=0;
-    	String ans="Query 1 - ";
+    	q1=new Query1("dblp.xml");
     	queries.removeItem("Queries");
     	sidePanel.removeAll();
     	displayPanel.removeAll();
@@ -148,7 +148,7 @@ public class GUI
 		query1Table.addColumn("Volume");
 		query1Table.addColumn("Journal/Booktitle");
 		query1Table.addColumn("Url");
-		query1Table.addRow(new Object[]{"v1", "v2" , "v3" , "v4", "v5", "v6", "v7","v8"});
+		// query1Table.addRow(new Object[]{"v1", "v2" , "v3" , "v4", "v5", "v6", "v7","v8"});
 		//---
 		JButton next = new JButton("NEXT");
 		next.setBounds(540,335,80,40);
@@ -161,7 +161,7 @@ public class GUI
 		//--
     	JComboBox<String> searchBy = new JComboBox<String>();
     	searchBy.addItem("Search By");
-    	searchBy.addItem("Author name");
+    	searchBy.addItem("Author Name");
     	searchBy.addItem("Title Tag");
     	searchBy.setSelectedItem("Search By");
     	searchBy.setBounds(50,50,100,20);
@@ -190,9 +190,9 @@ public class GUI
     	warning.setBounds(30,340,190,20);
     	// warning2.setBounds(30,360,190,20);
     	JTextField title =new JTextField();
-    	JTextField year1 =new JTextField("YYYY");
-    	JTextField year2 =new JTextField("YYYY");
-    	JTextField year3 =new JTextField("YYYY");
+    	JTextField year1 =new JTextField();
+    	JTextField year2 =new JTextField();
+    	JTextField year3 =new JTextField();
     	year1.setHorizontalAlignment(JTextField.CENTER);
     	year2.setHorizontalAlignment(JTextField.CENTER);
     	year3.setHorizontalAlignment(JTextField.CENTER);
@@ -246,7 +246,8 @@ public class GUI
     	displayPanel.add(back);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
-
+	 	tableWorking=0;
+		pages=0;
 		sortRel.addItemListener(new ItemListener() {
 	         public void itemStateChanged(ItemEvent e) {         
 	            	    change(1);    
@@ -273,7 +274,26 @@ public class GUI
 		next.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
-
+				if(tableWorking==1)
+				{
+					DataRecords d =q1.getData();
+					if(d!=null)
+					{	
+						int count=0;
+						query1Table.setRowCount(0);
+		            	while(d!=null && count<20)
+		            	{
+		            		query1Table.addRow(new Object[]{(pages*20)+(count+1),d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
+		            		count++;
+		            		if(count<20)
+		            		{d=q1.getData();}	
+		            	}
+		            	pages+=1;}
+            	}
+            	else
+            	{
+            		tableWorking=0;
+            	}
 			}
 		});
 
@@ -283,61 +303,110 @@ public class GUI
 
 			}
 		});
-
 		submit.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e)
 				{
+					warning.setText(" ");
+					int count=0;
+					query1Table.setRowCount(0);
 					String res=" ";
 					String selectedOption =(String) searchBy.getSelectedItem();
 			        if (selectedOption.equals("Author Name")) {
+			        	if(title.getText().length()==0){
+			        		warning.setText("Author name field cannot be empty");
+			        	}
+			        	else {
+				        	if(flag==0 || flag ==1)
+				        	{
+				        		if(flag2==1)
+				        		{
+				        			int y=0,pages=0;
+				        			if(isInteger(year1.getText()))
+						            {
+						            	warning.setText(" ");
+						            	y=Integer.parseInt(year1.getText());
+						            }
+						            else
+						            {
+						            	warning.setText("Year field should be numbers");
+						            }
+						            q1.find(1, title.getText(),y, 9999,0);
+						            tableWorking=1;
+						            DataRecords d= q1.getData();
+						            while(d!=null && count<20)
+						            {
+						            	query1Table.addRow(new Object[]{count+1,d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
+					            		count++;
+					            		if(count<20)
+					            		{d=q1.getData();}	
+					            	}
+					            	pages=1;
+				        		}
+				        		else if(flag2==2)
+				        		{
+				        			int y1=0,y2=0,pages=0;
+				        			if(isInteger(year2.getText())&&isInteger(year3.getText()))
+						            {
+						            	warning.setText(" ");
+						            	y1=Integer.parseInt(year2.getText());
+						            	y2=Integer.parseInt(year3.getText());
+						            }
+						            else
+						            {
+						            	warning.setText("Year field should be numbers");
+						            }
+						            q1.find(1, title.getText(),y1,y2,0);
+						            tableWorking=1;
+						            DataRecords d= q1.getData();
+						            while(d!=null && count<20)
+						            {
+						            	query1Table.addRow(new Object[]{count+1,d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
+					            		count++;
+					            		if(count<20)
+					            		{d=q1.getData();}	
+					            	}
+					            	pages=1;
+				        		}
+				        		else
+				        		{
+				        			q1.find(1, title.getText(),0,9999,0);
+						            tableWorking=1;
+						            DataRecords d= q1.getData();
+						            while(d!=null && count<20)
+						            {
+						            	query1Table.addRow(new Object[]{count+1,d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
+					            		count++;
+					            		if(count<20)
+					            		{d=q1.getData();}	
+					            	}
+					            	pages=1;
+				        		}
+				        	}
+				        }
 
 			        } else if (selectedOption.equals("Title Tag")) {
-			            if(isInteger(year1.getText()))
-			            {
-			            	warning.setText(" ");
-			            }
-			            else
-			            {
-			            	
-			            	warning.setText("Year field should be numbers");
-			            }
-			        } else if(selectedOption.equals("Custom Year Range")) {
-			        	if(isInteger(year2.getText()) && isInteger(year3.getText()))
-			            {
-			            	warning.setText(" ");
-			            }
-			            else
-			        	{
-			                warning.setText("Year field should be numbers");
-			            }
-			        }
+			        		
+			        	}
+			        } 
 			        else
 			        {
 			        	warning.setText("Select option");
-			        }
-			        String sortop=" ";
-			        if(flag==0)
-			        {
-			        	sortop=" sort by year";
-			        }
-			        else
-			        {
-			        	sortop=" sort by relevance";	
-			        }
-			        if(warning.getText().equals(new String(" ")))
-			        {
-			        	result.setText(ans+res+sortop);
-			        }
-			         else
-			        {
-			        	result.setText(" ");
 			        }
 				}
 			});
 		reset.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e)
 				{
-					setQuery1();
+					tableWorking=0;
+					query1Table.setRowCount(0);
+					title.setText(" ");	
+					year1.setText(" ");	
+					year2.setText(" ");			
+					year3.setText(" ");		
+					searchBy.setSelectedItem("Search By");
+					sortButtons.clearSelection();
+					yearButtons.clearSelection();
+					sortYear.setSelected(true);	
 				}
 			});
     }	
