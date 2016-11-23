@@ -343,6 +343,7 @@ public class GUI
     }	
     private void setQuery2()
     {
+    	q2 = new Query2("dblp.xml");
     	queries.removeItem("Queries");
     	sidePanel.removeAll();
     	queries.setBounds(50,50,100,20);
@@ -366,10 +367,6 @@ public class GUI
 		dispTable.setBounds(20,5,610,330);
 		query2Table.addColumn("S.No.");
 		query2Table.addColumn("Authors");
-		query1Table.addRow(new Object[]{"v11", "v21"});
-		// JLabel result = new JLabel();
-		// result.setFont(new Font("Calibri", Font.PLAIN, 15));
-		// result.setBounds(50,200,350,50);
 		JLabel warning = new JLabel(" ");
 		warning.setFont(new Font("Calibri", Font.PLAIN, 12));
     	warning.setForeground(Color.RED);
@@ -393,36 +390,69 @@ public class GUI
     	sidePanel.add(reset);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
+	 	ArrayList<Author> res = new ArrayList<Author>();
 	 	submit.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e)
 				{
-			            if(isInteger(publk.getText()))
-			            {
-			            	warning.setText(" ");
-			            }
-			            else
-			            {
-			            	warning.setText("Year field should be numbers");
-			            }
-			        
-			        if(warning.getText().equals(new String(" ")))
-			        {
-			        }
-			        else
-			        {
-			        }
+					query2Table.setRowCount(0);
+					int count=0;
+					pages=0;
+					tableWorking=0;
+		            if(isInteger(publk.getText()))
+		            {
+		            	warning.setText(" ");
+		            	System.out.println("here - "+Integer.parseInt(publk.getText()));
+		            	q2.find(Integer.parseInt(publk.getText()));
+		            	tableWorking=1;
+		            	// System.out.println("tableWorking - "+tableWorking);
+		            	Author a =q2.getData();
+		            	while(a!=null && count<20)
+		            	{
+		            		query2Table.addRow(new Object[]{(count+1),a.getName()});
+		            		a=q2.getData();
+		            		count++;
+		            	}
+		            	pages=1;
+		            }
+		            else
+		            {
+		            	warning.setText("Year field should be numbers");
+		            }
 				}
 			});
 		reset.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e)
 				{
-					setQuery2();
+					tableWorking=0;
+					query2Table.setRowCount(0);
+					publk.setText(" ");
 				}
 			});
 		next.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
-
+				// System.out.println(tableWorking);
+				if(tableWorking==1)
+				{
+					Author a =q2.getData();
+					if(a!=null)
+					{	
+						int count=0;
+						query2Table.setRowCount(0);
+						
+		            	while(a!=null && count<20)
+		            	{
+		            		query2Table.addRow(new Object[]{(pages*20)+(count+1),a.getName()});
+		            		count++;
+		            		if(count<20)
+		            		{a=q2.getData();}	
+		            	}
+		            	pages+=1;}
+            	}
+            	else
+            	{
+            		tableWorking=0;
+            	}
 			}
 		});
 
@@ -456,16 +486,20 @@ public class GUI
         queries.removeItem("Queries");
         displayPanel.removeAll();
         //--
-        DefaultTableModel query3Table= new DefaultTableModel();
-		JTable displayTable = new JTable(query3Table);
+        DefaultTableModel query1Table= new DefaultTableModel();
+		JTable displayTable = new JTable(query1Table);
 		JScrollPane dispTable = new JScrollPane(displayTable);
 		displayTable.setDefaultEditor(Object.class, null);
 		dispTable.setBounds(20,5,610,330);
-		query3Table.addColumn("S.No.");
-		query3Table.addColumn("Authors");
-		query3Table.addColumn("Predictions");
-		
-		query1Table.addRow(new Object[]{"v12", "v22" , "v32" });
+		query1Table.addColumn("S.No.");
+		query1Table.addColumn("Authors");
+		query1Table.addColumn("Title");
+		query1Table.addColumn("Pages");
+		query1Table.addColumn("Year");
+		query1Table.addColumn("Volume");
+		query1Table.addColumn("Journal/Booktitle");
+		query1Table.addColumn("Url");
+		query1Table.addRow(new Object[]{"v12", "v22" , "v32" , "v42", "v52", "v62", "v72","v82"});
 		// JLabel result = new JLabel();
 		// result.setFont(new Font("Calibri", Font.PLAIN, 15));
 		// result.setBounds(50,200,350,50);
