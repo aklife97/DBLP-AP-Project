@@ -359,20 +359,14 @@ public class GUI
         queries.removeItem("Queries");
 		displayPanel.removeAll();
 
-		DefaultTableModel query1Table= new DefaultTableModel();
-		JTable displayTable = new JTable(query1Table);
+		DefaultTableModel query2Table= new DefaultTableModel();
+		JTable displayTable = new JTable(query2Table);
 		JScrollPane dispTable = new JScrollPane(displayTable);
 		displayTable.setDefaultEditor(Object.class, null);
 		dispTable.setBounds(20,5,610,330);
-		query1Table.addColumn("S.No.");
-		query1Table.addColumn("Authors");
-		query1Table.addColumn("Title");
-		query1Table.addColumn("Pages");
-		query1Table.addColumn("Year");
-		query1Table.addColumn("Volume");
-		query1Table.addColumn("Journal/Booktitle");
-		query1Table.addColumn("Url");
-		query1Table.addRow(new Object[]{"v11", "v21" , "v31" , "v41", "v51", "v61", "v71","v81"});
+		query2Table.addColumn("S.No.");
+		query2Table.addColumn("Authors");
+		query1Table.addRow(new Object[]{"v11", "v21"});
 		// JLabel result = new JLabel();
 		// result.setFont(new Font("Calibri", Font.PLAIN, 15));
 		// result.setBounds(50,200,350,50);
@@ -462,20 +456,16 @@ public class GUI
         queries.removeItem("Queries");
         displayPanel.removeAll();
         //--
-        DefaultTableModel query1Table= new DefaultTableModel();
-		JTable displayTable = new JTable(query1Table);
+        DefaultTableModel query3Table= new DefaultTableModel();
+		JTable displayTable = new JTable(query3Table);
 		JScrollPane dispTable = new JScrollPane(displayTable);
 		displayTable.setDefaultEditor(Object.class, null);
 		dispTable.setBounds(20,5,610,330);
-		query1Table.addColumn("S.No.");
-		query1Table.addColumn("Authors");
-		query1Table.addColumn("Title");
-		query1Table.addColumn("Pages");
-		query1Table.addColumn("Year");
-		query1Table.addColumn("Volume");
-		query1Table.addColumn("Journal/Booktitle");
-		query1Table.addColumn("Url");
-		query1Table.addRow(new Object[]{"v12", "v22" , "v32" , "v42", "v52", "v62", "v72","v82"});
+		query3Table.addColumn("S.No.");
+		query3Table.addColumn("Authors");
+		query3Table.addColumn("Predictions");
+		
+		query1Table.addRow(new Object[]{"v12", "v22" , "v32" });
 		// JLabel result = new JLabel();
 		// result.setFont(new Font("Calibri", Font.PLAIN, 15));
 		// result.setBounds(50,200,350,50);
