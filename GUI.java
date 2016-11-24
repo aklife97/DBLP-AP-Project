@@ -16,6 +16,8 @@ public class GUI
 	private JButton submit,reset;
 	// private DefaultTableModel modelTable;
 	// private JTable displayTable;
+	private Query1 q1 =null;
+	private Query2 q2 =null;
 	private int flag=0,flag2=0,tableWorking=0,pages=0;
 
 	public GUI()

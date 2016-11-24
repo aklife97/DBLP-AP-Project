@@ -33,7 +33,6 @@ public class Query1 implements Query13{
 		to = _to;
 		sortMode=_sortMode;
 		q = _q.toLowerCase();
-		System.out.println
 		dbase = new Database(filename, this);
 	}
 	public void check(DataRecords d){
