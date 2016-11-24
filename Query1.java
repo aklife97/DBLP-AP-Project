@@ -19,7 +19,7 @@ public class Query1 implements Query13{
 		dataRec = new PriorityQueue<DataRecords>();
 		dataRec2 = new PriorityQueue<DataRecords>(new Comparator<DataRecords>() {
        			public int compare(DataRecords d1, DataRecords d2) {
-            		if(d1.getStringMatch()>d2.getStringMatch()){
+            		if(d1.getStringMatch()<d2.getStringMatch()){
             			return 1;
             		}	         
             		else if(d1.getStringMatch()==d2.getStringMatch()){
@@ -96,5 +96,21 @@ public class Query1 implements Query13{
 	}
 	
 	public static int getDistance(String s, String t) {
+
+	    String[] arr = s.split(" ");  
+	    String[] arr2 = t.split(" ");
+	    int count=0;
+	    for(String a:arr)
+	    {
+	    	for(String b:arr2)
+	    	{
+	    		if(a.equalsIgnoreCase(b) && b.length()>=4)
+	    		{
+	    			count++;
+	    			break;
+	    		}
+	    	}
+	    }  
+	    return count;
 	}
 }
