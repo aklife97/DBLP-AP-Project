@@ -12,6 +12,7 @@ public class DataRecords implements Comparable<DataRecords>{
 	private String journal;
 	private String booktitle;
 	private String url;
+	private int stringMatch;
 	public DataRecords(String _author, String _title, String _pages, String _volume, String _year, String _journal, String _booktitle, String _url){
 		author = _author;
 		title = _title;
@@ -26,6 +27,7 @@ public class DataRecords implements Comparable<DataRecords>{
 		journal = _journal;
 		booktitle = _booktitle;
 		url = _url;
+		stringMatch=0;
 	}
 	public int compareTo(DataRecords d2){
 		if (d2.getYear() > year){
@@ -68,5 +70,13 @@ public class DataRecords implements Comparable<DataRecords>{
 	}
 	public String getURL(){
 		return url;
+	}
+	public int getStringMatch()
+	{
+		return stringMatch;
+	}
+	public void setStringMatch(int m)
+	{
+		stringMatch=m;
 	}
 }
