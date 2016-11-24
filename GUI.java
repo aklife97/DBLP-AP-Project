@@ -330,7 +330,7 @@ public class GUI
 						            {
 						            	warning.setText("Year field should be numbers");
 						            }
-						            q1.find(1, title.getText(),y, 9999,0);
+						            q1.find(1, title.getText(),y, 9999,flag);
 						            tableWorking=1;
 						            DataRecords d= q1.getData();
 						            while(d!=null && count<20)
@@ -355,7 +355,7 @@ public class GUI
 						            {
 						            	warning.setText("Year field should be numbers");
 						            }
-						            q1.find(1, title.getText(),y1,y2,0);
+						            q1.find(1, title.getText(),y1,y2,flag);
 						            tableWorking=1;
 						            DataRecords d= q1.getData();
 						            while(d!=null && count<20)
@@ -369,7 +369,7 @@ public class GUI
 				        		}
 				        		else
 				        		{
-				        			q1.find(1, title.getText(),0,9999,0);
+				        			q1.find(1, title.getText(),0,9999,flag);
 						            tableWorking=1;
 						            DataRecords d= q1.getData();
 						            while(d!=null && count<20)
@@ -385,7 +385,77 @@ public class GUI
 				        }
 
 			        } else if (selectedOption.equals("Title Tag")) {
-			        		
+			        	if(title.getText().length()==0){
+			        		warning.setText("Title tag cannot be empty");
+			        	}
+			        	else
+			        	{
+				            if(flag==0 || flag ==1)
+				        	{
+				        		if(flag2==1)
+				        		{
+				        			int y=0,pages=0;
+				        			if(isInteger(year1.getText()))
+						            {
+						            	warning.setText(" ");
+						            	y=Integer.parseInt(year1.getText());
+						            }
+						            else
+						            {
+						            	warning.setText("Year field should be numbers");
+						            }
+						            q1.find(2, title.getText(),y, 9999,flag);
+						            tableWorking=1;
+						            DataRecords d= q1.getData();
+						            while(d!=null && count<20)
+						            {
+						            	query1Table.addRow(new Object[]{count+1,d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
+					            		count++;
+					            		if(count<20)
+					            		{d=q1.getData();}	
+					            	}
+					            	pages=1;
+				        		}
+				        		else if(flag2==2)
+				        		{
+				        			int y1=0,y2=0,pages=0;
+				        			if(isInteger(year2.getText())&&isInteger(year3.getText()))
+						            {
+						            	warning.setText(" ");
+						            	y1=Integer.parseInt(year2.getText());
+						            	y2=Integer.parseInt(year3.getText());
+						            }
+						            else
+						            {
+						            	warning.setText("Year field should be numbers");
+						            }
+						            q1.find(2, title.getText(),y1,y2,flag);
+						            tableWorking=1;
+						            DataRecords d= q1.getData();
+						            while(d!=null && count<20)
+						            {
+						            	query1Table.addRow(new Object[]{count+1,d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
+					            		count++;
+					            		if(count<20)
+					            		{d=q1.getData();}	
+					            	}
+					            	pages=1;
+				        		}	
+				        		else
+				        		{
+				        			q1.find(1, title.getText(),0,9999,flag);
+						            tableWorking=1;
+						            DataRecords d= q1.getData();
+						            while(d!=null && count<20)
+						            {
+						            	query1Table.addRow(new Object[]{count+1,d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
+					            		count++;
+					            		if(count<20)
+					            		{d=q1.getData();}	
+					            	}
+					            	pages=1;
+				        		}
+				        	}	
 			        	}
 			        } 
 			        else
