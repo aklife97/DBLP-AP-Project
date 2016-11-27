@@ -41,6 +41,7 @@ public class GuiQuery1
 	private final JRadioButton customYear = new JRadioButton("For custom year range");
 	private ButtonGroup yearButtons = new ButtonGroup();
 	private int flag=0,flag2=0,tableWorking=0,pages=0;
+	private JLabel totalResults = new JLabel(" ");
 
 	public GuiQuery1(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel,Query1 q1)
 	{
@@ -102,6 +103,9 @@ public class GuiQuery1
     	dash.setBounds(170,155,10,20);
     	result.setBounds(50,120,350,50);
     	warning.setBounds(30,340,190,20);
+
+    	totalResults.setFont(new Font("Calibri", Font.PLAIN, 10));
+    	totalResults.setBounds(265,335,120,30);
     	// warning2.setBounds(30,360,190,20);
     	
     	year1.setHorizontalAlignment(JTextField.CENTER);
@@ -176,6 +180,7 @@ public class GuiQuery1
     	sidePanel.add(warning);
     	sidePanel.add(sinceYear);
     	sidePanel.add(customYear);
+    	displayPanel.add(totalResults);
     	displayPanel.add(dispTable);
     	displayPanel.add(next);
     	displayPanel.add(back);
@@ -242,6 +247,7 @@ public class GuiQuery1
 				public void actionPerformed(ActionEvent e)
 				{
 					warning.setText(" ");
+					  totalResults.setText(" ");
 					int count=0;
 					query1Table.setRowCount(0);
 					String res=" ";
@@ -266,6 +272,7 @@ public class GuiQuery1
 						            	warning.setText("Year field should be numbers");
 						            }
 						            q1.find(1, title.getText(),y, 9999,flag);
+						            totalResults.setText("Total results = "+q1.getCount());
 						            tableWorking=1;
 						            DataRecords d= q1.getData();
 						            while(d!=null && count<20)
@@ -291,6 +298,7 @@ public class GuiQuery1
 						            	warning.setText("Year field should be numbers");
 						            }
 						            q1.find(1, title.getText(),y1,y2,flag);
+						              totalResults.setText("Total results = "+q1.getCount());
 						            tableWorking=1;
 						            DataRecords d= q1.getData();
 						            while(d!=null && count<20)
@@ -305,6 +313,7 @@ public class GuiQuery1
 				        		else
 				        		{
 				        			q1.find(1, title.getText(),0,9999,flag);
+				        			  totalResults.setText("Total results = "+q1.getCount());
 						            tableWorking=1;
 						            DataRecords d= q1.getData();
 						            while(d!=null && count<20)
@@ -340,6 +349,7 @@ public class GuiQuery1
 						            	warning.setText("Year field should be numbers");
 						            }
 						            q1.find(2, title.getText(),y, 9999,flag);
+						              totalResults.setText("Total results = "+q1.getCount());
 						            tableWorking=1;
 						            DataRecords d= q1.getData();
 						            while(d!=null && count<20)
@@ -365,6 +375,7 @@ public class GuiQuery1
 						            	warning.setText("Year field should be numbers");
 						            }
 						            q1.find(2, title.getText(),y1,y2,flag);
+						              totalResults.setText("Total results = "+q1.getCount());
 						            tableWorking=1;
 						            DataRecords d= q1.getData();
 						            while(d!=null && count<20)
@@ -379,6 +390,7 @@ public class GuiQuery1
 				        		else
 				        		{
 				        			q1.find(2, title.getText(),0,9999,flag);
+				        			  totalResults.setText("Total results = "+q1.getCount());
 						            tableWorking=1;
 						            DataRecords d= q1.getData();
 						            while(d!=null && count<20)

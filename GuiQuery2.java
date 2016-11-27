@@ -28,6 +28,7 @@ public class GuiQuery2
 	private JButton next = new JButton("NEXT");
 	private JButton back = new JButton("BACK");
 	private ArrayList<Author> res = new ArrayList<Author>();
+	private JLabel totalResults = new JLabel(" ");
 
 	public GuiQuery2(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel,Query2 q2)
 	{
@@ -63,6 +64,8 @@ public class GuiQuery2
  		reset.setBounds(140,140,80,30);
         submit.setFont(new Font("Calibri", Font.PLAIN, 12));
         reset.setFont(new Font("Calibri", Font.PLAIN, 12));
+        totalResults.setFont(new Font("Calibri", Font.PLAIN, 10));
+    	totalResults.setBounds(265,335,120,30);
 	}
 
 	public void change(int i)
@@ -96,10 +99,12 @@ public class GuiQuery2
     	sidePanel.add(reset);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
+	 	displayPanel.add(totalResults);
 	 	
 	 	submit.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e)
 				{
+					totalResults.setText(" ");
 					query2Table.setRowCount(0);
 					int count=0;
 					pages=0;
@@ -109,6 +114,7 @@ public class GuiQuery2
 		            	warning.setText(" ");
 		            	System.out.println("here - "+Integer.parseInt(publk.getText()));
 		            	q2.find(Integer.parseInt(publk.getText()));
+		            	totalResults.setText("Total results = "+q2.getCount());
 		            	tableWorking=1;
 		            	// System.out.println("tableWorking - "+tableWorking);
 		            	Author a =q2.getData();
