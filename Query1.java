@@ -11,6 +11,7 @@ public class Query1 implements Query13{
 	private String q;
 	private PriorityQueue<DataRecords> dataRec;
 	private PriorityQueue<DataRecords> dataRec2;
+	private int count=0;
 
 	public Query1(String _filename){
 		filename = _filename;
@@ -33,52 +34,49 @@ public class Query1 implements Query13{
 		to = _to;
 		sortMode=_sortMode;
 		q = _q.toLowerCase();
+		count=0;
 		dbase = new Database(filename, this);
 	}
 	public void check(DataRecords d){
-		if(sortMode==0){
-			if (mode == 1 && d.getAuthor() != null){
-				String[] authors = d.getAuthor().split(",");
-				for (String a : authors){
-					if (AuthorManager.resolveAuthor(a.toLowerCase()) == AuthorManager.resolveAuthor(q) && d.getYear() >= since && d.getYear() <= to){
-						dataRec.add(d);
-					}
+		int t;
+		if (mode == 1 && d.getAuthor() != null){
+			String[] authors = d.getAuthor().split(",");
+			for (String a : authors){
+				if (AuthorManager.resolveAuthor(a.toLowerCase()) == AuthorManager.resolveAuthor(q) && d.getYear() >= since && d.getYear() <= to){
+					dataRec.add(d);
+					count++;
 				}
 			}
-			
-			else if (mode == 2 && d.getTitle()!=null && d.getTitle().equalsIgnoreCase(q) && d.getYear() >= since && d.getYear() <= to){
-				dataRec.add(d);
-			}
-		} else {
-			int t=0;
-			if (mode == 1 && d.getAuthor() != null){
-				String[] authors = d.getAuthor().split(",");
-
-				for (String a : authors){
-					if ((t=this.getDistance(a.toLowerCase(),q.toLowerCase()))>0 && d.getYear() >= since && d.getYear() <= to){
-						if (t>d.getStringMatch()) {
-							d.setStringMatch(t);
-						}	
-						dataRec2.add(d);
+		}		
+		else if (sortMode==0 && mode == 2 && d.getTitle()!=null && (t=this.getDistance(d.getTitle(),q.toLowerCase()))>0 && d.getYear() >= since && d.getYear() <= to){
+			// if (t>d.getStringMatch()) {
+			// 			d.setStringMatch(t);
+			// 		}
+			dataRec.add(d);
+			count++;
+		} 
+		else if (sortMode==1 && mode == 2 && d.getTitle()!=null && (t=this.getDistance(d.getTitle(),q.toLowerCase()))>0 && d.getYear() >= since && d.getYear() <= to){
+			if (t>d.getStringMatch()) {
+						d.setStringMatch(t);
 					}
-				}
-			}
-			else if (mode == 2 && d.getTitle()!=null && (t=this.getDistance(d.getTitle(),q.toLowerCase()))>0 && d.getYear() >= since && d.getYear() <= to){
-				if (t>d.getStringMatch()) {
-							d.setStringMatch(t);
-						}
-				dataRec2.add(d);
-			}
-		}	
+			dataRec2.add(d);
+			count++;
+		} 
+	}	
 
-	}
 	public DataRecords getData(){
-		if(sortMode==0){
+		if(mode== 1 && (sortMode==0 || sortMode ==1)){
 			return dataRec.poll();
-		} else{
-			return dataRec2.poll();
-		}
-		
+		} else if(mode==2 && (sortMode==0)){
+			return dataRec.poll();
+		} else //if(mode==2 && (sortMode==1)){
+		{	return dataRec2.poll();
+		}		
+	}
+
+	public int getCount()
+	{
+		return count;
 	}
 	public void printData(){
 		DataRecords d;
