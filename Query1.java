@@ -3,7 +3,6 @@
 */
 import java.util.*;
 import java.io.*;
-// import StringUtils.*;
 public class Query1 implements Query13{
 	private Database dbase;
 	private String filename;
@@ -49,33 +48,25 @@ public class Query1 implements Query13{
 			}
 		}		
 		else if (sortMode==0 && mode == 2 && d.getTitle()!=null && (t=this.getDistance(d.getTitle(),q.toLowerCase()))>0 && d.getYear() >= since && d.getYear() <= to){
-			// if (t>d.getStringMatch()) {
-			// 			d.setStringMatch(t);
-			// 		}
 			dataRec.add(d);
 			count++;
 		} 
 		else if (sortMode==1 && mode == 2 && d.getTitle()!=null && (t=this.getDistance(d.getTitle(),q.toLowerCase()))>0 && d.getYear() >= since && d.getYear() <= to){
-			if (t>d.getStringMatch()) {
-						d.setStringMatch(t);
-					}
+			if (t>d.getStringMatch())
+				d.setStringMatch(t);
 			dataRec2.add(d);
 			count++;
 		} 
-	}	
-
-	public DataRecords getData(){
-		if(mode== 1 && (sortMode==0 || sortMode ==1)){
-			return dataRec.poll();
-		} else if(mode==2 && (sortMode==0)){
-			return dataRec.poll();
-		} else //if(mode==2 && (sortMode==1)){
-		{	return dataRec2.poll();
-		}		
 	}
-
-	public int getCount()
-	{
+	public DataRecords getData(){
+		if(mode== 1 && (sortMode==0 || sortMode ==1))
+			return dataRec.poll();
+		else if(mode==2 && (sortMode==0))
+			return dataRec.poll();
+		else
+			return dataRec2.poll();		
+	}
+	public int getCount(){
 		return count;
 	}
 	public void printData(){
@@ -83,7 +74,6 @@ public class Query1 implements Query13{
 		System.out.println("size- "+dataRec2.size());
 		while ((d = dataRec2.poll())!=null){
 			System.out.println(d.getTitle());
-			// System.out.println(d.getYear());
 			String[] authors = d.getAuthor().split(",");
 				for (String a : authors){
 					System.out.print(a+" ");
@@ -91,18 +81,13 @@ public class Query1 implements Query13{
 				System.out.println(" ");
 		}
 	}
-	
-	public static int getDistance(String s, String t) {
-
+	public static int getDistance(String s, String t){
 	    String[] arr = s.split(" ");  
 	    String[] arr2 = t.split(" ");
 	    int count=0;
-	    for(String a:arr)
-	    {
-	    	for(String b:arr2)
-	    	{
-	    		if(a.equalsIgnoreCase(b) && b.length()>=4)
-	    		{
+	    for(String a:arr){
+	    	for(String b:arr2){
+	    		if(a.equalsIgnoreCase(b) && b.length()>=4){
 	    			count++;
 	    			break;
 	    		}

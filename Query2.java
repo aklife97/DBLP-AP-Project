@@ -26,9 +26,7 @@ public class Query2{
 			System.out.println(a.getName() + " " + a.getCount());
 		}
 	}
-
-	public int getCount()
-	{
+	public int getCount(){
 		return result.size();
 	}
 }
