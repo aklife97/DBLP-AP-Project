@@ -4,9 +4,10 @@
 import java.util.*;
 import java.io.*;
 public class Query2{
+	private static Query2 instance = new Query2("dblp.xml");
 	private ArrayList<Author> result;
 	private String filename;
-	public Query2(String _filename){
+	private Query2(String _filename){
 		filename = _filename;
 	}
 	public void find(int k){
@@ -28,5 +29,8 @@ public class Query2{
 	}
 	public int getCount(){
 		return result.size();
+	}
+	public static Query2 getInstance(){
+		return instance;
 	}
 }

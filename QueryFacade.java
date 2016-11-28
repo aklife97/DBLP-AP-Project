@@ -8,12 +8,12 @@ public class QueryFacade{
 	private Query2 q2;
 	private Query3 q3;
 	public QueryFacade(String name){
-		// q1 = Query1.getInstance();
-		// q2 = Query2.getInstance();
-		// q3 = Query3.getInstance();
-		q1 = new Query1(name);
-		q2 = new Query2(name);
-		q3 = new Query3(name);
+		q1 = Query1.getInstance();
+		q2 = Query2.getInstance();
+		q3 = Query3.getInstance();
+		// q1 = new Query1(name);
+		// q2 = new Query2(name);
+		// q3 = new Query3(name);
 	}
 	public void queryOneFind(int _mode, String _q, int _since, int _to,int _sortMode){
 		q1.find(_mode, _q, _since, _to, _sortMode);

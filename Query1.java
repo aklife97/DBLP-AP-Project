@@ -4,6 +4,7 @@
 import java.util.*;
 import java.io.*;
 public class Query1 implements Query13{
+	private static Query1 instance = new Query1("dblp.xml");
 	private Database dbase;
 	private String filename;
 	private int mode, since, to,sortMode;
@@ -11,7 +12,6 @@ public class Query1 implements Query13{
 	private PriorityQueue<DataRecords> dataRec;
 	private PriorityQueue<DataRecords> dataRec2;
 	private int count=0;
-
 	public Query1(String _filename){
 		filename = _filename;
 	}
@@ -81,7 +81,7 @@ public class Query1 implements Query13{
 				System.out.println(" ");
 		}
 	}
-	public static int getDistance(String s, String t){
+	public int getDistance(String s, String t){
 	    String[] arr = s.split(" ");  
 	    String[] arr2 = t.split(" ");
 	    int count=0;
@@ -94,5 +94,8 @@ public class Query1 implements Query13{
 	    	}
 	    }  
 	    return count;
+	}
+	public static Query1 getInstance(){
+		return instance;
 	}
 }

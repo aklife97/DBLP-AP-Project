@@ -4,6 +4,7 @@
 import java.util.*;
 import java.io.*;
 public class Query3 implements Query13{
+	private static Query3 instance = new Query3("dblp.xml");
 	private Database dbase;
 	private int year;
 	private String filename;
@@ -13,7 +14,7 @@ public class Query3 implements Query13{
 	private double[] pubCountTemp=null;
 	private int[] yearReg=null;
 	private int[] pubCount=null;
-	public Query3(String _filename){
+	private Query3(String _filename){
 		filename = _filename;
 	}
 	public void find(int _year, String _auth){
@@ -181,5 +182,8 @@ public class Query3 implements Query13{
 		double yToFind=yIntercept + slope*xGiven;
 
 		return yToFind;
+	}
+	public static Query3 getInstance(){
+		return instance;
 	}
 }
