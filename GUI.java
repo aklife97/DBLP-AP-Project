@@ -22,6 +22,7 @@ public class GUI
 	private GuiQuery3 g3;
 	private Query1 q1=null;
 	private Query2 q2=null;
+	private Query3 q3=null;
 	private int flag=0,flag2=0,tableWorking=0,pages=0;
 
 	public GUI()
@@ -89,9 +90,10 @@ public class GUI
 		displayPanel.setBounds(250,80,650,380);
 		q1=new Query1("dblp.xml");
 		q2=new Query2("dblp.xml");
+		q3=new Query3("dblp.xml");
 		g1=new GuiQuery1(mainFrame,queries,sidePanel,displayPanel,q1);
 		g2=new GuiQuery2(mainFrame,queries,sidePanel,displayPanel,q2);
-		g3=new GuiQuery3(mainFrame,queries,sidePanel,displayPanel);
+		g3=new GuiQuery3(mainFrame,queries,sidePanel,displayPanel,q3);
 		mainFrame.add(sidePanel);
 		mainFrame.add(upperPanel);
 		mainFrame.add(displayPanel);
@@ -101,7 +103,7 @@ public class GUI
 		    @Override
 		    public void actionPerformed(ActionEvent event) {
 		    	// try{
-		        	JComboBox<String> q = (JComboBox<String>) event.getSource();
+		        	JComboBox<? extends Object> q = (JComboBox<? extends Object>) event.getSource();
 		    	// }
 		    	// catch(Exception e){ System.out.printl}
 		        String selectedQuery = (String) q.getSelectedItem();

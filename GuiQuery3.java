@@ -28,23 +28,16 @@ public class GuiQuery3
 	private JLabel warning = new JLabel(" ");	
 	private JButton next = new JButton("NEXT");
 	private JButton back = new JButton("BACK");
+	private Query3 q3 = null;
 
-	public GuiQuery3(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel)
+	public GuiQuery3(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel,Query3 q3)
 	{
 		this.mainFrame=mainFrame;
 		this.queries=queries;
 		this.sidePanel=sidePanel;
 		this.displayPanel=displayPanel;
+		this.q3=q3;
 		initQuery3();
-	}
-
-	public void change(int i)
-	{
-		flag=i;
-	}
-	public void changeMode(int i)
-	{
-		flag2=i;
 	}
 
 	public void initQuery3()
@@ -87,8 +80,8 @@ public class GuiQuery3
     	queries.setSelectedItem("Query 3");
         queries.removeItem("Queries");
         displayPanel.removeAll();
-		displayPanel.add(next);
-    	displayPanel.add(back);
+		// displayPanel.add(next);
+  //   	displayPanel.add(back);
     	displayPanel.add(dispTable);
 		sidePanel.add(warning);
     	sidePanel.add(title);
@@ -100,43 +93,30 @@ public class GuiQuery3
     	sidePanel.add(reset);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
-	 	next.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e)
-			{
-
-			}
-		});
-
-		back.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e)
-			{
-
-			}
-		});
 	 	submit.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e)
 				{
-			            if(isInteger(authName.getText()))
-			            {
-			            	warning.setText(" ");
-			            }
-			            else
-			            {
-			            	warning.setText("Year field should be numbers");
-			            }
-			        
-			        if(warning.getText().equals(new String(" ")))
-			        {
-			        }
-			        else
-			        {
-			        }
+					query3Table.setRowCount(0);
+					tableWorking=0;
+		            if(isInteger(predYear.getText()))
+		            {
+		            	warning.setText(" ");
+		            	q3.find(Integer.parseInt(predYear.getText()),authName.getText());
+		            	tableWorking=1;
+		            	double a =q3.getData();
+		            	query3Table.addRow(new Object[]{1,authName.getText(),a});
+		            }
+		            else
+		            {
+		            	warning.setText("Year field should be numbers");
+		            }
 				}
 			});
 		reset.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e)
 				{
-					setQuery3();
+					authName.setText(" ");
+					predYear.setText(" ");
 				}
 			});
     }

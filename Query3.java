@@ -69,7 +69,7 @@ public class Query3 implements Query13{
 		return linearRegression(year+1);
 		// TrendLine t = new PolyTrendLine(2);
 		// t.setValues(pubCountTemp,yearRegTemp);
-  //  		return t.predict(year+1);
+  //       return t.predict(year+1);
 	}
 
 	// public static void main(String[] args){
