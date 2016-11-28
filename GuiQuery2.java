@@ -112,11 +112,9 @@ public class GuiQuery2
 		            if(isInteger(publk.getText()))
 		            {
 		            	warning.setText(" ");
-		            	System.out.println("here - "+Integer.parseInt(publk.getText()));
 		            	q2.find(Integer.parseInt(publk.getText()));
 		            	totalResults.setText("Total results = "+q2.getCount());
 		            	tableWorking=1;
-		            	// System.out.println("tableWorking - "+tableWorking);
 		            	Author a =q2.getData();
 		            	while(a!=null && count<20)
 		            	{
