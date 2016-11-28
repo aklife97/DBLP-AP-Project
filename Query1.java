@@ -71,8 +71,8 @@ public class Query1 implements Query13{
 	}
 	public void printData(){
 		DataRecords d;
-		System.out.println("size- "+dataRec2.size());
-		while ((d = dataRec2.poll())!=null){
+		System.out.println("size- "+dataRec.size());
+		while ((d = dataRec.poll())!=null){
 			System.out.println(d.getTitle());
 			String[] authors = d.getAuthor().split(",");
 				for (String a : authors){

@@ -23,8 +23,11 @@ public class Database{
 	}
 	public static void main(String[] args){
 		System.setProperty("jdk.xml.entityExpansionLimit", "0");
-		// AuthorManager.addFile("dblp.xml");
-		// AuthorManager.createMap();
+		AuthorManager.addFile("dblp.xml");
+		AuthorManager.createMap();
+		QueryFacade qf = new QueryFacade("dblp.xml");
+		qf.queryOneFind(1, "vinayak naik", 0, 9999, 0);
+		qf.queryOnePrintData();
 		// Query1 q = new Query1("dblp.xml");
 		// q.find(1, "vinayak naik", 0, 9999);
 		// q.printData();
