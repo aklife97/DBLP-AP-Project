@@ -17,12 +17,13 @@ public class GUI
 	private JPanel displayPanel;
 	private JComboBox<String> queries;
 	private JButton submit,reset;
-	private GuiQuery1 g1;
-	private GuiQuery2 g2;
-	private GuiQuery3 g3;
-	private Query1 q1=null;
-	private Query2 q2=null;
-	private Query3 q3=null;
+	private GUIQuery g;
+	// private GuiQuery2 g2;
+	// private GuiQuery3 g3;
+	private QueryFacade q0= new QueryFacade();
+	// private Query1 q1=null;
+	// private Query2 q2=null;
+	// private Query3 q3=null;
 	private int flag=0,flag2=0,tableWorking=0,pages=0;
 
 	public GUI()
@@ -88,12 +89,9 @@ public class GUI
 		sidePanel.setBounds(0,80,250,380);
 		upperPanel.setBounds(0,0,900,80);
 		displayPanel.setBounds(250,80,650,380);
-		q1=new Query1("dblp.xml");
-		q2=new Query2("dblp.xml");
-		q3=new Query3("dblp.xml");
-		g1=new GuiQuery1(mainFrame,queries,sidePanel,displayPanel,q1);
-		g2=new GuiQuery2(mainFrame,queries,sidePanel,displayPanel,q2);
-		g3=new GuiQuery3(mainFrame,queries,sidePanel,displayPanel,q3);
+		// q1=new Query1("dblp.xml");
+		// q2=new Query2("dblp.xml");
+		// q3=new Query3("dblp.xml");
 		mainFrame.add(sidePanel);
 		mainFrame.add(upperPanel);
 		mainFrame.add(displayPanel);
@@ -108,11 +106,14 @@ public class GUI
 		    	// catch(Exception e){ System.out.printl}
 		        String selectedQuery = (String) q.getSelectedItem();
 		        if (selectedQuery.equals("Query 1")) {
-		            g1.setQuery1();
+		           g=new GuiQuery1(mainFrame,queries,sidePanel,displayPanel,q0);
+		           g.start();
 		        }     else if (selectedQuery.equals("Query 2")) {
-		            g2.setQuery2();
+		            g=new GuiQuery2(mainFrame,queries,sidePanel,displayPanel,q0);
+		            g.start();
 		        } else if(selectedQuery.equals("Query 3")) {
-		        	g3.setQuery3();
+		        	g=new GuiQuery3(mainFrame,queries,sidePanel,displayPanel,q0);
+		        	g.start();
 		        }
 		    }
 		});

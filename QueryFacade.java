@@ -7,7 +7,7 @@ public class QueryFacade{
 	private Query1 q1;
 	private Query2 q2;
 	private Query3 q3;
-	public QueryFacade(String name){
+	public QueryFacade(){
 		q1 = Query1.getInstance();
 		q2 = Query2.getInstance();
 		q3 = Query3.getInstance();

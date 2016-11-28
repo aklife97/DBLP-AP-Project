@@ -42,7 +42,7 @@ public class AuthorManager{
 		}
 		ArrayList<Author> au = new ArrayList<Author>();
 		for (Author a : authorsList){
-			if (a.getCount() > k){
+			if (a.getCount() >=k){
 				au.add(a);
 			}
 		}

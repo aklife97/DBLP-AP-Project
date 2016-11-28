@@ -9,15 +9,9 @@ import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
 
-public class GuiQuery2
+public class GuiQuery2 extends GUIQuery
 {
-	private JFrame mainFrame;
-	private JPanel upperPanel;
-	private JPanel sidePanel;
-	private JPanel displayPanel;
-	private JComboBox<String> queries;
-	private JButton submit,reset;
-	private Query2 q2;
+	// private Query2 q2;
 	private int flag=0,flag2=0,tableWorking=0,pages=0;
 	private JLabel title = new JLabel("No. of Publications");
 	private JTextField publk =new JTextField();
@@ -30,17 +24,16 @@ public class GuiQuery2
 	private ArrayList<Author> res = new ArrayList<Author>();
 	private JLabel totalResults = new JLabel(" ");
 
-	public GuiQuery2(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel,Query2 q2)
+	public GuiQuery2(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel,QueryFacade q2)
 	{
 		this.mainFrame=mainFrame;
 		this.queries=queries;
 		this.sidePanel=sidePanel;
 		this.displayPanel=displayPanel;
-		this.q2=q2;
-		initQuery2();
+		this.q=q2;
 	}
 
-	public void initQuery2()
+	public void initQuery()
 	{
 		publk.setBounds(170,80,50,20);
 		displayTable.setDefaultEditor(Object.class, null);
@@ -77,7 +70,7 @@ public class GuiQuery2
 		flag2=i;
 	}
 
-    public void setQuery2()
+    public void setQuery()
     {
     	// q2 = new Query2("dblp.xml");
     	queries.removeItem("Queries");
@@ -89,7 +82,7 @@ public class GuiQuery2
         queries.removeItem("Queries");
 		displayPanel.removeAll();
 		displayPanel.add(next);
-    	displayPanel.add(back);
+    	// displayPanel.add(back);
     	displayPanel.add(dispTable);
 		sidePanel.add(warning);
     	sidePanel.add(title);
@@ -112,14 +105,14 @@ public class GuiQuery2
 		            if(isInteger(publk.getText()))
 		            {
 		            	warning.setText(" ");
-		            	q2.find(Integer.parseInt(publk.getText()));
-		            	totalResults.setText("Total results = "+q2.getCount());
+		            	q.queryTwoFind(Integer.parseInt(publk.getText()));
+		            	totalResults.setText("Total results = "+q.queryTwoGetCount());
 		            	tableWorking=1;
-		            	Author a =q2.getData();
+		            	Author a =q.queryTwoGetData();
 		            	while(a!=null && count<20)
 		            	{
 		            		query2Table.addRow(new Object[]{(count+1),a.getName()});
-		            		a=q2.getData();
+		            		a=q.queryTwoGetData();
 		            		count++;
 		            	}
 		            	pages=1;
@@ -144,7 +137,7 @@ public class GuiQuery2
 				// System.out.println(tableWorking);
 				if(tableWorking==1)
 				{
-					Author a =q2.getData();
+					Author a =q.queryTwoGetData();
 					if(a!=null)
 					{	
 						int count=0;
@@ -155,7 +148,7 @@ public class GuiQuery2
 		            		query2Table.addRow(new Object[]{(pages*20)+(count+1),a.getName()});
 		            		count++;
 		            		if(count<20)
-		            		{a=q2.getData();}	
+		            		{a=q.queryTwoGetData();}	
 		            	}
 		            	pages+=1;}
             	}
@@ -173,16 +166,4 @@ public class GuiQuery2
 			}
 		});
     }
-    
-    public static boolean isInteger(String s) {
-      boolean isValidInteger = false;
-      try
-      {
-         Integer.parseInt(s);
-         isValidInteger = true;
-      }
-      catch (NumberFormatException ex)
-      {}
-      return isValidInteger;
-   }
 }

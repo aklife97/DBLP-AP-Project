@@ -25,9 +25,9 @@ public class Database{
 		System.setProperty("jdk.xml.entityExpansionLimit", "0");
 		AuthorManager.addFile("dblp.xml");
 		AuthorManager.createMap();
-		QueryFacade qf = new QueryFacade("dblp.xml");
-		qf.queryOneFind(1, "vinayak naik", 0, 9999, 0);
-		qf.queryOnePrintData();
+		// QueryFacade qf = new QueryFacade("dblp.xml");
+		// qf.queryOneFind(1, "vinayak naik", 0, 9999, 0);
+		// qf.queryOnePrintData();
 		// System.out.println("1.");
 		// AuthorManager.createMap();
 		// System.out.println("2.");

@@ -9,14 +9,8 @@ import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
 
-public class GuiQuery3
+public class GuiQuery3 extends GUIQuery
 {
-	private JFrame mainFrame;
-	private JPanel upperPanel;
-	private JPanel sidePanel;
-	private JPanel displayPanel;
-	private JComboBox<String> queries;
-	private JButton submit,reset;
 	private int flag=0,flag2=0,tableWorking=0,pages=0;
 	private JLabel title = new JLabel("Name of Author");
 	private JLabel title1 = new JLabel("Prediction after year");
@@ -28,19 +22,18 @@ public class GuiQuery3
 	private JLabel warning = new JLabel(" ");	
 	private JButton next = new JButton("NEXT");
 	private JButton back = new JButton("BACK");
-	private Query3 q3 = null;
+	// private Query3 q3 = null;
 
-	public GuiQuery3(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel,Query3 q3)
+	public GuiQuery3(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel,QueryFacade q3)
 	{
 		this.mainFrame=mainFrame;
 		this.queries=queries;
 		this.sidePanel=sidePanel;
 		this.displayPanel=displayPanel;
-		this.q3=q3;
-		initQuery3();
+		this.q=q3;
 	}
 
-	public void initQuery3()
+	public void initQuery()
 	{
 		submit=new JButton("Submit");
 		reset=new JButton("Reset");
@@ -72,7 +65,7 @@ public class GuiQuery3
 		back.setFont(new Font("Calibri", Font.PLAIN, 10));
 	}
 
-    public void setQuery3()
+    public void setQuery()
     {
     	queries.removeItem("Queries");
     	sidePanel.removeAll();
@@ -80,8 +73,6 @@ public class GuiQuery3
     	queries.setSelectedItem("Query 3");
         queries.removeItem("Queries");
         displayPanel.removeAll();
-		// displayPanel.add(next);
-  //   	displayPanel.add(back);
     	displayPanel.add(dispTable);
 		sidePanel.add(warning);
     	sidePanel.add(title);
@@ -101,9 +92,9 @@ public class GuiQuery3
 		            if(isInteger(predYear.getText()))
 		            {
 		            	warning.setText(" ");
-		            	q3.find(Integer.parseInt(predYear.getText()),authName.getText());
+		            	q.queryThreeFind(Integer.parseInt(predYear.getText()),authName.getText());
 		            	tableWorking=1;
-		            	double a =q3.getData();
+		            	double a =q.queryThreeGetData();
 		            	query3Table.addRow(new Object[]{1,authName.getText(),a});
 		            }
 		            else
@@ -120,15 +111,4 @@ public class GuiQuery3
 				}
 			});
     }
-    public static boolean isInteger(String s) {
-      boolean isValidInteger = false;
-      try
-      {
-         Integer.parseInt(s);
-         isValidInteger = true;
-      }
-      catch (NumberFormatException ex)
-      {}
-      return isValidInteger;
-   }
 }
