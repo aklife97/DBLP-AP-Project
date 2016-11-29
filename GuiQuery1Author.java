@@ -97,8 +97,7 @@ public class GuiQuery1Author extends GuiQuery1
 			});
 	}
 
-    public void setQueryAuthor()
-    {
+    public void setQueryAuthor() {
 		submit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				warning.setText(" ");
@@ -118,12 +117,10 @@ public class GuiQuery1Author extends GuiQuery1
 		            	y1=Integer.parseInt(year2.getText());
 		            	y2=Integer.parseInt(year3.getText());
 		            } else {
-		            	warning.setText("Year field should be numbers");
-		            }
+		            	warning.setText("Year field should be numbers"); }
 				} else {
 					y1=0;
-					y2=9999;
-				}
+					y2=9999;}
 				if(warning.getText().equals(" ")){
 					if(title.getText().length()==0){
 		        		warning.setText("Author/Title field cannot be empty");

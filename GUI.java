@@ -48,7 +48,7 @@ public class GUI
 		queries.addItem("Query 3");
 		mainFrame.setSize(1200,520); 
 		mainFrame.setLocation(0,0);
-		// mainFrame.setResizable(false);
+		mainFrame.setResizable(false);
 		mainFrame.setLayout(null);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		submit.setBackground(Color.BLACK);

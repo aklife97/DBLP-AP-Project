@@ -71,6 +71,11 @@ public class GuiQuery2 extends GUIQuery
     	title.setFont(new Font("Calibri", Font.PLAIN, 12));
     	title.setBounds(30,80,130,30);
         queries.removeItem("Queries");
+        this.addToPanel();	
+	}
+
+	public void addToPanel()
+	{
 		displayPanel.removeAll();
 		displayPanel.add(next);
     	displayPanel.add(dispTable);
@@ -91,6 +96,13 @@ public class GuiQuery2 extends GUIQuery
 					totalResults.setText("");
 				}
 			});
+	 	
+
+		back.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+
+			}
+		});
 	}
 
 	public void change(int i)
@@ -102,8 +114,7 @@ public class GuiQuery2 extends GUIQuery
 		flag2=i;
 	}
 
-    public void setQuery()
-    {
+    public void setQuery() {
 	 	submit.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					totalResults.setText(" ");
@@ -145,12 +156,6 @@ public class GuiQuery2 extends GUIQuery
 		            	pages+=1;}
             	} else{
             		tableWorking=0;}
-			}
-		});
-
-		back.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-
 			}
 		});
     }
