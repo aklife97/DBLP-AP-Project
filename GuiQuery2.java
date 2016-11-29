@@ -41,16 +41,16 @@ public class GuiQuery2 extends GUIQuery
 	public void initQuery(){
 		publk.setBounds(170,80,50,20);
 		displayTable.setDefaultEditor(Object.class, null);
-		dispTable.setBounds(20,5,610,330);
+		dispTable.setBounds(20,5,910,390);
 		query2Table.addColumn("S.No.");
 		query2Table.addColumn("Authors");
 		warning.setFont(new Font("Calibri", Font.PLAIN, 12));
     	warning.setForeground(Color.RED);
 		warning.setBounds(30,340,190,20);
-		next.setBounds(540,335,80,40);
+		next.setBounds(840,395,80,40);
 		next.setBackground(Color.RED);
 		next.setFont(new Font("Calibri", Font.PLAIN, 10));
-		back.setBounds(30,335,80,40);
+		back.setBounds(30,395,80,40);
 		back.setBackground(Color.BLACK);
 		back.setFont(new Font("Calibri", Font.PLAIN, 10));
 		submit=new JButton("Submit");
@@ -63,7 +63,7 @@ public class GuiQuery2 extends GUIQuery
         submit.setFont(new Font("Calibri", Font.PLAIN, 12));
         reset.setFont(new Font("Calibri", Font.PLAIN, 12));
         totalResults.setFont(new Font("Calibri", Font.PLAIN, 10));
-    	totalResults.setBounds(265,335,120,30);
+    	totalResults.setBounds(515,395,120,30);
     	queries.removeItem("Queries");
     	sidePanel.removeAll();
     	queries.setBounds(50,50,100,20);

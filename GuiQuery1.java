@@ -49,7 +49,7 @@ public class GuiQuery1 extends GUIQuery
 	public void initQuery()
 	{
 		displayTable.setDefaultEditor(Object.class, null);
-		dispTable.setBounds(20,5,610,330);
+		dispTable.setBounds(20,5,910,390);
 		query1Table.addColumn("S.No.");
 		query1Table.addColumn("Authors");
 		query1Table.addColumn("Title");
@@ -58,7 +58,7 @@ public class GuiQuery1 extends GUIQuery
 		query1Table.addColumn("Volume");
 		query1Table.addColumn("Journal/Booktitle");
 		query1Table.addColumn("Url");
-		next.setBounds(540,335,80,40);
+		next.setBounds(840,395,80,40);
 		next.setBackground(Color.RED);
 		next.setFont(new Font("Calibri", Font.PLAIN, 10));
 		back.setBounds(30,335,80,40);
@@ -78,7 +78,7 @@ public class GuiQuery1 extends GUIQuery
     	result.setBounds(50,120,350,50);
     	warning.setBounds(30,340,190,20);
     	totalResults.setFont(new Font("Calibri", Font.PLAIN, 10));
-    	totalResults.setBounds(265,335,120,30);
+    	totalResults.setBounds(515,395,120,30);
     	year1.setHorizontalAlignment(JTextField.CENTER);
     	year2.setHorizontalAlignment(JTextField.CENTER);
     	year3.setHorizontalAlignment(JTextField.CENTER);
