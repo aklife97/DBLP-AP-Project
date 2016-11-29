@@ -112,13 +112,6 @@ public class GuiQuery1 extends GUIQuery
     	flag2=0;
     	searchBy.setBounds(50,50,100,20);
     	searchBy.setFont(new Font("Calibri", Font.PLAIN, 10));
-    	sidePanel.removeAll();
-    	displayPanel.removeAll();
-    	queries.setBounds(50,20,100,20);
-    	sidePanel.add(searchBy);
-    	sidePanel.add(queries);
-    	mainFrame.revalidate();
-	 	mainFrame.repaint();
 	 	tableWorking=0;
 		pages=0;
 

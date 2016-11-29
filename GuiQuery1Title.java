@@ -74,6 +74,7 @@ public class GuiQuery1Title extends GuiQuery1
     	displayPanel.add(totalResults);
     	displayPanel.add(dispTable);
     	displayPanel.add(next);
+    	// displayPanel.add(back);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
 	 	tableWorking=0;
@@ -103,19 +104,23 @@ public class GuiQuery1Title extends GuiQuery1
 		reset.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					warning.setText(" ");
+					totalResults.setText("");
 					tableWorking=0;
 					query1Table.setRowCount(0);
-					title.setText(" ");	
-					year1.setText(" ");	
-					year2.setText(" ");			
-					year3.setText(" ");		
+					title.setText("");	
+					year1.setText("");	
+					year2.setText("");			
+					year3.setText("");		
 					sortButtons.clearSelection();
 					yearButtons.clearSelection();
 					sortYear.setSelected(true);	
+					flag=0;
+					flag2=0;
+					change(0);
+					changeMode(0);
 				}
 			});
 	}
-
     public void setQueryTitle()
     {
     	submit.addActionListener(new ActionListener(){
@@ -127,7 +132,6 @@ public class GuiQuery1Title extends GuiQuery1
 					int y1=0,y2=0;
 					if(flag2==1){
 						if(isInteger(year1.getText())){
-			            	warning.setText(" ");
 			            	y1=Integer.parseInt(year1.getText());
 			            } else {
 				            	warning.setText("Year field should be numbers");
@@ -135,7 +139,6 @@ public class GuiQuery1Title extends GuiQuery1
 			            y2=9999;
 					} else if (flag2==2) {
 						if(isInteger(year2.getText())&&isInteger(year3.getText()))  {
-			            	warning.setText(" ");
 			            	y1=Integer.parseInt(year2.getText());
 			            	y2=Integer.parseInt(year3.getText());
 			            } else {
@@ -151,8 +154,11 @@ public class GuiQuery1Title extends GuiQuery1
 			        	}else{
 			        		if(flag==0 || flag ==1){
 				        			pages=0;
-						            q.queryOneFind(2, title.getText(),y1,y2,flag);
-						            totalResults.setText("Total results = "+q.queryOneGetCount());
+				        			q.queryOneFind(2, title.getText(),y1,y2,flag);
+						            if(q.queryOneGetCount()==0){
+						            	totalResults.setText("No Result Found");
+						            } else{
+						            	totalResults.setText("Total results = "+q.queryOneGetCount());}
 						            tableWorking=1;
 						            DataRecords d= q.queryOneGetData();
 						            while(d!=null && count<20) {

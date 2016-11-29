@@ -88,7 +88,8 @@ public class GuiQuery2 extends GUIQuery
 				public void actionPerformed(ActionEvent e){
 					tableWorking=0;
 					query2Table.setRowCount(0);
-					publk.setText(" ");
+					publk.setText("");
+					totalResults.setText("");
 				}
 			});
 	}
@@ -114,7 +115,10 @@ public class GuiQuery2 extends GUIQuery
 		            if(isInteger(publk.getText())){
 		            	warning.setText(" ");
 		            	q.queryTwoFind(Integer.parseInt(publk.getText()));
-		            	totalResults.setText("Total results = "+q.queryTwoGetCount());
+		            	if(q.queryTwoGetCount()==0){
+			            	totalResults.setText("No Result Found");
+			            } else{
+			            	totalResults.setText("Total results = "+q.queryTwoGetCount());}
 		            	tableWorking=1;
 		            	Author a =q.queryTwoGetData();
 		            	while(a!=null && count<20){
@@ -151,4 +155,4 @@ public class GuiQuery2 extends GUIQuery
 			}
 		});
     }
-}
+}	

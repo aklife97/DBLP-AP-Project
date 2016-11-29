@@ -25,7 +25,6 @@ public class GuiQuery1Author extends GuiQuery1
 	{
 		super(mainFrame,queries,sidePanel,displayPanel,q,searchBy);
 		super.start();
-		initAuthor();
 		yearButtons.add(sinceYear);
         yearButtons.add(customYear);
         sinceYear.setBounds(60,200,150,15);
@@ -55,13 +54,30 @@ public class GuiQuery1Author extends GuiQuery1
     	sidePanel.add(warning);
     	sidePanel.add(sinceYear);
     	sidePanel.add(customYear); 	
+    	initAuthor();
 	}
-
+	public void initState()
+	{
+		System.out.println("Flag2 in reset= "+flag2);
+		warning.setText(" ");
+		totalResults.setText("");
+		tableWorking=0;
+		flag2=0;
+		flag=0;	
+		query1Table.setRowCount(0);
+		title.setText("");	
+		year1.setText("");	
+		year2.setText("");			
+		year3.setText("");		
+		yearButtons.clearSelection();
+		changeMode(0);	
+	}
 	public void initAuthor()
 	{	
 		displayPanel.add(totalResults);
     	displayPanel.add(dispTable);
     	displayPanel.add(next);
+    	// displayPanel.add(back);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
 	 	tableWorking=0;
@@ -73,25 +89,18 @@ public class GuiQuery1Author extends GuiQuery1
 	      });
 		
 		customYear.addItemListener(new ItemListener() {
-	         public void itemStateChanged(ItemEvent e) {         
+	         public void itemStateChanged(ItemEvent e) {    
 	            changeMode(2);
 	         }           
 	      });
 		reset.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
-					warning.setText(" ");
-					tableWorking=0;
-					query1Table.setRowCount(0);
-					title.setText(" ");	
-					year1.setText(" ");	
-					year2.setText(" ");			
-					year3.setText(" ");		
-					yearButtons.clearSelection();	
-				}
+					initState();}
 			});
 	}
 
-    public void setQueryAuthor(){
+    public void setQueryAuthor()
+    {
 		submit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				warning.setText(" ");
@@ -101,7 +110,6 @@ public class GuiQuery1Author extends GuiQuery1
 				int y1=0,y2=0;
 				if(flag2==1){
 					if(isInteger(year1.getText())){
-		            	warning.setText(" ");
 		            	y1=Integer.parseInt(year1.getText());
 		            } else {
 			            	warning.setText("Year field should be numbers");
@@ -109,7 +117,6 @@ public class GuiQuery1Author extends GuiQuery1
 		            y2=9999;
 				} else if (flag2==2) {
 					if(isInteger(year2.getText())&&isInteger(year3.getText()))  {
-		            	warning.setText(" ");
 		            	y1=Integer.parseInt(year2.getText());
 		            	y2=Integer.parseInt(year3.getText());
 		            } else {
@@ -126,7 +133,10 @@ public class GuiQuery1Author extends GuiQuery1
 		        		if(flag==0 || flag ==1){
 			        			pages=0;
 					            q.queryOneFind(1, title.getText(),y1,y2,flag);
-					            totalResults.setText("Total results = "+q.queryOneGetCount());
+					            if(q.queryOneGetCount()==0){
+					            	totalResults.setText("No Result Found");
+					            } else{
+					           		totalResults.setText("Total results = "+q.queryOneGetCount());}
 					            tableWorking=1;
 					            DataRecords d= q.queryOneGetData();
 					            while(d!=null && count<20) {
