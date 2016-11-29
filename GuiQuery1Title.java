@@ -28,7 +28,6 @@ public class GuiQuery1Title extends GuiQuery1
 	{
 		super(mainFrame,queries,sidePanel,displayPanel,q,searchBy);
 		super.start();
-		initTitle();
 		sortButtons.add(sortRel);
         sortButtons.add(sortYear);
         sortYear.setBounds(60,200,150,15);
@@ -66,6 +65,8 @@ public class GuiQuery1Title extends GuiQuery1
     	sidePanel.add(warning);
     	sidePanel.add(sinceYear);
     	sidePanel.add(customYear);
+    	initTitle();
+
 	}
 
 	public void initTitle()
