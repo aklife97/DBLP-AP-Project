@@ -97,7 +97,10 @@ public class GuiQuery3 extends GUIQuery
 					tableWorking=0;
 					if(authName.getText().length()==0){
 						warning.setText("Author Name can not be empty");
-					} else {
+					} else if(predYear.getText().length()==0){
+						warning.setText("year can not be empty");
+					}
+					 else {
 			            if(isInteger(predYear.getText())) {
 			            	warning.setText(" ");
 			            	q.queryThreeFind(Integer.parseInt(predYear.getText()),authName.getText());
@@ -116,6 +119,7 @@ public class GuiQuery3 extends GUIQuery
 		reset.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e)
 				{
+					warning.setText("");
 					authName.setText("");
 					predYear.setText("");
 				}

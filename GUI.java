@@ -85,7 +85,7 @@ public class GUI
 		displayPanel.add(random);
 		JLabel header=new JLabel("<html><b>DBLP Query Engine</b></html>",JLabel.CENTER);
 		header.setFont(new Font("Calibri", Font.PLAIN, 45));
-		header.setBounds(200,10,500,60);
+		header.setBounds(350,10,500,60);
 		header.setAlignmentX(Component.CENTER_ALIGNMENT);
 		upperPanel.add(header);
 		upperPanel.setBorder(BorderFactory.createLineBorder(Color.black,2));

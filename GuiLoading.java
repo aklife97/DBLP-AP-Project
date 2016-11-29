@@ -34,7 +34,7 @@ public class GuiLoading
 		loadingLabel=new JLabel("<html><b>Loading... Please Wait</b></html>",JLabel.CENTER);
 		loadingLabel.setFont(new Font("Calibri", Font.PLAIN, 15));
 		loadingLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-		loadingPanel.add(Box.createRigidArea(new Dimension(25,0)));
+		loadingPanel.add(Box.createRigidArea(new Dimension(20,7)));
 		loadingPanel.add(loadingLabel);
 		loadingPanel.setVisible(true);
 		loadingFrame.add(loadingPanel);

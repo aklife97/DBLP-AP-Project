@@ -41,7 +41,7 @@ public class Query3 implements Query13{
 		{	
 			String[] authors = d.getAuthor().split(",");
 					for (String a : authors){
-						if (AuthorManager.resolveAuthor(a.toLowerCase()) == AuthorManager.resolveAuthor(auth) && d.getYear() !=0 && d.getYear() <= year){
+						if (AuthorManager.resolveAuthor(a.toLowerCase()) == AuthorManager.resolveAuthor(auth.toLowerCase()) && d.getYear() !=0 && d.getYear() <= year){
 							pubCount[d.getYear()-1900]++;
 						}
 					}
