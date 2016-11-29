@@ -52,11 +52,11 @@ public class Query1 implements Query13{
 				}
 			}
 		}		
-		else if (sortMode==0 && mode == 2 && d.getTitle()!=null && (t=this.getDistance(d.getTitle(),q.toLowerCase()))>0 && d.getYear() >= since && d.getYear() <= to){
+		else if (sortMode==0 && mode == 2 && d.getTitle()!=null && (t=this.getDistance(q.toLowerCase(), d.getTitle()))>0 && d.getYear() >= since && d.getYear() <= to){
 			dataRec.add(d);
 			count++;
 		} 
-		else if (sortMode==1 && mode == 2 && d.getTitle()!=null && (t=this.getDistance(d.getTitle(),q.toLowerCase()))>0 && d.getYear() >= since && d.getYear() <= to){
+		else if (sortMode==1 && mode == 2 && d.getTitle()!=null && (t=this.getDistance(q.toLowerCase(), d.getTitle()))>0 && d.getYear() >= since && d.getYear() <= to){
 			if (t>d.getStringMatch())
 				d.setStringMatch(t);
 			dataRec2.add(d);
