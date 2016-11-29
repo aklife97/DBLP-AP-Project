@@ -1,8 +1,12 @@
 /**
-*@author Abhinav Khattar 2015120, Tushar Arora 2015107
+*@file Query3.java
+*This file contains backend Query1 implementation
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
 */
 import java.util.*;
 import java.io.*;
+/**This class uses Database to extract data as needed for Query3, the class is Singleton*/
 public class Query3 implements Query13{
 	private static Query3 instance = new Query3("dblp.xml");
 	private Database dbase;
@@ -17,6 +21,7 @@ public class Query3 implements Query13{
 	private Query3(String _filename){
 		filename = _filename;
 	}
+	/**This method starts the finding of relevant data*/
 	public void find(int _year, String _auth){
 		dataRec = new ArrayList<DataRecords>();
 		year = _year;
@@ -65,26 +70,27 @@ public class Query3 implements Query13{
 		// 	System.out.println(d.getAuthor());
 		// }
 	}
+	/**This method gives back data one element at a time returning null when finished*/
 	public double getData()
 	{
-		return linearRegression(year+1);
-		// TrendLine t = new PolyTrendLine(2);
-		// t.setValues(pubCountTemp,yearRegTemp);
-  //       return t.predict(year+1);
+		// return linearRegression(year+1);
+		TrendLine t = new PolyTrendLine(2);
+		t.setValues(pubCountTemp,yearRegTemp);
+        return t.predict(year+1);
 	}
 
-	// public static void main(String[] args){
-	// 	System.setProperty("jdk.xml.entityExpansionLimit", "0");
-	// 	AuthorManager.addFile("dblp.xml");
-	// 	System.out.println("1.");
-	// 	AuthorManager.createMap();
-	// 	System.out.println("2.");
-	// 	Query3 q3 = new Query3("dblp.xml");
-	// 	q3.find(2015,"chin-chen chang");
-	// 	double data=q3.getData();
-	// 	System.out.println("Prediction is "+data);
-	// 	System.clearProperty("jdk.xml.entityExpansionLimit");
-	// }
+	public static void main(String[] args){
+		System.setProperty("jdk.xml.entityExpansionLimit", "0");
+		AuthorManager.addFile("dblp.xml");
+		System.out.println("1.");
+		AuthorManager.createMap();
+		System.out.println("2.");
+		Query3 q3 = new Query3("dblp.xml");
+		q3.find(2015,"chin-chen chang");
+		double data=q3.getData();
+		System.out.println("Prediction is "+data);
+		System.clearProperty("jdk.xml.entityExpansionLimit");
+	}
 
 	private int startIndex()
 	{

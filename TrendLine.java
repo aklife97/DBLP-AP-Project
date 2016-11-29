@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.*;
 import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
 import org.apache.commons.math3.stat.regression.*;
+import org.apache.commons.math3.linear.*;
 
 public interface TrendLine {
     public void setValues(double[] y, double[] x); // y ~ f(x)

@@ -1,8 +1,12 @@
 /**
-*@author Abhinav Khattar 2015120, Tushar Arora 2015107
+*@file Query2.java
+*This file contains backend Query2 implementation
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
 */
 import java.util.*;
 import java.io.*;
+/**This class uses Database to extract data as needed for Query2, the class is Singleton*/
 public class Query2{
 	private static Query2 instance = new Query2("dblp.xml");
 	private ArrayList<Author> result;
@@ -10,9 +14,11 @@ public class Query2{
 	private Query2(String _filename){
 		filename = _filename;
 	}
+	/**This method starts the finding of relevant data*/
 	public void find(int k){
 		result = AuthorManager.getGreaterK(k);
 	}
+	/**This method gives back data one element at a time returning null when finished*/
 	public Author getData(){
 		if (result.size() == 0)
 			return null;
@@ -27,6 +33,7 @@ public class Query2{
 			System.out.println(a.getName() + " " + a.getCount());
 		}
 	}
+	/**Gets the total number of results*/
 	public int getCount(){
 		return result.size();
 	}

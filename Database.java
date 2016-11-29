@@ -1,11 +1,15 @@
 /**
-*@author Abhinav Khattar 2015120, Tushar Arora 2015107
+*@file Database.java
+*This file Contains all the Parsing necessities
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
 */
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
 import java.util.*;
 import java.io.*;
+/**This Class helps extracting relevant data*/
 public class Database{
 	private SAXParser parser;
 	private Query13 query;
@@ -52,6 +56,7 @@ public class Database{
 		query.check(d);
 	}
 }
+/**This class in the custom handler required for Parsing */
 class Handler extends DefaultHandler{
 	private boolean bAuthor = false;
 	private boolean bTitle = false;

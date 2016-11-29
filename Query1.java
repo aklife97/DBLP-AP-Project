@@ -1,8 +1,12 @@
 /**
-*@author Abhinav Khattar 2015120, Tushar Arora 2015107
+*@file Query1.java
+*This file contains backend Query1 implementation
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
 */
 import java.util.*;
 import java.io.*;
+/**This class uses Database to extract data as needed for Query1, the class is Singleton*/
 public class Query1 implements Query13{
 	private static Query1 instance = new Query1("dblp.xml");
 	private Database dbase;
@@ -15,6 +19,7 @@ public class Query1 implements Query13{
 	public Query1(String _filename){
 		filename = _filename;
 	}
+	/**This method starts the finding of relevant data*/
 	public void find(int _mode, String _q, int _since, int _to,int _sortMode){
 		dataRec = new PriorityQueue<DataRecords>();
 		dataRec2 = new PriorityQueue<DataRecords>(new Comparator<DataRecords>() {
@@ -58,6 +63,7 @@ public class Query1 implements Query13{
 			count++;
 		} 
 	}
+	/**This method gives back data one element at a time returning null when finished*/
 	public DataRecords getData(){
 		if(mode== 1 && (sortMode==0 || sortMode ==1))
 			return dataRec.poll();
@@ -66,6 +72,7 @@ public class Query1 implements Query13{
 		else
 			return dataRec2.poll();		
 	}
+	/**Gets the total number of results*/
 	public int getCount(){
 		return count;
 	}

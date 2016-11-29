@@ -1,11 +1,15 @@
 /**
-*@author Abhinav Khattar 2015120, Tushar Arora 2015107
+*@file AuthorManager.java
+*File related to entity resolution
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
 */
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
 import java.util.*;
 import java.io.*;
+/**AuthorManager provides us a way to resolve Authors i.e. Does entity resolution work*/
 public class AuthorManager{
 	private static HashMap<String, Author> authorMap = new HashMap<String, Author>();
 	private static ArrayList<Author> authorsList = new ArrayList<Author>();
@@ -28,6 +32,7 @@ public class AuthorManager{
 		mapCreated = false;
 		countAdded = false;
 	}
+	/**Given the name of an author it returns a unique Author object, hence reolving the entity*/
 	public static Author resolveAuthor(String name){
 		Author value = 	authorMap.get(name);
 		if (value == null){
@@ -48,6 +53,7 @@ public class AuthorManager{
 		}
 		return au;
 	}
+	/**Creates a map of Author name to object*/
 	public static void createMap(){
 		if (filename == null)
 			return;
@@ -97,6 +103,7 @@ public class AuthorManager{
 		}
 		catch(Exception e){e.printStackTrace();}
 	}
+	/**Designates each Author with his respective number of Publications*/
 	public static void addCount(){
 		if (!mapCreated)
 			AuthorManager.createMap();

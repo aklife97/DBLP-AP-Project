@@ -1,8 +1,12 @@
 /**
-*@author Abhinav Khattar 2015120, Tushar Arora 2015107
+*@file QueryFacade.java
+*This file contains a Facade to communicate to Query1,2,3
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
 */
 import java.util.*;
 import java.io.*;
+/**QueryFacade implemnts Facade Design Pattern over the Query classes*/
 public class QueryFacade{
 	private Query1 q1;
 	private Query2 q2;
