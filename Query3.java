@@ -74,6 +74,9 @@ public class Query3 implements Query13{
 	public double getData()
 	{
 		// return linearRegression(year+1);
+		this.initArrays();
+		// System.out.println(pubCountTemp);
+		// return 0;
 		TrendLine t = new PolyTrendLine(2);
 		t.setValues(pubCountTemp,yearRegTemp);
         return t.predict(year+1);
