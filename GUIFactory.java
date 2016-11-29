@@ -17,7 +17,6 @@ public class GUIFactory
 	private JPanel sidePanel;
 	private JPanel displayPanel;
 	private JComboBox<String> queries;
-	private JButton submit,reset;
 	private QueryFacade q0=null;
 
 	public GUIFactory(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel,QueryFacade q)

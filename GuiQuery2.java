@@ -11,7 +11,6 @@ import org.xml.sax.helpers.*;
 
 public class GuiQuery2 extends GUIQuery
 {
-	// private Query2 q2;
 	private int flag=0,flag2=0,tableWorking=0,pages=0;
 	private JLabel title = new JLabel("No. of Publications");
 	private JTextField publk =new JTextField();
@@ -51,6 +50,7 @@ public class GuiQuery2 extends GUIQuery
 		back.setFont(new Font("Calibri", Font.PLAIN, 10));
 		submit=new JButton("Submit");
 		reset=new JButton("Reset");
+		submit.setForeground(Color.WHITE);
 		submit.setBackground(Color.BLACK);
 		reset.setBackground(Color.RED);
 		submit.setBounds(30,140,80,30);

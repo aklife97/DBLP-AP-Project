@@ -11,31 +11,24 @@ import org.xml.sax.helpers.*;
 
 public class GuiQuery1 extends GUIQuery
 {
-	// private Query=null;
-	private DefaultTableModel query1Table= new DefaultTableModel();
-	private JTable displayTable = new JTable(query1Table);
-	private JScrollPane dispTable = new JScrollPane(displayTable);
-	private JButton next = new JButton("NEXT");
-	private JButton back = new JButton("BACK");
-	private JComboBox<String> searchBy = new JComboBox<String>();
-	private JLabel title1 = new JLabel("Name / Title tags");
-	private JLabel title2 = new JLabel("Since Year");
-	private JLabel title3 = new JLabel("Custom Range");	
-	private JLabel result = new JLabel();
-	private JLabel warning = new JLabel(" ");
-	private JLabel dash = new JLabel("-");
-	private JTextField title =new JTextField();
-	private JTextField year1 =new JTextField();
-	private JTextField year2 =new JTextField();
-	private JTextField year3 =new JTextField();
-	private final JRadioButton sortRel = new JRadioButton("Sort by Relevance");
-	private final JRadioButton sortYear = new JRadioButton("Sort by Date",true);
-	private ButtonGroup sortButtons = new ButtonGroup();
-    private final JRadioButton sinceYear = new JRadioButton("For Since year");
-	private final JRadioButton customYear = new JRadioButton("For custom year range");
-	private ButtonGroup yearButtons = new ButtonGroup();
-	private int flag=0,flag2=0,tableWorking=0,pages=0;
-	private JLabel totalResults = new JLabel(" ");
+	protected DefaultTableModel query1Table= new DefaultTableModel();
+	protected JTable displayTable = new JTable(query1Table);
+	protected JScrollPane dispTable = new JScrollPane(displayTable);
+	protected JButton next = new JButton("NEXT");
+	protected JButton back = new JButton("BACK");
+	protected JComboBox<String> searchBy = new JComboBox<String>();
+	protected JLabel title1 = new JLabel("Name / Title tags");
+	protected JLabel title2 = new JLabel("Since Year");
+	protected JLabel title3 = new JLabel("Custom Range");	
+	protected JLabel result = new JLabel();
+	protected JLabel warning = new JLabel(" ");
+	protected JLabel dash = new JLabel("-");
+	protected JTextField title =new JTextField();
+	protected JTextField year1 =new JTextField();
+	protected JTextField year2 =new JTextField();
+	protected JTextField year3 =new JTextField();
+	protected int flag=0,flag2=0,tableWorking=0,pages=0;
+	protected JLabel totalResults = new JLabel(" ");
 
 	public GuiQuery1(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel,QueryFacade q1)
 	{
@@ -66,12 +59,6 @@ public class GuiQuery1 extends GUIQuery
 		back.setBackground(Color.BLACK);
 		back.setFont(new Font("Calibri", Font.PLAIN, 10));
 
-    	searchBy.addItem("Search By");
-    	searchBy.addItem("Author Name");
-    	searchBy.addItem("Title Tag");
-    	searchBy.setSelectedItem("Search By");
-    	searchBy.setBounds(50,50,100,20);
-    	searchBy.setFont(new Font("Calibri", Font.PLAIN, 10));
     	title1.setFont(new Font("Calibri", Font.PLAIN, 10));
     	title2.setFont(new Font("Calibri", Font.PLAIN, 10));
     	title3.setFont(new Font("Calibri", Font.PLAIN, 10));
@@ -98,23 +85,10 @@ public class GuiQuery1 extends GUIQuery
     	year1.setBounds(140,130,50,20);
     	year2.setBounds(110,155,50,20);
     	year3.setBounds(190,155,50,20);
-    		
-        sortButtons.add(sortRel);
-        sortButtons.add(sortYear);
-        sortYear.setBounds(60,200,150,15);
-        sortRel.setBounds(60,215,150,15);
-        sortYear.setFont(new Font("Calibri", Font.PLAIN, 10));
-        sortRel.setFont(new Font("Calibri", Font.PLAIN, 10));
-       
-        yearButtons.add(sinceYear);
-        yearButtons.add(customYear);
-        sinceYear.setBounds(60,245,150,15);
-        customYear.setBounds(60,260,150,15);
-        sinceYear.setFont(new Font("Calibri", Font.PLAIN, 10));
-        customYear.setFont(new Font("Calibri", Font.PLAIN, 10));
-
+    	
         submit=new JButton("Submit");
 		reset=new JButton("Reset");
+		submit.setForeground(Color.WHITE);
 		submit.setBackground(Color.BLACK);
 		reset.setBackground(Color.RED);
         submit.setBounds(30,290,80,30);
@@ -136,7 +110,12 @@ public class GuiQuery1 extends GUIQuery
     {
     	flag=0;
     	flag2=0;
-    	// q1=new Query1("dblp.xml");
+    	searchBy.addItem("Search By");
+    	searchBy.addItem("Author Name");
+    	searchBy.addItem("Title Tag");
+    	searchBy.setSelectedItem("Search By");
+    	searchBy.setBounds(50,50,100,20);
+    	searchBy.setFont(new Font("Calibri", Font.PLAIN, 10));
     	queries.removeItem("Queries");
     	sidePanel.removeAll();
     	displayPanel.removeAll();
@@ -145,64 +124,34 @@ public class GuiQuery1 extends GUIQuery
     	//----	
     	sidePanel.add(searchBy);
     	sidePanel.add(queries);
-    	sidePanel.add(title1);
-    	sidePanel.add(title);
-    	sidePanel.add(title2);
-    	sidePanel.add(year1);
-    	sidePanel.add(title3);
-    	sidePanel.add(year2);
-    	sidePanel.add(dash);
-    	sidePanel.add(year3);
-    	sidePanel.add(sortYear);
-    	sidePanel.add(sortRel);
-    	sidePanel.add(submit);
-    	sidePanel.add(reset);
-    	sidePanel.add(warning);
-    	sidePanel.add(sinceYear);
-    	sidePanel.add(customYear);
-    	displayPanel.add(totalResults);
-    	displayPanel.add(dispTable);
-    	displayPanel.add(next);
-    	// displayPanel.add(back);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
 	 	tableWorking=0;
 		pages=0;
-		sortRel.addItemListener(new ItemListener() {
-	         public void itemStateChanged(ItemEvent e) {         
-	            	    change(1);    
-	            }           
-	      });
-		
-		sortYear.addItemListener(new ItemListener() {
-	         public void itemStateChanged(ItemEvent e) {         
-	            change(0);
-	         }           
-	      });
-		sinceYear.addItemListener(new ItemListener() {
-	         public void itemStateChanged(ItemEvent e) {         
-	            	    changeMode(1);    
-	            }           
-	      });
-		
-		customYear.addItemListener(new ItemListener() {
-	         public void itemStateChanged(ItemEvent e) {         
-	            changeMode(2);
-	         }           
-	      });
+
+		searchBy.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent event) {
+		        	JComboBox<? extends Object> q = (JComboBox<? extends Object>) event.getSource();
+		        String selectedQuery = (String) q.getSelectedItem();
+		        if (selectedQuery.equals("Author Name")) {
+		           GuiQuery1Author ga= new GuiQuery1Author();
+		           ga.setQueryAuthor();
+		        }     else if (selectedQuery.equals("Title Tag")) {
+		            GuiQuery1Title gt= new GuiQuery1Title();
+		           gt.setQueryTitle();
+		        }
+		    }
+		});
 
 		next.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e)
-			{
-				if(tableWorking==1)
-				{
+			public void actionPerformed(ActionEvent e){
+				if(tableWorking==1){
 					DataRecords d =q.queryOneGetData();
-					if(d!=null)
-					{	
+					if(d!=null){	
 						int count=0;
 						query1Table.setRowCount(0);
-		            	while(d!=null && count<20)
-		            	{
+		            	while(d!=null && count<20){
 		            		query1Table.addRow(new Object[]{(pages*20)+(count+1),d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
 		            		count++;
 		            		if(count<20)
@@ -210,8 +159,7 @@ public class GuiQuery1 extends GUIQuery
 		            	}
 		            	pages+=1;}
             	}
-            	else
-            	{
+            	else{
             		tableWorking=0;
             	}
 			}
@@ -223,117 +171,5 @@ public class GuiQuery1 extends GUIQuery
 
 			}
 		});
-		submit.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e)
-				{
-					warning.setText(" ");
-					totalResults.setText(" ");
-					int count=0;
-					query1Table.setRowCount(0);
-					String res=" ";
-					String selectedOption =(String) searchBy.getSelectedItem();
-					int selOpt=0;
-					if(selectedOption.equals("Author Name")){
-						selOpt=1;
-					}
-					else if(selectedOption.equals("Title Tag")){
-						selOpt=2;
-					}
-					if(selOpt==1 || selOpt==2){
-						if(title.getText().length()==0){
-			        		warning.setText("Author/Title field cannot be empty");
-			        	}else{
-			        		if(flag==0 || flag ==1)
-				        	{
-				        		if(flag2==1)
-				        		{
-				        			int y=0,pages=0;
-				        			if(isInteger(year1.getText()))
-						            {
-						            	warning.setText(" ");
-						            	y=Integer.parseInt(year1.getText());
-						            }
-						            else
-						            {
-						            	warning.setText("Year field should be numbers");
-						            }
-						            q.queryOneFind(selOpt, title.getText(),y, 9999,flag);
-						            totalResults.setText("Total results = "+q.queryOneGetCount());
-						            tableWorking=1;
-						            DataRecords d= q.queryOneGetData();
-						            while(d!=null && count<20)
-						            {
-						            	query1Table.addRow(new Object[]{count+1,d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
-					            		count++;
-					            		if(count<20)
-					            		{d=q.queryOneGetData();}	
-					            	}
-					            	pages=1;
-				        		}
-				        		else if(flag2==2)
-				        		{
-				        			int y1=0,y2=0,pages=0;
-				        			if(isInteger(year2.getText())&&isInteger(year3.getText()))
-						            {
-						            	warning.setText(" ");
-						            	y1=Integer.parseInt(year2.getText());
-						            	y2=Integer.parseInt(year3.getText());
-						            }
-						            else
-						            {
-						            	warning.setText("Year field should be numbers");
-						            }
-						            q.queryOneFind(selOpt, title.getText(),y1,y2,flag);
-						              totalResults.setText("Total results = "+q.queryOneGetCount());
-						            tableWorking=1;
-						            DataRecords d= q.queryOneGetData();
-						            while(d!=null && count<20)
-						            {
-						            	query1Table.addRow(new Object[]{count+1,d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
-					            		count++;
-					            		if(count<20)
-					            		{d=q.queryOneGetData();}	
-					            	}
-					            	pages=1;
-				        		}
-				        		else
-				        		{
-				        			q.queryOneFind(selOpt, title.getText(),0,9999,flag);
-				        			  totalResults.setText("Total results = "+q.queryOneGetCount());
-						            tableWorking=1;
-						            DataRecords d= q.queryOneGetData();
-						            while(d!=null && count<20)
-						            {
-						            	query1Table.addRow(new Object[]{count+1,d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
-					            		count++;
-					            		if(count<20)
-					            		{d=q.queryOneGetData();}	
-					            	}
-					            	pages=1;
-				        		}
-			        		}
-						}
-					}
-					else {
-			        	warning.setText("Select option");
-			        }
-				}
-			});
-		reset.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e)
-				{
-					warning.setText(" ");
-					tableWorking=0;
-					query1Table.setRowCount(0);
-					title.setText(" ");	
-					year1.setText(" ");	
-					year2.setText(" ");			
-					year3.setText(" ");		
-					searchBy.setSelectedItem("Search By");
-					sortButtons.clearSelection();
-					yearButtons.clearSelection();
-					sortYear.setSelected(true);	
-				}
-			});
     }	
 }
