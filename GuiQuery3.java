@@ -69,10 +69,17 @@ public class GuiQuery3 extends GUIQuery
 		back.setBounds(30,335,80,40);
 		back.setBackground(Color.BLACK);
 		back.setFont(new Font("Calibri", Font.PLAIN, 10));
+		reset.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e)
+				{
+					warning.setText("");
+					authName.setText("");
+					predYear.setText("");
+				}
+			});
 	}
 
-    public void setQuery()
-    {
+    public void setQuery() {
     	queries.removeItem("Queries");
     	sidePanel.removeAll();
     	queries.setBounds(50,50,100,20);
@@ -114,14 +121,6 @@ public class GuiQuery3 extends GUIQuery
 			            else {
 			            	warning.setText("Year field should be numbers");}
 		            }
-				}
-			});
-		reset.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e)
-				{
-					warning.setText("");
-					authName.setText("");
-					predYear.setText("");
 				}
 			});
     }
