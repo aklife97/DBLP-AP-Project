@@ -64,13 +64,13 @@ public class AuthorManager{
 				private boolean bAuthor = false, bTitle = false, bHomePage = false;
 				private String author, title;
 				public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException{
-					if (qName.equalsIgnoreCase("author"))
+					if (qName.equalsIgnoreCase("author") || qName.equalsIgnoreCase("editor"))
 						bAuthor = true;
 					else if (qName.equalsIgnoreCase("title"))
 						bTitle = true;
 				}
 				public void endElement(String uri, String localName, String qName) throws SAXException{
-					if (qName.equalsIgnoreCase("author")){
+					if (qName.equalsIgnoreCase("author") || qName.equalsIgnoreCase("editor")){
 						author = author + ",";
 						bAuthor = false;
 					}
@@ -116,13 +116,13 @@ public class AuthorManager{
 				private String author;
 				private String title;
 				public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException{
-					if (qName.equalsIgnoreCase("author"))
+					if (qName.equalsIgnoreCase("author") || qName.equalsIgnoreCase("editor"))
 						bAuthor = true;
 					else if (qName.equalsIgnoreCase("title"))
 						bTitle = true;
 				}
 				public void endElement(String uri, String localName, String qName) throws SAXException{
-					if (qName.equalsIgnoreCase("author")){
+					if (qName.equalsIgnoreCase("author") || qName.equalsIgnoreCase("editor")){
 						author = author + ",";
 						bAuthor = false;
 					}

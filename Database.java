@@ -52,7 +52,7 @@ class Handler extends DefaultHandler{
 		dbase = _dbase;
 	}
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException{
-		if (qName.equalsIgnoreCase("author")){
+		if (qName.equalsIgnoreCase("author") || qName.equalsIgnoreCase("editor")){
 			bAuthor = true;
 		}
 		else if (qName.equalsIgnoreCase("title")){
@@ -87,7 +87,7 @@ class Handler extends DefaultHandler{
 			}
 			author = title = pages = year = volume = journal = booktitle = url = null;
 		}
-		else if (qName.equalsIgnoreCase("author")){
+		else if (qName.equalsIgnoreCase("author") || qName.equalsIgnoreCase("editor")){
 			author = author + ",";
 			bAuthor = false;
 		}

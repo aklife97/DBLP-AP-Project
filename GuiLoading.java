@@ -1,3 +1,9 @@
+/**
+*@file AuthorManager.java
+*File to show the Loading Screen
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
-
+/**Shows Loading*/
 public class GuiLoading
 {
 	private JFrame loadingFrame;
