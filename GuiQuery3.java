@@ -40,11 +40,11 @@ public class GuiQuery3 extends GUIQuery
 		submit.setBackground(Color.BLACK);
 		reset.setBackground(Color.RED);
     	title.setFont(new Font("Calibri", Font.PLAIN, 12));
-    	title.setBounds(30,80,130,30);
+    	title.setBounds(30,80,130,20);
     	title1.setFont(new Font("Calibri", Font.PLAIN, 12));
-    	title1.setBounds(30,115,130,30);
+    	title1.setBounds(30,105,130,20);
 		authName.setBounds(170,80,50,20);
-		predYear.setBounds(190,115,30,20);
+		predYear.setBounds(170,105,30,20);
  		submit.setBounds(30,155,80,30);
         reset.setBounds(140,155,80,30);
         submit.setFont(new Font("Calibri", Font.PLAIN, 12));

@@ -59,20 +59,6 @@ public class GuiQuery2 extends GUIQuery
         reset.setFont(new Font("Calibri", Font.PLAIN, 12));
         totalResults.setFont(new Font("Calibri", Font.PLAIN, 10));
     	totalResults.setBounds(265,335,120,30);
-	}
-
-	public void change(int i)
-	{
-		flag=i;
-	}
-	public void changeMode(int i)
-	{
-		flag2=i;
-	}
-
-    public void setQuery()
-    {
-    	// q2 = new Query2("dblp.xml");
     	queries.removeItem("Queries");
     	sidePanel.removeAll();
     	queries.setBounds(50,50,100,20);
@@ -93,75 +79,69 @@ public class GuiQuery2 extends GUIQuery
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
 	 	displayPanel.add(totalResults);
-	 	
+	}
+
+	public void change(int i)
+	{
+		flag=i;
+	}
+	public void changeMode(int i)
+	{
+		flag2=i;
+	}
+
+    public void setQuery()
+    {
 	 	submit.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e)
-				{
+				public void actionPerformed(ActionEvent e){
 					totalResults.setText(" ");
 					query2Table.setRowCount(0);
 					int count=0;
 					pages=0;
 					tableWorking=0;
-		            if(isInteger(publk.getText()))
-		            {
+		            if(isInteger(publk.getText())){
 		            	warning.setText(" ");
 		            	q.queryTwoFind(Integer.parseInt(publk.getText()));
 		            	totalResults.setText("Total results = "+q.queryTwoGetCount());
 		            	tableWorking=1;
 		            	Author a =q.queryTwoGetData();
-		            	while(a!=null && count<20)
-		            	{
+		            	while(a!=null && count<20){
 		            		query2Table.addRow(new Object[]{(count+1),a.getName()});
 		            		a=q.queryTwoGetData();
-		            		count++;
-		            	}
+		            		count++;}
 		            	pages=1;
-		            }
-		            else
-		            {
-		            	warning.setText("Year field should be numbers");
-		            }
+		            } else{
+		            	warning.setText("Year field should be numbers"); }
 				}
 			});
 		reset.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e)
-				{
+				public void actionPerformed(ActionEvent e){
 					tableWorking=0;
 					query2Table.setRowCount(0);
 					publk.setText(" ");
 				}
 			});
 		next.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e)
-			{
-				// System.out.println(tableWorking);
-				if(tableWorking==1)
-				{
+			public void actionPerformed(ActionEvent e){
+				if(tableWorking==1){
 					Author a =q.queryTwoGetData();
-					if(a!=null)
-					{	
+					if(a!=null){	
 						int count=0;
 						query2Table.setRowCount(0);
-						
-		            	while(a!=null && count<20)
-		            	{
+		            	while(a!=null && count<20){
 		            		query2Table.addRow(new Object[]{(pages*20)+(count+1),a.getName()});
 		            		count++;
-		            		if(count<20)
-		            		{a=q.queryTwoGetData();}	
+		            		if(count<20){
+		            		a=q.queryTwoGetData();}	
 		            	}
 		            	pages+=1;}
-            	}
-            	else
-            	{
-            		tableWorking=0;
-            	}
+            	} else{
+            		tableWorking=0;}
 			}
 		});
 
 		back.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e){
 
 			}
 		});
