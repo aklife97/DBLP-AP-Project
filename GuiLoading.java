@@ -35,10 +35,6 @@ public class GuiLoading
 		loadingFrame.setVisible(true);
 	}	
 
-	// public void start()
-	// {
-		
-	// }
 	public void stop()
 	{
 		loadingFrame.setVisible(false);

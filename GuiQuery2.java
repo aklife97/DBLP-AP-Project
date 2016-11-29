@@ -73,7 +73,6 @@ public class GuiQuery2 extends GUIQuery
         queries.removeItem("Queries");
 		displayPanel.removeAll();
 		displayPanel.add(next);
-    	// displayPanel.add(back);
     	displayPanel.add(dispTable);
 		sidePanel.add(warning);
     	sidePanel.add(title);

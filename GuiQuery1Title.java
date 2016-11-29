@@ -43,7 +43,6 @@ public class GuiQuery1Title extends GuiQuery1
         customYear.setFont(new Font("Calibri", Font.PLAIN, 10));
     	flag=0;
     	flag2=0;
-    	// q1=new Query1("dblp.xml");
     	sidePanel.removeAll();
     	displayPanel.removeAll();
     	searchBy.setSelectedItem("Title Tag");
@@ -74,7 +73,6 @@ public class GuiQuery1Title extends GuiQuery1
     	displayPanel.add(totalResults);
     	displayPanel.add(dispTable);
     	displayPanel.add(next);
-    	// displayPanel.add(back);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
 	 	tableWorking=0;

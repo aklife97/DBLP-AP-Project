@@ -58,7 +58,6 @@ public class GuiQuery1Author extends GuiQuery1
 	}
 	public void initState()
 	{
-		System.out.println("Flag2 in reset= "+flag2);
 		warning.setText(" ");
 		totalResults.setText("");
 		tableWorking=0;
@@ -77,7 +76,6 @@ public class GuiQuery1Author extends GuiQuery1
 		displayPanel.add(totalResults);
     	displayPanel.add(dispTable);
     	displayPanel.add(next);
-    	// displayPanel.add(back);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
 	 	tableWorking=0;

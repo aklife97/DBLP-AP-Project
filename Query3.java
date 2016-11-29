@@ -43,8 +43,6 @@ public class Query3 implements Query13{
 					for (String a : authors){
 						if (AuthorManager.resolveAuthor(a.toLowerCase()) == AuthorManager.resolveAuthor(auth) && d.getYear() !=0 && d.getYear() <= year){
 							pubCount[d.getYear()-1900]++;
-							// System.out.println("d.getYear()== "+d.get.getYear());
-							// dataRec.add(d);
 						}
 					}
 		}		
@@ -64,35 +62,12 @@ public class Query3 implements Query13{
 	}
 
 	public void printData(){
-		// DataRecords d;
-		// while ((d = dataRec.poll())!=null){
-		// 	System.out.println(d.getTitle());
-		// 	System.out.println(d.getAuthor());
-		// }
 	}
+
 	/**This method gives back data one element at a time returning null when finished*/
 	public double getData()
 	{
-		// return linearRegression(year+1);
-		this.initArrays();
-		// System.out.println(pubCountTemp);
-		// return 0;
-		TrendLine t = new PolyTrendLine(2);
-		t.setValues(pubCountTemp,yearRegTemp);
-        return t.predict(year+1);
-	}
-
-	public static void main(String[] args){
-		System.setProperty("jdk.xml.entityExpansionLimit", "0");
-		AuthorManager.addFile("dblp.xml");
-		System.out.println("1.");
-		AuthorManager.createMap();
-		System.out.println("2.");
-		Query3 q3 = new Query3("dblp.xml");
-		q3.find(2015,"chin-chen chang");
-		double data=q3.getData();
-		System.out.println("Prediction is "+data);
-		System.clearProperty("jdk.xml.entityExpansionLimit");
+		return linearRegression(year+1);
 	}
 
 	private int startIndex()
@@ -151,7 +126,6 @@ public class Query3 implements Query13{
 		long numerator=0;
 		long denomenator=0;
 		int n=yearReg.length-this.startIndex();
-		System.out.println("n* ="+n);
 		int idx=this.startIndex();
 		long num1=n*calcMulSum(yearReg,pubCount,idx);
 		long num2=calcSum(yearReg,idx)*calcSum(pubCount,idx);
@@ -159,8 +133,6 @@ public class Query3 implements Query13{
 		long denum2=calcSum(yearReg,idx)*calcSum(yearReg,idx);
 		numerator=num1-num2;
 		denomenator=denum1-denum2;
-		System.out.println("Numerator ="+numerator);
-		System.out.println("denomenator ="+denomenator);
 		try
 		{
 			return numerator/denomenator;
@@ -179,11 +151,6 @@ public class Query3 implements Query13{
 
 	private double linearRegression(int xGiven)
 	{
-		System.out.println("startIndex= "+this.startIndex());
-		for(int i=this.startIndex();i<pubCount.length;i++)
-		{
-			System.out.print(yearReg[i]+"=="+pubCount[i]+"#");
-		}
 		double xMean= mean(yearReg);
 		double yMean= mean(pubCount);
 		double slope= findSlope();

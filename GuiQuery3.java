@@ -28,7 +28,6 @@ public class GuiQuery3 extends GUIQuery
 	private JLabel warning = new JLabel(" ");	
 	private JButton next = new JButton("NEXT");
 	private JButton back = new JButton("BACK");
-	// private Query3 q3 = null;
 
 	public GuiQuery3(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel,QueryFacade q3)
 	{

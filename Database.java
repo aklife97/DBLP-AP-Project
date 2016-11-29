@@ -25,33 +25,6 @@ public class Database{
 			e.printStackTrace();
 		}
 	}
-	// public static void main(String[] args){
-	// 	System.setProperty("jdk.xml.entityExpansionLimit", "0");
-	// 	AuthorManager.addFile("dblp.xml");
-	// 	AuthorManager.createMap();
-	// 	// QueryFacade qf = new QueryFacade("dblp.xml");
-	// 	// qf.queryOneFind(1, "vinayak naik", 0, 9999, 0);
-	// 	// qf.queryOnePrintData();
-	// 	// System.out.println("1.");
-	// 	// AuthorManager.createMap();
-	// 	// System.out.println("2.");
-	// 	// Query1 q = new Query1("dblp.xml");
-	// 	// System.out.println("3.");
-	// 	// q.find(1, "vinaya", 0, 9999,1);
-	// 	// System.out.println("4.");
-	// 	// q.printData();
-	// 	// q.find(2, "Facedcaptcha: Face detection based color image CAPTCHA.",0 ,9999);
-	// 	// q.printData();
-	// 	// Query2 q2 = new Query2("dblp.xml");
-	// 	// q2.find(125);
-	// 	// q2.printData();
-	// 	// Query3 q3 = new Query3("dblp.xml");
-	// 	// Query3 q3 = new Query3("dblp.xml");
-	// 	// q3.find(2015,"chin-chen chang");
-	// 	// double data=q3.getData();
-	// 	// System.out.println("Prediction is "+data);
-	// 	System.clearProperty("jdk.xml.entityExpansionLimit");
-	// }
 	public void check(DataRecords d){
 		query.check(d);
 	}
