@@ -19,26 +19,29 @@ public class GuiLoading
 	{
 		System.out.println("Gui Loading");
 		loadingFrame=new JFrame("Loading");
-		loadingFrame.setSize(250,45); 
-		loadingFrame.setLocation(400,400);
+		loadingFrame.setSize(250,40); 
+		loadingFrame.setLocation(600,270);
 		loadingFrame.setResizable(false);
 		loadingFrame.setLayout(new BoxLayout (loadingFrame.getContentPane(), BoxLayout.Y_AXIS));
 		loadingFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		loadingPanel=new JPanel();
-		loadingLabel=new JLabel("<html><b>LOADING ... Please Wait</b></html>",JLabel.CENTER);
+		loadingLabel=new JLabel("<html><b>Loading... Please Wait</b></html>",JLabel.CENTER);
 		loadingLabel.setFont(new Font("Calibri", Font.PLAIN, 15));
 		loadingLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-		loadingPanel.add(Box.createRigidArea(new Dimension(15,0)));
+		loadingPanel.add(Box.createRigidArea(new Dimension(25,0)));
 		loadingPanel.add(loadingLabel);
 		loadingPanel.setVisible(true);
 		loadingFrame.add(loadingPanel);
+	}
+
+	public void start()
+	{
 		loadingFrame.setVisible(true);
 	}	
 
 	public void stop()
 	{
 		loadingFrame.setVisible(false);
-		loadingFrame.dispose();
 	}
 
 }
