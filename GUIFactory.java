@@ -34,7 +34,7 @@ public class GUIFactory
 			return null;
 		}
 		else if(queryName.equalsIgnoreCase("Query1")){
-			return new GuiQuery1(mainFrame,queries,sidePanel,displayPanel,q0);
+			return new GuiQuery1Control(mainFrame,queries,sidePanel,displayPanel,q0);
 		} else if(queryName.equalsIgnoreCase("Query2")){
 			return new GuiQuery2(mainFrame,queries,sidePanel,displayPanel,q0);
 		} else if(queryName.equalsIgnoreCase("Query3")){

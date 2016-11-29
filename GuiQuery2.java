@@ -32,8 +32,7 @@ public class GuiQuery2 extends GUIQuery
 		this.q=q2;
 	}
 
-	public void initQuery()
-	{
+	public void initQuery(){
 		publk.setBounds(170,80,50,20);
 		displayTable.setDefaultEditor(Object.class, null);
 		dispTable.setBounds(20,5,610,330);
@@ -79,6 +78,13 @@ public class GuiQuery2 extends GUIQuery
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
 	 	displayPanel.add(totalResults);
+	 	reset.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					tableWorking=0;
+					query2Table.setRowCount(0);
+					publk.setText(" ");
+				}
+			});
 	}
 
 	public void change(int i)
@@ -113,14 +119,7 @@ public class GuiQuery2 extends GUIQuery
 		            } else{
 		            	warning.setText("Year field should be numbers"); }
 				}
-			});
-		reset.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e){
-					tableWorking=0;
-					query2Table.setRowCount(0);
-					publk.setText(" ");
-				}
-			});
+			});	
 		next.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				if(tableWorking==1){

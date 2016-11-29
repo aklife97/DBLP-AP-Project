@@ -11,23 +11,29 @@ import org.xml.sax.helpers.*;
 
 public class GuiQuery1Author extends GuiQuery1
 {
-	private final JRadioButton sortYear = new JRadioButton("Sort by Date",true);
-	private ButtonGroup sortButtons = new ButtonGroup();
     private final JRadioButton sinceYear = new JRadioButton("For Since year");
 	private final JRadioButton customYear = new JRadioButton("For custom year range");
 	private ButtonGroup yearButtons = new ButtonGroup();
 
-    public void setQueryAuthor()
-    {
+	public GuiQuery1Author(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel,QueryFacade q,JComboBox<String> searchBy)
+	{
+		super(mainFrame,queries,sidePanel,displayPanel,q,searchBy);
+		super.start();
+		initAuthor();
+		yearButtons.add(sinceYear);
+        yearButtons.add(customYear);
+        sinceYear.setBounds(60,200,150,15);
+        customYear.setBounds(60,215,150,15);
+        sinceYear.setFont(new Font("Calibri", Font.PLAIN, 10));
+        customYear.setFont(new Font("Calibri", Font.PLAIN, 10));
     	flag=0;
     	flag2=0;
-    	sidePanel.removeAll();
-    	displayPanel.removeAll();
     	searchBy.setSelectedItem("Author Name");
     	try{
     		searchBy.removeItem("Search By");
     	} catch (Exception e){}
-    	//----	
+    	sidePanel.removeAll();
+    	displayPanel.removeAll();
     	sidePanel.add(searchBy);
     	sidePanel.add(queries);
     	sidePanel.add(title1);
@@ -38,13 +44,16 @@ public class GuiQuery1Author extends GuiQuery1
     	sidePanel.add(year2);
     	sidePanel.add(dash);
     	sidePanel.add(year3);
-    	sidePanel.add(sortYear);
     	sidePanel.add(submit);
     	sidePanel.add(reset);
     	sidePanel.add(warning);
     	sidePanel.add(sinceYear);
-    	sidePanel.add(customYear);
-    	displayPanel.add(totalResults);
+    	sidePanel.add(customYear); 	
+	}
+
+	public void initAuthor()
+	{	
+		displayPanel.add(totalResults);
     	displayPanel.add(dispTable);
     	displayPanel.add(next);
     	// displayPanel.add(back);
@@ -63,56 +72,6 @@ public class GuiQuery1Author extends GuiQuery1
 	            changeMode(2);
 	         }           
 	      });
-		submit.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e){
-					warning.setText(" ");
-					totalResults.setText(" ");
-					int count=0;
-					query1Table.setRowCount(0);
-					int y1=0,y2=0;
-					if(flag2==1){
-						if(isInteger(year1.getText())){
-			            	warning.setText(" ");
-			            	y1=Integer.parseInt(year1.getText());
-			            } else {
-				            	warning.setText("Year field should be numbers");
-				            }
-			            y2=9999;
-					} else if (flag2==2) {
-						if(isInteger(year2.getText())&&isInteger(year3.getText()))  {
-			            	warning.setText(" ");
-			            	y1=Integer.parseInt(year2.getText());
-			            	y2=Integer.parseInt(year3.getText());
-			            } else {
-			            	warning.setText("Year field should be numbers");
-			            }
-					} else {
-						y1=0;
-						y2=9999;
-					}
-					if(warning.getText().equals(" ")){
-						if(title.getText().length()==0){
-			        		warning.setText("Author/Title field cannot be empty");
-			        	}else{
-			        		if(flag==0 || flag ==1){
-				        			pages=0;
-						            q.queryOneFind(1, title.getText(),y1,y2,flag);
-						            totalResults.setText("Total results = "+q.queryOneGetCount());
-						            tableWorking=1;
-						            DataRecords d= q.queryOneGetData();
-						            while(d!=null && count<20)
-						            {
-						            	query1Table.addRow(new Object[]{count+1,d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
-					            		count++;
-					            		if(count<20)
-					            		{d=q.queryOneGetData();}	
-					            	}
-					            	pages=1;
-				        		}	
-			        		}
-			        	}else { }	
-					}
-			});
 		reset.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					warning.setText(" ");
@@ -122,9 +81,61 @@ public class GuiQuery1Author extends GuiQuery1
 					year1.setText(" ");	
 					year2.setText(" ");			
 					year3.setText(" ");		
-					yearButtons.clearSelection();
-					sortYear.setSelected(true);	
+					yearButtons.clearSelection();	
 				}
 			});
+	}
+
+    public void setQueryAuthor()
+    {
+		submit.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				warning.setText(" ");
+				totalResults.setText(" ");
+				int count=0;
+				query1Table.setRowCount(0);
+				int y1=0,y2=0;
+				if(flag2==1){
+					if(isInteger(year1.getText())){
+		            	warning.setText(" ");
+		            	y1=Integer.parseInt(year1.getText());
+		            } else {
+			            	warning.setText("Year field should be numbers");
+			            }
+		            y2=9999;
+				} else if (flag2==2) {
+					if(isInteger(year2.getText())&&isInteger(year3.getText()))  {
+		            	warning.setText(" ");
+		            	y1=Integer.parseInt(year2.getText());
+		            	y2=Integer.parseInt(year3.getText());
+		            } else {
+		            	warning.setText("Year field should be numbers");
+		            }
+				} else {
+					y1=0;
+					y2=9999;
+				}
+				if(warning.getText().equals(" ")){
+					if(title.getText().length()==0){
+		        		warning.setText("Author/Title field cannot be empty");
+		        	}else{
+		        		if(flag==0 || flag ==1){
+			        			pages=0;
+					            q.queryOneFind(1, title.getText(),y1,y2,flag);
+					            totalResults.setText("Total results = "+q.queryOneGetCount());
+					            tableWorking=1;
+					            DataRecords d= q.queryOneGetData();
+					            while(d!=null && count<20) {
+					            	query1Table.addRow(new Object[]{count+1,d.getAuthor(),d.getTitle(),d.getPages(),d.getYear(),d.getVolume(),d.getJournalTitle(),d.getURL()});
+				            		count++;
+				            		if(count<20)
+				            		{d=q.queryOneGetData();}	
+				            	}
+				            	pages=1;
+			        		}	
+		        		}
+		        	}else { }	
+				}
+		});
     }	
 }

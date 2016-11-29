@@ -14,12 +14,27 @@ public class GuiQuery1Title extends GuiQuery1
 	private final JRadioButton sortRel = new JRadioButton("Sort by Relevance");
 	private final JRadioButton sortYear = new JRadioButton("Sort by Date",true);
 	private ButtonGroup sortButtons = new ButtonGroup();
-	 private final JRadioButton sinceYear = new JRadioButton("For Since year");
+	private final JRadioButton sinceYear = new JRadioButton("For Since year");
 	private final JRadioButton customYear = new JRadioButton("For custom year range");
 	private ButtonGroup yearButtons = new ButtonGroup();
 
-    public void setQueryTitle()
-    {
+	public GuiQuery1Title(JFrame mainFrame, JComboBox<String> queries,JPanel sidePanel,JPanel displayPanel,QueryFacade q,JComboBox<String> searchBy)
+	{
+		super(mainFrame,queries,sidePanel,displayPanel,q,searchBy);
+		super.start();
+		initTitle();
+		sortButtons.add(sortRel);
+        sortButtons.add(sortYear);
+        sortYear.setBounds(60,200,150,15);
+        sortRel.setBounds(60,215,150,15);
+        sortYear.setFont(new Font("Calibri", Font.PLAIN, 10));
+        sortRel.setFont(new Font("Calibri", Font.PLAIN, 10));
+        yearButtons.add(sinceYear);
+        yearButtons.add(customYear);
+        sinceYear.setBounds(60,245,150,15);
+        customYear.setBounds(60,260,150,15);
+        sinceYear.setFont(new Font("Calibri", Font.PLAIN, 10));
+        customYear.setFont(new Font("Calibri", Font.PLAIN, 10));
     	flag=0;
     	flag2=0;
     	// q1=new Query1("dblp.xml");
@@ -29,8 +44,6 @@ public class GuiQuery1Title extends GuiQuery1
     	try{
     		searchBy.removeItem("Search By");
     	} catch (Exception e){}
-    	
-    	//----	
     	sidePanel.add(searchBy);
     	sidePanel.add(queries);
     	sidePanel.add(title1);
@@ -48,6 +61,10 @@ public class GuiQuery1Title extends GuiQuery1
     	sidePanel.add(warning);
     	sidePanel.add(sinceYear);
     	sidePanel.add(customYear);
+	}
+
+	public void initTitle()
+	{
     	displayPanel.add(totalResults);
     	displayPanel.add(dispTable);
     	displayPanel.add(next);
@@ -78,7 +95,25 @@ public class GuiQuery1Title extends GuiQuery1
 	            changeMode(2);
 	         }           
 	      });
-		submit.addActionListener(new ActionListener(){
+		reset.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					warning.setText(" ");
+					tableWorking=0;
+					query1Table.setRowCount(0);
+					title.setText(" ");	
+					year1.setText(" ");	
+					year2.setText(" ");			
+					year3.setText(" ");		
+					sortButtons.clearSelection();
+					yearButtons.clearSelection();
+					sortYear.setSelected(true);	
+				}
+			});
+	}
+
+    public void setQueryTitle()
+    {
+    	submit.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					warning.setText(" ");
 					totalResults.setText(" ");
@@ -126,20 +161,6 @@ public class GuiQuery1Title extends GuiQuery1
 			        		}
 			        	}else {}	
 					}
-			});
-		reset.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e){
-					warning.setText(" ");
-					tableWorking=0;
-					query1Table.setRowCount(0);
-					title.setText(" ");	
-					year1.setText(" ");	
-					year2.setText(" ");			
-					year3.setText(" ");		
-					sortButtons.clearSelection();
-					yearButtons.clearSelection();
-					sortYear.setSelected(true);	
-				}
 			});
     }	
 }
