@@ -1,0 +1,442 @@
+\hypertarget{classQuery3}{}\section{Query3 Class Reference}
+\label{classQuery3}\index{Query3@{Query3}}
+
+
+Inheritance diagram for Query3\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{classQuery3__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Query3\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classQuery3__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classQuery3_a90891105629ffe510b97ef9457ee999d}{find} (int \+\_\+year, String \+\_\+auth)
+\item 
+void \hyperlink{classQuery3_aa427e3890ba5a50c0fe65f8ec8c0b451}{check} (\hyperlink{classDataRecords}{Data\+Records} d)
+\item 
+void \hyperlink{classQuery3_a6cde68ceca0e88d2af13e31a5de0e9a4}{print\+Data} ()
+\item 
+double \hyperlink{classQuery3_a165950141428545cd3b1503e2e90b19f}{get\+Data} ()
+\item 
+int \hyperlink{classQuery3_aaf500171ac702620b4a7cdfdf99511e1}{get\+Degree} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classQuery3}{Query3} \hyperlink{classQuery3_a4be96065aec730ecae94b6cd4f086bd1}{get\+Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classQuery3_a4fbeb44bc0d6cf64b69c3786079ff607}{Query3} (String \+\_\+filename)
+\item 
+void \hyperlink{classQuery3_af36aaf92bc68455320f314f748107ba5}{init\+Arrays} ()
+\item 
+int \hyperlink{classQuery3_a3e717858e45a5e523e6f6822b8ee9c55}{start\+Index} ()
+\item 
+double \hyperlink{classQuery3_a7cd505a50c7acdad72f8d84e0783d40f}{mean} (int\mbox{[}$\,$\mbox{]} arr)
+\item 
+long \hyperlink{classQuery3_aed079f7c366024a82d93de739bf748a8}{calc\+Sum} (int\mbox{[}$\,$\mbox{]} a, int i)
+\item 
+long \hyperlink{classQuery3_a400754740a1332b01276e1219fb23558}{calc\+Mul\+Sum} (int\mbox{[}$\,$\mbox{]} a, int\mbox{[}$\,$\mbox{]} b, int i)
+\item 
+double \hyperlink{classQuery3_ab20e5f00158bfc416143b645d4ea5f0f}{find\+Slope} ()
+\item 
+double \hyperlink{classQuery3_ae0e1667d9216468b12b863d0e6b89462}{y\+Intercept} (double x\+Mean, double y\+Mean, double slope)
+\item 
+double \hyperlink{classQuery3_a9f213eab98fc93aa00e6432d62680982}{linear\+Regression} (int x\+Given)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDatabase}{Database} \hyperlink{classQuery3_acf21ca7cef4efec2a30d041d8b0770f1}{dbase}
+\item 
+int \hyperlink{classQuery3_a0bae9f7c878eeda85345866f6983caae}{year}
+\item 
+String \hyperlink{classQuery3_a53f8993bc386e315c22cace0c0405336}{filename}
+\item 
+String \hyperlink{classQuery3_a2db45c9e219ad331a52169d8f6bacae5}{auth}
+\item 
+Array\+List$<$ \hyperlink{classDataRecords}{Data\+Records} $>$ \hyperlink{classQuery3_af5c1e99f9d5402273b0a993aa965a6d2}{data\+Rec}
+\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{classQuery3_a8357a655699bb076c9174af9c95f00b1}{year\+Reg\+Temp} =null
+\item 
+double\mbox{[}$\,$\mbox{]} \hyperlink{classQuery3_aa4820280feefd8ebe9c04b42b73c8f52}{pub\+Count\+Temp} =null
+\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{year\+Reg} =null
+\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{classQuery3_af016450dd2c9582f3ef5b2979969d201}{pub\+Count} =null
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classQuery3}{Query3} \hyperlink{classQuery3_a21e9b649c7b92dcd18831c6a1471454a}{instance} = new \hyperlink{classQuery3}{Query3}(\char`\"{}dblp.\+xml\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class uses \hyperlink{classDatabase}{Database} to extract data as needed for \hyperlink{classQuery3}{Query3}, the class is Singleton 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Query3@{Query3}!Query3@{Query3}}
+\index{Query3@{Query3}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{Query3(\+String \+\_\+filename)}{Query3(String _filename)}}]{\setlength{\rightskip}{0pt plus 5cm}Query3.\+Query3 (
+\begin{DoxyParamCaption}
+\item[{String}]{\+\_\+filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classQuery3_a4fbeb44bc0d6cf64b69c3786079ff607}{}\label{classQuery3_a4fbeb44bc0d6cf64b69c3786079ff607}
+
+\begin{DoxyCode}
+21                                     \{
+22         \hyperlink{classQuery3_a53f8993bc386e315c22cace0c0405336}{filename} = \_filename;
+23     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{Query3@{Query3}!calc\+Mul\+Sum@{calc\+Mul\+Sum}}
+\index{calc\+Mul\+Sum@{calc\+Mul\+Sum}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{calc\+Mul\+Sum(int[] a, int[] b, int i)}{calcMulSum(int[] a, int[] b, int i)}}]{\setlength{\rightskip}{0pt plus 5cm}long Query3.\+calc\+Mul\+Sum (
+\begin{DoxyParamCaption}
+\item[{int\mbox{[}$\,$\mbox{]}}]{a, }
+\item[{int\mbox{[}$\,$\mbox{]}}]{b, }
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classQuery3_a400754740a1332b01276e1219fb23558}{}\label{classQuery3_a400754740a1332b01276e1219fb23558}
+
+\begin{DoxyCode}
+135     \{
+136         \textcolor{keywordtype}{long} mulSum=0;
+137         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=i;j<a.length;j++)
+138         \{
+139             mulSum+=a[i]*b[i];
+140         \}
+141         \textcolor{keywordflow}{return} mulSum;
+142     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!calc\+Sum@{calc\+Sum}}
+\index{calc\+Sum@{calc\+Sum}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{calc\+Sum(int[] a, int i)}{calcSum(int[] a, int i)}}]{\setlength{\rightskip}{0pt plus 5cm}long Query3.\+calc\+Sum (
+\begin{DoxyParamCaption}
+\item[{int\mbox{[}$\,$\mbox{]}}]{a, }
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classQuery3_aed079f7c366024a82d93de739bf748a8}{}\label{classQuery3_aed079f7c366024a82d93de739bf748a8}
+
+\begin{DoxyCode}
+126     \{
+127         \textcolor{keywordtype}{long} sum=0;
+128         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=i;j<a.length;j++)
+129         \{
+130             sum+=a[j];
+131         \}
+132         \textcolor{keywordflow}{return} sum;
+133     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!check@{check}}
+\index{check@{check}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{check(\+Data\+Records d)}{check(DataRecords d)}}]{\setlength{\rightskip}{0pt plus 5cm}void Query3.\+check (
+\begin{DoxyParamCaption}
+\item[{{\bf Data\+Records}}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery3_aa427e3890ba5a50c0fe65f8ec8c0b451}{}\label{classQuery3_aa427e3890ba5a50c0fe65f8ec8c0b451}
+
+
+Implements \hyperlink{interfaceQuery13_aa8625da54bbd25beb6968df65fe05e57}{Query13}.
+
+
+\begin{DoxyCode}
+39                                     \{
+40         \textcolor{keywordflow}{if}(d.\hyperlink{classDataRecords_a9b0dba84ec8d539395853caff7d4080f}{getAuthor}() != null)
+41         \{   
+42             String[] authors = d.\hyperlink{classDataRecords_a9b0dba84ec8d539395853caff7d4080f}{getAuthor}().split(\textcolor{stringliteral}{","});
+43                     \textcolor{keywordflow}{for} (String a : authors)\{
+44                         \textcolor{keywordflow}{if} (\hyperlink{classAuthorManager}{AuthorManager}.\hyperlink{classAuthorManager_a2442f65701e05d1c2f9f7edb473cb0f3}{resolveAuthor}(a.toLowerCase()) == 
+      \hyperlink{classAuthorManager}{AuthorManager}.\hyperlink{classAuthorManager_a2442f65701e05d1c2f9f7edb473cb0f3}{resolveAuthor}(\hyperlink{classQuery3_a2db45c9e219ad331a52169d8f6bacae5}{auth}) && d.\hyperlink{classDataRecords_a9918de1a257be6b753ef46d66c43989c}{getYear}() !=0 && d.
+      \hyperlink{classDataRecords_a9918de1a257be6b753ef46d66c43989c}{getYear}() <= \hyperlink{classQuery3_a0bae9f7c878eeda85345866f6983caae}{year})\{
+45                             \hyperlink{classQuery3_af016450dd2c9582f3ef5b2979969d201}{pubCount}[d.\hyperlink{classDataRecords_a9918de1a257be6b753ef46d66c43989c}{getYear}()-1900]++;
+46                         \}
+47                     \}
+48         \}       
+49     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!find@{find}}
+\index{find@{find}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{find(int \+\_\+year, String \+\_\+auth)}{find(int _year, String _auth)}}]{\setlength{\rightskip}{0pt plus 5cm}void Query3.\+find (
+\begin{DoxyParamCaption}
+\item[{int}]{\+\_\+year, }
+\item[{String}]{\+\_\+auth}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery3_a90891105629ffe510b97ef9457ee999d}{}\label{classQuery3_a90891105629ffe510b97ef9457ee999d}
+This method starts the finding of relevant data 
+\begin{DoxyCode}
+25                                              \{
+26         \hyperlink{classQuery3_af5c1e99f9d5402273b0a993aa965a6d2}{dataRec} = \textcolor{keyword}{new} ArrayList<DataRecords>();
+27         \hyperlink{classQuery3_a0bae9f7c878eeda85345866f6983caae}{year} = \_year;
+28         \hyperlink{classQuery3_a2db45c9e219ad331a52169d8f6bacae5}{auth}=\_auth;
+29         \hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg}=\textcolor{keyword}{new} \textcolor{keywordtype}{int}[year-1900+1];
+30         \hyperlink{classQuery3_af016450dd2c9582f3ef5b2979969d201}{pubCount} = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[year-1900+1];
+31         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<=year-1900;i++)
+32         \{
+33             \hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg}[i]=i+1900;
+34             \hyperlink{classQuery3_af016450dd2c9582f3ef5b2979969d201}{pubCount}[i]=0;
+35         \}
+36         \hyperlink{classQuery3_acf21ca7cef4efec2a30d041d8b0770f1}{dbase} = \textcolor{keyword}{new} \hyperlink{classDatabase}{Database}(\hyperlink{classQuery3_a53f8993bc386e315c22cace0c0405336}{filename}, \textcolor{keyword}{this});
+37 
+38     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!find\+Slope@{find\+Slope}}
+\index{find\+Slope@{find\+Slope}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{find\+Slope()}{findSlope()}}]{\setlength{\rightskip}{0pt plus 5cm}double Query3.\+find\+Slope (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classQuery3_ab20e5f00158bfc416143b645d4ea5f0f}{}\label{classQuery3_ab20e5f00158bfc416143b645d4ea5f0f}
+
+\begin{DoxyCode}
+144     \{
+145         \textcolor{keywordtype}{long} numerator=0;
+146         \textcolor{keywordtype}{long} denomenator=0;
+147         \textcolor{keywordtype}{int} n=\hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg}.length-this.\hyperlink{classQuery3_a3e717858e45a5e523e6f6822b8ee9c55}{startIndex}();
+148         \textcolor{keywordtype}{int} idx=this.\hyperlink{classQuery3_a3e717858e45a5e523e6f6822b8ee9c55}{startIndex}();
+149         \textcolor{keywordtype}{long} num1=n*\hyperlink{classQuery3_a400754740a1332b01276e1219fb23558}{calcMulSum}(\hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg},\hyperlink{classQuery3_af016450dd2c9582f3ef5b2979969d201}{pubCount},idx);
+150         \textcolor{keywordtype}{long} num2=\hyperlink{classQuery3_aed079f7c366024a82d93de739bf748a8}{calcSum}(\hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg},idx)*\hyperlink{classQuery3_aed079f7c366024a82d93de739bf748a8}{calcSum}(\hyperlink{classQuery3_af016450dd2c9582f3ef5b2979969d201}{pubCount},idx);
+151         \textcolor{keywordtype}{long} denum1=n*\hyperlink{classQuery3_a400754740a1332b01276e1219fb23558}{calcMulSum}(\hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg},\hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg},idx);
+152         \textcolor{keywordtype}{long} denum2=\hyperlink{classQuery3_aed079f7c366024a82d93de739bf748a8}{calcSum}(\hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg},idx)*\hyperlink{classQuery3_aed079f7c366024a82d93de739bf748a8}{calcSum}(\hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg},idx);
+153         numerator=num1-num2;
+154         denomenator=denum1-denum2;
+155         \textcolor{keywordflow}{try}
+156         \{
+157             \textcolor{keywordflow}{return} numerator/denomenator;
+158         \}
+159         \textcolor{keywordflow}{catch}(NullPointerException e)
+160         \{
+161             e.printStackTrace();
+162         \}
+163         \textcolor{keywordflow}{return} 0;
+164     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{get\+Data()}{getData()}}]{\setlength{\rightskip}{0pt plus 5cm}double Query3.\+get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery3_a165950141428545cd3b1503e2e90b19f}{}\label{classQuery3_a165950141428545cd3b1503e2e90b19f}
+This method gives back data one element at a time returning null when finished 
+\begin{DoxyCode}
+69     \{
+70         \hyperlink{classQuery3_af36aaf92bc68455320f314f748107ba5}{initArrays}();
+71         \textcolor{keywordflow}{if}(\hyperlink{classQuery3_aa4820280feefd8ebe9c04b42b73c8f52}{pubCountTemp}.length==0)\{
+72             \textcolor{keywordflow}{return} -1.0;
+73         \}
+74         \textcolor{keywordflow}{return} \hyperlink{classQuery3_a9f213eab98fc93aa00e6432d62680982}{linearRegression}(\hyperlink{classQuery3_a0bae9f7c878eeda85345866f6983caae}{year}+1);
+75     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!get\+Degree@{get\+Degree}}
+\index{get\+Degree@{get\+Degree}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{get\+Degree()}{getDegree()}}]{\setlength{\rightskip}{0pt plus 5cm}int Query3.\+get\+Degree (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery3_aaf500171ac702620b4a7cdfdf99511e1}{}\label{classQuery3_aaf500171ac702620b4a7cdfdf99511e1}
+
+\begin{DoxyCode}
+78     \{
+79         \textcolor{keywordtype}{int} upCount=0,downCount=0;
+80         \textcolor{keywordtype}{double} upLimit=1.333,downLimit=0.666;
+81         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=1;i<\hyperlink{classQuery3_aa4820280feefd8ebe9c04b42b73c8f52}{pubCountTemp}.length;i++)\{
+82             \textcolor{keywordflow}{if}(\hyperlink{classQuery3_aa4820280feefd8ebe9c04b42b73c8f52}{pubCountTemp}[i]<(\textcolor{keywordtype}{int})downLimit*\hyperlink{classQuery3_aa4820280feefd8ebe9c04b42b73c8f52}{pubCountTemp}[i-1])\{
+83                 downCount++;
+84             \}
+85             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{classQuery3_aa4820280feefd8ebe9c04b42b73c8f52}{pubCountTemp}[i]>(\textcolor{keywordtype}{int})upLimit*\hyperlink{classQuery3_aa4820280feefd8ebe9c04b42b73c8f52}{pubCountTemp}[i-1])\{
+86                 upCount++;
+87             \}
+88         \}
+89         \textcolor{keywordflow}{return} upCount+downCount;
+90     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{get\+Instance()}{getInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Query3} Query3.\+get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classQuery3_a4be96065aec730ecae94b6cd4f086bd1}{}\label{classQuery3_a4be96065aec730ecae94b6cd4f086bd1}
+
+\begin{DoxyCode}
+181                                       \{
+182         \textcolor{keywordflow}{return} \hyperlink{classQuery3_a21e9b649c7b92dcd18831c6a1471454a}{instance};
+183     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!init\+Arrays@{init\+Arrays}}
+\index{init\+Arrays@{init\+Arrays}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{init\+Arrays()}{initArrays()}}]{\setlength{\rightskip}{0pt plus 5cm}void Query3.\+init\+Arrays (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classQuery3_af36aaf92bc68455320f314f748107ba5}{}\label{classQuery3_af36aaf92bc68455320f314f748107ba5}
+
+\begin{DoxyCode}
+52     \{
+53         \hyperlink{classQuery3_a8357a655699bb076c9174af9c95f00b1}{yearRegTemp}=\textcolor{keyword}{new} \textcolor{keywordtype}{double}[\hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg}.length-this.\hyperlink{classQuery3_a3e717858e45a5e523e6f6822b8ee9c55}{startIndex}()];
+54         \hyperlink{classQuery3_aa4820280feefd8ebe9c04b42b73c8f52}{pubCountTemp} = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[\hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg}.length-this.
+      \hyperlink{classQuery3_a3e717858e45a5e523e6f6822b8ee9c55}{startIndex}()];
+55         \textcolor{keywordtype}{int} j=0;
+56         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=this.\hyperlink{classQuery3_a3e717858e45a5e523e6f6822b8ee9c55}{startIndex}();i<\hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg}.length;i++)
+57         \{
+58             \hyperlink{classQuery3_a8357a655699bb076c9174af9c95f00b1}{yearRegTemp}[j]=(double)\hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg}[i];
+59             \hyperlink{classQuery3_aa4820280feefd8ebe9c04b42b73c8f52}{pubCountTemp}[j]=(double)\hyperlink{classQuery3_af016450dd2c9582f3ef5b2979969d201}{pubCount}[i];
+60             j++;
+61         \}
+62     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!linear\+Regression@{linear\+Regression}}
+\index{linear\+Regression@{linear\+Regression}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{linear\+Regression(int x\+Given)}{linearRegression(int xGiven)}}]{\setlength{\rightskip}{0pt plus 5cm}double Query3.\+linear\+Regression (
+\begin{DoxyParamCaption}
+\item[{int}]{x\+Given}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classQuery3_a9f213eab98fc93aa00e6432d62680982}{}\label{classQuery3_a9f213eab98fc93aa00e6432d62680982}
+
+\begin{DoxyCode}
+172     \{
+173         \textcolor{keywordtype}{double} xMean= \hyperlink{classQuery3_a7cd505a50c7acdad72f8d84e0783d40f}{mean}(\hyperlink{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{yearReg});
+174         \textcolor{keywordtype}{double} yMean= \hyperlink{classQuery3_a7cd505a50c7acdad72f8d84e0783d40f}{mean}(\hyperlink{classQuery3_af016450dd2c9582f3ef5b2979969d201}{pubCount});
+175         \textcolor{keywordtype}{double} slope= \hyperlink{classQuery3_ab20e5f00158bfc416143b645d4ea5f0f}{findSlope}();
+176         \textcolor{keywordtype}{double} \hyperlink{classQuery3_ae0e1667d9216468b12b863d0e6b89462}{yIntercept}= \hyperlink{classQuery3_ae0e1667d9216468b12b863d0e6b89462}{yIntercept}(xMean,yMean,slope); 
+177         \textcolor{keywordtype}{double} yToFind=yIntercept + slope*xGiven;
+178 
+179         \textcolor{keywordflow}{return} yToFind;
+180     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!mean@{mean}}
+\index{mean@{mean}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{mean(int[] arr)}{mean(int[] arr)}}]{\setlength{\rightskip}{0pt plus 5cm}double Query3.\+mean (
+\begin{DoxyParamCaption}
+\item[{int\mbox{[}$\,$\mbox{]}}]{arr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classQuery3_a7cd505a50c7acdad72f8d84e0783d40f}{}\label{classQuery3_a7cd505a50c7acdad72f8d84e0783d40f}
+
+\begin{DoxyCode}
+109     \{
+110         \textcolor{keywordtype}{int} sum=0;
+111         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=\hyperlink{classQuery3_a3e717858e45a5e523e6f6822b8ee9c55}{startIndex}();i<arr.length;i++)
+112         \{
+113             sum+=\hyperlink{classQuery3_af016450dd2c9582f3ef5b2979969d201}{pubCount}[i];
+114         \}
+115         \textcolor{keywordflow}{try}
+116         \{
+117             \textcolor{keywordflow}{return} sum/(arr.length-this.\hyperlink{classQuery3_a3e717858e45a5e523e6f6822b8ee9c55}{startIndex}());    
+118         \}
+119         \textcolor{keywordflow}{catch}(NullPointerException n)
+120         \{
+121             n.printStackTrace();
+122         \}
+123         \textcolor{keywordflow}{return} 0;
+124     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!print\+Data@{print\+Data}}
+\index{print\+Data@{print\+Data}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{print\+Data()}{printData()}}]{\setlength{\rightskip}{0pt plus 5cm}void Query3.\+print\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery3_a6cde68ceca0e88d2af13e31a5de0e9a4}{}\label{classQuery3_a6cde68ceca0e88d2af13e31a5de0e9a4}
+
+
+Implements \hyperlink{interfaceQuery13_a7b04f8c829e445286d760995b0205ded}{Query13}.
+
+
+\begin{DoxyCode}
+64                            \{
+65     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!start\+Index@{start\+Index}}
+\index{start\+Index@{start\+Index}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{start\+Index()}{startIndex()}}]{\setlength{\rightskip}{0pt plus 5cm}int Query3.\+start\+Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classQuery3_a3e717858e45a5e523e6f6822b8ee9c55}{}\label{classQuery3_a3e717858e45a5e523e6f6822b8ee9c55}
+
+\begin{DoxyCode}
+93     \{
+94         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<=\hyperlink{classQuery3_a0bae9f7c878eeda85345866f6983caae}{year}-1900;i++)
+95         \{
+96             \textcolor{keywordflow}{if}(\hyperlink{classQuery3_af016450dd2c9582f3ef5b2979969d201}{pubCount}[i]==0)
+97             \{
+98                 \textcolor{keywordflow}{continue};
+99             \}
+100             \textcolor{keywordflow}{else}
+101             \{
+102                 \textcolor{keywordflow}{return} i;
+103             \}
+104         \}
+105         \textcolor{keywordflow}{return} 0;
+106     \}
+\end{DoxyCode}
+\index{Query3@{Query3}!y\+Intercept@{y\+Intercept}}
+\index{y\+Intercept@{y\+Intercept}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{y\+Intercept(double x\+Mean, double y\+Mean, double slope)}{yIntercept(double xMean, double yMean, double slope)}}]{\setlength{\rightskip}{0pt plus 5cm}double Query3.\+y\+Intercept (
+\begin{DoxyParamCaption}
+\item[{double}]{x\+Mean, }
+\item[{double}]{y\+Mean, }
+\item[{double}]{slope}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classQuery3_ae0e1667d9216468b12b863d0e6b89462}{}\label{classQuery3_ae0e1667d9216468b12b863d0e6b89462}
+
+\begin{DoxyCode}
+167     \{
+168         \textcolor{keywordflow}{return} (yMean-(slope*xMean));
+169     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{Query3@{Query3}!auth@{auth}}
+\index{auth@{auth}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{auth}{auth}}]{\setlength{\rightskip}{0pt plus 5cm}String Query3.\+auth\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery3_a2db45c9e219ad331a52169d8f6bacae5}{}\label{classQuery3_a2db45c9e219ad331a52169d8f6bacae5}
+\index{Query3@{Query3}!data\+Rec@{data\+Rec}}
+\index{data\+Rec@{data\+Rec}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{data\+Rec}{dataRec}}]{\setlength{\rightskip}{0pt plus 5cm}Array\+List$<${\bf Data\+Records}$>$ Query3.\+data\+Rec\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery3_af5c1e99f9d5402273b0a993aa965a6d2}{}\label{classQuery3_af5c1e99f9d5402273b0a993aa965a6d2}
+\index{Query3@{Query3}!dbase@{dbase}}
+\index{dbase@{dbase}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{dbase}{dbase}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Database} Query3.\+dbase\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery3_acf21ca7cef4efec2a30d041d8b0770f1}{}\label{classQuery3_acf21ca7cef4efec2a30d041d8b0770f1}
+\index{Query3@{Query3}!filename@{filename}}
+\index{filename@{filename}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{filename}{filename}}]{\setlength{\rightskip}{0pt plus 5cm}String Query3.\+filename\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery3_a53f8993bc386e315c22cace0c0405336}{}\label{classQuery3_a53f8993bc386e315c22cace0c0405336}
+\index{Query3@{Query3}!instance@{instance}}
+\index{instance@{instance}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{instance}{instance}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Query3} Query3.\+instance = new {\bf Query3}(\char`\"{}dblp.\+xml\char`\"{})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classQuery3_a21e9b649c7b92dcd18831c6a1471454a}{}\label{classQuery3_a21e9b649c7b92dcd18831c6a1471454a}
+\index{Query3@{Query3}!pub\+Count@{pub\+Count}}
+\index{pub\+Count@{pub\+Count}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{pub\+Count}{pubCount}}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} Query3.\+pub\+Count =null\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery3_af016450dd2c9582f3ef5b2979969d201}{}\label{classQuery3_af016450dd2c9582f3ef5b2979969d201}
+\index{Query3@{Query3}!pub\+Count\+Temp@{pub\+Count\+Temp}}
+\index{pub\+Count\+Temp@{pub\+Count\+Temp}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{pub\+Count\+Temp}{pubCountTemp}}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Query3.\+pub\+Count\+Temp =null\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery3_aa4820280feefd8ebe9c04b42b73c8f52}{}\label{classQuery3_aa4820280feefd8ebe9c04b42b73c8f52}
+\index{Query3@{Query3}!year@{year}}
+\index{year@{year}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{year}{year}}]{\setlength{\rightskip}{0pt plus 5cm}int Query3.\+year\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery3_a0bae9f7c878eeda85345866f6983caae}{}\label{classQuery3_a0bae9f7c878eeda85345866f6983caae}
+\index{Query3@{Query3}!year\+Reg@{year\+Reg}}
+\index{year\+Reg@{year\+Reg}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{year\+Reg}{yearReg}}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} Query3.\+year\+Reg =null\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}{}\label{classQuery3_ada9c7e6f4d53607da9450738b76dbc7d}
+\index{Query3@{Query3}!year\+Reg\+Temp@{year\+Reg\+Temp}}
+\index{year\+Reg\+Temp@{year\+Reg\+Temp}!Query3@{Query3}}
+\subsubsection[{\texorpdfstring{year\+Reg\+Temp}{yearRegTemp}}]{\setlength{\rightskip}{0pt plus 5cm}double \mbox{[}$\,$\mbox{]} Query3.\+year\+Reg\+Temp =null\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery3_a8357a655699bb076c9174af9c95f00b1}{}\label{classQuery3_a8357a655699bb076c9174af9c95f00b1}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Query3_8java}{Query3.\+java}\end{DoxyCompactItemize}

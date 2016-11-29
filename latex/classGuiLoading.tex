@@ -1,0 +1,100 @@
+\hypertarget{classGuiLoading}{}\section{Gui\+Loading Class Reference}
+\label{classGuiLoading}\index{Gui\+Loading@{Gui\+Loading}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGuiLoading_a21afd225a3bb5a8e7542e662d39ea194}{Gui\+Loading} ()
+\item 
+void \hyperlink{classGuiLoading_aa13c96669e7ef681bfeae1a5b2dfab85}{start} ()
+\item 
+void \hyperlink{classGuiLoading_addd66da1f2d489192a2afdc66abef566}{stop} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+J\+Frame \hyperlink{classGuiLoading_a7790e84aa69edf129d802057d0420608}{loading\+Frame}
+\item 
+J\+Panel \hyperlink{classGuiLoading_ad7da2e974b1f70476fc92e8b3dc7e853}{loading\+Panel}
+\item 
+J\+Label \hyperlink{classGuiLoading_a885e7ee695236c2a7a4428658828b827}{loading\+Label}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Shows Loading 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Gui\+Loading@{Gui\+Loading}!Gui\+Loading@{Gui\+Loading}}
+\index{Gui\+Loading@{Gui\+Loading}!Gui\+Loading@{Gui\+Loading}}
+\subsubsection[{\texorpdfstring{Gui\+Loading()}{GuiLoading()}}]{\setlength{\rightskip}{0pt plus 5cm}Gui\+Loading.\+Gui\+Loading (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGuiLoading_a21afd225a3bb5a8e7542e662d39ea194}{}\label{classGuiLoading_a21afd225a3bb5a8e7542e662d39ea194}
+
+\begin{DoxyCode}
+25     \{
+26         System.out.println(\textcolor{stringliteral}{"Gui Loading"});
+27         \hyperlink{classGuiLoading_a7790e84aa69edf129d802057d0420608}{loadingFrame}=\textcolor{keyword}{new} JFrame(\textcolor{stringliteral}{"Loading"});
+28         \hyperlink{classGuiLoading_a7790e84aa69edf129d802057d0420608}{loadingFrame}.setSize(250,40); 
+29         \hyperlink{classGuiLoading_a7790e84aa69edf129d802057d0420608}{loadingFrame}.setLocation(600,270);
+30         \hyperlink{classGuiLoading_a7790e84aa69edf129d802057d0420608}{loadingFrame}.setResizable(\textcolor{keyword}{false});
+31         \hyperlink{classGuiLoading_a7790e84aa69edf129d802057d0420608}{loadingFrame}.setLayout(\textcolor{keyword}{new} BoxLayout (\hyperlink{classGuiLoading_a7790e84aa69edf129d802057d0420608}{loadingFrame}.getContentPane(), 
+      BoxLayout.Y\_AXIS));
+32         \hyperlink{classGuiLoading_a7790e84aa69edf129d802057d0420608}{loadingFrame}.setDefaultCloseOperation(JFrame.EXIT\_ON\_CLOSE);
+33         \hyperlink{classGuiLoading_ad7da2e974b1f70476fc92e8b3dc7e853}{loadingPanel}=\textcolor{keyword}{new} JPanel();
+34         \hyperlink{classGuiLoading_a885e7ee695236c2a7a4428658828b827}{loadingLabel}=\textcolor{keyword}{new} JLabel(\textcolor{stringliteral}{"<html><b>Loading... Please Wait</b></html>"},JLabel.CENTER);
+35         \hyperlink{classGuiLoading_a885e7ee695236c2a7a4428658828b827}{loadingLabel}.setFont(\textcolor{keyword}{new} Font(\textcolor{stringliteral}{"Calibri"}, Font.PLAIN, 15));
+36         \hyperlink{classGuiLoading_a885e7ee695236c2a7a4428658828b827}{loadingLabel}.setAlignmentX(Component.CENTER\_ALIGNMENT);
+37         \hyperlink{classGuiLoading_ad7da2e974b1f70476fc92e8b3dc7e853}{loadingPanel}.add(Box.createRigidArea(\textcolor{keyword}{new} Dimension(25,0)));
+38         \hyperlink{classGuiLoading_ad7da2e974b1f70476fc92e8b3dc7e853}{loadingPanel}.add(\hyperlink{classGuiLoading_a885e7ee695236c2a7a4428658828b827}{loadingLabel});
+39         \hyperlink{classGuiLoading_ad7da2e974b1f70476fc92e8b3dc7e853}{loadingPanel}.setVisible(\textcolor{keyword}{true});
+40         \hyperlink{classGuiLoading_a7790e84aa69edf129d802057d0420608}{loadingFrame}.add(\hyperlink{classGuiLoading_ad7da2e974b1f70476fc92e8b3dc7e853}{loadingPanel});
+41     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{Gui\+Loading@{Gui\+Loading}!start@{start}}
+\index{start@{start}!Gui\+Loading@{Gui\+Loading}}
+\subsubsection[{\texorpdfstring{start()}{start()}}]{\setlength{\rightskip}{0pt plus 5cm}void Gui\+Loading.\+start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGuiLoading_aa13c96669e7ef681bfeae1a5b2dfab85}{}\label{classGuiLoading_aa13c96669e7ef681bfeae1a5b2dfab85}
+
+\begin{DoxyCode}
+44     \{
+45         \hyperlink{classGuiLoading_a7790e84aa69edf129d802057d0420608}{loadingFrame}.setVisible(\textcolor{keyword}{true});
+46     \}   
+\end{DoxyCode}
+\index{Gui\+Loading@{Gui\+Loading}!stop@{stop}}
+\index{stop@{stop}!Gui\+Loading@{Gui\+Loading}}
+\subsubsection[{\texorpdfstring{stop()}{stop()}}]{\setlength{\rightskip}{0pt plus 5cm}void Gui\+Loading.\+stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGuiLoading_addd66da1f2d489192a2afdc66abef566}{}\label{classGuiLoading_addd66da1f2d489192a2afdc66abef566}
+
+\begin{DoxyCode}
+49     \{
+50         \hyperlink{classGuiLoading_a7790e84aa69edf129d802057d0420608}{loadingFrame}.setVisible(\textcolor{keyword}{false});
+51     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{Gui\+Loading@{Gui\+Loading}!loading\+Frame@{loading\+Frame}}
+\index{loading\+Frame@{loading\+Frame}!Gui\+Loading@{Gui\+Loading}}
+\subsubsection[{\texorpdfstring{loading\+Frame}{loadingFrame}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Frame Gui\+Loading.\+loading\+Frame\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiLoading_a7790e84aa69edf129d802057d0420608}{}\label{classGuiLoading_a7790e84aa69edf129d802057d0420608}
+\index{Gui\+Loading@{Gui\+Loading}!loading\+Label@{loading\+Label}}
+\index{loading\+Label@{loading\+Label}!Gui\+Loading@{Gui\+Loading}}
+\subsubsection[{\texorpdfstring{loading\+Label}{loadingLabel}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Label Gui\+Loading.\+loading\+Label\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiLoading_a885e7ee695236c2a7a4428658828b827}{}\label{classGuiLoading_a885e7ee695236c2a7a4428658828b827}
+\index{Gui\+Loading@{Gui\+Loading}!loading\+Panel@{loading\+Panel}}
+\index{loading\+Panel@{loading\+Panel}!Gui\+Loading@{Gui\+Loading}}
+\subsubsection[{\texorpdfstring{loading\+Panel}{loadingPanel}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Panel Gui\+Loading.\+loading\+Panel\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiLoading_ad7da2e974b1f70476fc92e8b3dc7e853}{}\label{classGuiLoading_ad7da2e974b1f70476fc92e8b3dc7e853}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{GuiLoading_8java}{Gui\+Loading.\+java}\end{DoxyCompactItemize}

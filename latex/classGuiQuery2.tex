@@ -1,0 +1,300 @@
+\hypertarget{classGuiQuery2}{}\section{Gui\+Query2 Class Reference}
+\label{classGuiQuery2}\index{Gui\+Query2@{Gui\+Query2}}
+
+
+Inheritance diagram for Gui\+Query2\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{classGuiQuery2__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Gui\+Query2\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGuiQuery2__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGuiQuery2_abf935498d661bd8a8ec951d3238527d7}{Gui\+Query2} (J\+Frame \hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{main\+Frame}, J\+Combo\+Box$<$ String $>$ \hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries}, J\+Panel \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{side\+Panel}, J\+Panel \hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{display\+Panel}, \hyperlink{classQueryFacade}{Query\+Facade} q2)
+\item 
+void \hyperlink{classGuiQuery2_adb51f7db961816ce8f31043affeee2e7}{init\+Query} ()
+\item 
+void \hyperlink{classGuiQuery2_ad41b33535518a909e7ed9bcd7be271a4}{add\+To\+Panel} ()
+\item 
+void \hyperlink{classGuiQuery2_a8d5d3771f27c0c86d8af1d8b361218ec}{change} (int i)
+\item 
+void \hyperlink{classGuiQuery2_a90d0eb0359bc36e9bddcfa6b3308bb85}{change\+Mode} (int i)
+\item 
+void \hyperlink{classGuiQuery2_af4f531c30a9b1aff5fd0474741611df3}{set\+Query} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classGuiQuery2_ac581df0639712a0ef23b6eee49df03e0}{flag} =0
+\item 
+J\+Label \hyperlink{classGuiQuery2_adb385146a2f0b88b98fa44c95cc4efc5}{title} = new J\+Label(\char`\"{}No. of Publications\char`\"{})
+\item 
+J\+Text\+Field \hyperlink{classGuiQuery2_aadf0bcfdb4aa2bad406378cf07be0c24}{publk} =new J\+Text\+Field()
+\item 
+Default\+Table\+Model \hyperlink{classGuiQuery2_a0b3f16b0f92eabbdea82f4abd3ba4377}{query2\+Table} = new Default\+Table\+Model()
+\item 
+J\+Table \hyperlink{classGuiQuery2_af15c62d5c9199ea2fdf2de7442495c72}{display\+Table} = new J\+Table(\hyperlink{classGuiQuery2_a0b3f16b0f92eabbdea82f4abd3ba4377}{query2\+Table})
+\item 
+J\+Scroll\+Pane \hyperlink{classGuiQuery2_abba8f10b666db3ea7653c3f6a647fb60}{disp\+Table} = new J\+Scroll\+Pane(\hyperlink{classGuiQuery2_af15c62d5c9199ea2fdf2de7442495c72}{display\+Table})
+\item 
+J\+Label \hyperlink{classGuiQuery2_ab813118a2db6297717b32f054e5305e9}{warning} = new J\+Label(\char`\"{} \char`\"{})
+\item 
+J\+Button \hyperlink{classGuiQuery2_a2a63533eaacb408e66da8beb1738b140}{next} = new J\+Button(\char`\"{}N\+E\+XT\char`\"{})
+\item 
+J\+Button \hyperlink{classGuiQuery2_adb82d5a5b40c916e957bddbca80efb4b}{back} = new J\+Button(\char`\"{}B\+A\+CK\char`\"{})
+\item 
+Array\+List$<$ \hyperlink{classAuthor}{Author} $>$ \hyperlink{classGuiQuery2_a97d061ff962c9d44c1723bc040c34458}{res} = new Array\+List$<$\hyperlink{classAuthor}{Author}$>$()
+\item 
+J\+Label \hyperlink{classGuiQuery2_a09768aea9ccb55c5e1d1d9926e2ae048}{total\+Results} = new J\+Label(\char`\"{} \char`\"{})
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Creates the \hyperlink{classGUI}{G\+UI} needed for supporting \hyperlink{classQuery2}{Query2} 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Gui\+Query2@{Gui\+Query2}!Gui\+Query2@{Gui\+Query2}}
+\index{Gui\+Query2@{Gui\+Query2}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{Gui\+Query2(\+J\+Frame main\+Frame, J\+Combo\+Box$<$ String $>$ queries, J\+Panel side\+Panel, J\+Panel display\+Panel, Query\+Facade q2)}{GuiQuery2(JFrame mainFrame, JComboBox< String > queries, JPanel sidePanel, JPanel displayPanel, QueryFacade q2)}}]{\setlength{\rightskip}{0pt plus 5cm}Gui\+Query2.\+Gui\+Query2 (
+\begin{DoxyParamCaption}
+\item[{J\+Frame}]{main\+Frame, }
+\item[{J\+Combo\+Box$<$ String $>$}]{queries, }
+\item[{J\+Panel}]{side\+Panel, }
+\item[{J\+Panel}]{display\+Panel, }
+\item[{{\bf Query\+Facade}}]{q2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGuiQuery2_abf935498d661bd8a8ec951d3238527d7}{}\label{classGuiQuery2_abf935498d661bd8a8ec951d3238527d7}
+
+\begin{DoxyCode}
+33     \{
+34         this.\hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{mainFrame}=\hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{mainFrame};
+35         this.\hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries}=\hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries};
+36         this.\hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel}=\hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel};
+37         this.\hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{displayPanel}=\hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{displayPanel};
+38         this.\hyperlink{classGUIQuery_a2a20445d749185552014142b78f3e071}{q}=q2;
+39     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{Gui\+Query2@{Gui\+Query2}!add\+To\+Panel@{add\+To\+Panel}}
+\index{add\+To\+Panel@{add\+To\+Panel}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{add\+To\+Panel()}{addToPanel()}}]{\setlength{\rightskip}{0pt plus 5cm}void Gui\+Query2.\+add\+To\+Panel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGuiQuery2_ad41b33535518a909e7ed9bcd7be271a4}{}\label{classGuiQuery2_ad41b33535518a909e7ed9bcd7be271a4}
+
+\begin{DoxyCode}
+78     \{
+79         \hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{displayPanel}.removeAll();
+80         \hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{displayPanel}.add(\hyperlink{classGuiQuery2_a2a63533eaacb408e66da8beb1738b140}{next});
+81         \hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{displayPanel}.add(\hyperlink{classGuiQuery2_abba8f10b666db3ea7653c3f6a647fb60}{dispTable});
+82         \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel}.add(\hyperlink{classGuiQuery2_ab813118a2db6297717b32f054e5305e9}{warning});
+83         \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel}.add(\hyperlink{classGuiQuery2_adb385146a2f0b88b98fa44c95cc4efc5}{title});
+84         \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel}.add(\hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries});
+85         \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel}.add(\hyperlink{classGuiQuery2_aadf0bcfdb4aa2bad406378cf07be0c24}{publk});
+86         \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel}.add(\hyperlink{classGUIQuery_a6580b15e365bc754c1a5ccdd2d58a4bb}{submit});
+87         \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel}.add(reset);
+88         \hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{mainFrame}.revalidate();
+89         \hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{mainFrame}.repaint();
+90         \hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{displayPanel}.add(\hyperlink{classGuiQuery2_a09768aea9ccb55c5e1d1d9926e2ae048}{totalResults});
+91         reset.addActionListener(\textcolor{keyword}{new} ActionListener()\{
+92                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e)\{
+93                     tableWorking=0;
+94                     \hyperlink{classGuiQuery2_a0b3f16b0f92eabbdea82f4abd3ba4377}{query2Table}.setRowCount(0);
+95                     \hyperlink{classGuiQuery2_aadf0bcfdb4aa2bad406378cf07be0c24}{publk}.setText(\textcolor{stringliteral}{""});
+96                     \hyperlink{classGuiQuery2_a09768aea9ccb55c5e1d1d9926e2ae048}{totalResults}.setText(\textcolor{stringliteral}{""});
+97                 \}
+98             \});
+99         
+100 
+101         \hyperlink{classGuiQuery2_adb82d5a5b40c916e957bddbca80efb4b}{back}.addActionListener(\textcolor{keyword}{new} ActionListener()\{
+102             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e)\{
+103 
+104             \}
+105         \});
+106     \}
+\end{DoxyCode}
+\index{Gui\+Query2@{Gui\+Query2}!change@{change}}
+\index{change@{change}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{change(int i)}{change(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}void Gui\+Query2.\+change (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGuiQuery2_a8d5d3771f27c0c86d8af1d8b361218ec}{}\label{classGuiQuery2_a8d5d3771f27c0c86d8af1d8b361218ec}
+
+\begin{DoxyCode}
+109     \{
+110         \hyperlink{classGuiQuery2_ac581df0639712a0ef23b6eee49df03e0}{flag}=i;
+111     \}
+\end{DoxyCode}
+\index{Gui\+Query2@{Gui\+Query2}!change\+Mode@{change\+Mode}}
+\index{change\+Mode@{change\+Mode}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{change\+Mode(int i)}{changeMode(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}void Gui\+Query2.\+change\+Mode (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGuiQuery2_a90d0eb0359bc36e9bddcfa6b3308bb85}{}\label{classGuiQuery2_a90d0eb0359bc36e9bddcfa6b3308bb85}
+
+\begin{DoxyCode}
+113     \{
+114         flag2=i;
+115     \}
+\end{DoxyCode}
+\index{Gui\+Query2@{Gui\+Query2}!init\+Query@{init\+Query}}
+\index{init\+Query@{init\+Query}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{init\+Query()}{initQuery()}}]{\setlength{\rightskip}{0pt plus 5cm}void Gui\+Query2.\+init\+Query (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGuiQuery2_adb51f7db961816ce8f31043affeee2e7}{}\label{classGuiQuery2_adb51f7db961816ce8f31043affeee2e7}
+
+\begin{DoxyCode}
+41                            \{
+42         \hyperlink{classGuiQuery2_aadf0bcfdb4aa2bad406378cf07be0c24}{publk}.setBounds(170,80,50,20);
+43         \hyperlink{classGuiQuery2_af15c62d5c9199ea2fdf2de7442495c72}{displayTable}.setDefaultEditor(Object.class, null);
+44         \hyperlink{classGuiQuery2_abba8f10b666db3ea7653c3f6a647fb60}{dispTable}.setBounds(20,5,910,390);
+45         \hyperlink{classGuiQuery2_a0b3f16b0f92eabbdea82f4abd3ba4377}{query2Table}.addColumn(\textcolor{stringliteral}{"S.No."});
+46         \hyperlink{classGuiQuery2_a0b3f16b0f92eabbdea82f4abd3ba4377}{query2Table}.addColumn(\textcolor{stringliteral}{"Authors"});
+47         \hyperlink{classGuiQuery2_ab813118a2db6297717b32f054e5305e9}{warning}.setFont(\textcolor{keyword}{new} Font(\textcolor{stringliteral}{"Calibri"}, Font.PLAIN, 12));
+48         \hyperlink{classGuiQuery2_ab813118a2db6297717b32f054e5305e9}{warning}.setForeground(Color.RED);
+49         \hyperlink{classGuiQuery2_ab813118a2db6297717b32f054e5305e9}{warning}.setBounds(30,340,190,20);
+50         \hyperlink{classGuiQuery2_a2a63533eaacb408e66da8beb1738b140}{next}.setBounds(840,395,80,40);
+51         \hyperlink{classGuiQuery2_a2a63533eaacb408e66da8beb1738b140}{next}.setBackground(Color.RED);
+52         \hyperlink{classGuiQuery2_a2a63533eaacb408e66da8beb1738b140}{next}.setFont(\textcolor{keyword}{new} Font(\textcolor{stringliteral}{"Calibri"}, Font.PLAIN, 10));
+53         \hyperlink{classGuiQuery2_adb82d5a5b40c916e957bddbca80efb4b}{back}.setBounds(30,395,80,40);
+54         \hyperlink{classGuiQuery2_adb82d5a5b40c916e957bddbca80efb4b}{back}.setBackground(Color.BLACK);
+55         \hyperlink{classGuiQuery2_adb82d5a5b40c916e957bddbca80efb4b}{back}.setFont(\textcolor{keyword}{new} Font(\textcolor{stringliteral}{"Calibri"}, Font.PLAIN, 10));
+56         \hyperlink{classGUIQuery_a6580b15e365bc754c1a5ccdd2d58a4bb}{submit}=\textcolor{keyword}{new} JButton(\textcolor{stringliteral}{"Submit"});
+57         reset=\textcolor{keyword}{new} JButton(\textcolor{stringliteral}{"Reset"});
+58         \hyperlink{classGUIQuery_a6580b15e365bc754c1a5ccdd2d58a4bb}{submit}.setForeground(Color.WHITE);
+59         \hyperlink{classGUIQuery_a6580b15e365bc754c1a5ccdd2d58a4bb}{submit}.setBackground(Color.BLACK);
+60         reset.setBackground(Color.RED);
+61         \hyperlink{classGUIQuery_a6580b15e365bc754c1a5ccdd2d58a4bb}{submit}.setBounds(30,140,80,30);
+62         reset.setBounds(140,140,80,30);
+63         \hyperlink{classGUIQuery_a6580b15e365bc754c1a5ccdd2d58a4bb}{submit}.setFont(\textcolor{keyword}{new} Font(\textcolor{stringliteral}{"Calibri"}, Font.PLAIN, 12));
+64         reset.setFont(\textcolor{keyword}{new} Font(\textcolor{stringliteral}{"Calibri"}, Font.PLAIN, 12));
+65         \hyperlink{classGuiQuery2_a09768aea9ccb55c5e1d1d9926e2ae048}{totalResults}.setFont(\textcolor{keyword}{new} Font(\textcolor{stringliteral}{"Calibri"}, Font.PLAIN, 10));
+66         \hyperlink{classGuiQuery2_a09768aea9ccb55c5e1d1d9926e2ae048}{totalResults}.setBounds(515,395,120,30);
+67         \hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries}.removeItem(\textcolor{stringliteral}{"Queries"});
+68         \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel}.removeAll();
+69         \hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries}.setBounds(50,50,100,20);
+70         \hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries}.setSelectedItem(\textcolor{stringliteral}{"Query 2"});
+71         \hyperlink{classGuiQuery2_adb385146a2f0b88b98fa44c95cc4efc5}{title}.setFont(\textcolor{keyword}{new} Font(\textcolor{stringliteral}{"Calibri"}, Font.PLAIN, 12));
+72         \hyperlink{classGuiQuery2_adb385146a2f0b88b98fa44c95cc4efc5}{title}.setBounds(30,80,130,30);
+73         \hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries}.removeItem(\textcolor{stringliteral}{"Queries"});
+74         this.\hyperlink{classGuiQuery2_ad41b33535518a909e7ed9bcd7be271a4}{addToPanel}();    
+75     \}
+\end{DoxyCode}
+\index{Gui\+Query2@{Gui\+Query2}!set\+Query@{set\+Query}}
+\index{set\+Query@{set\+Query}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{set\+Query()}{setQuery()}}]{\setlength{\rightskip}{0pt plus 5cm}void Gui\+Query2.\+set\+Query (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGuiQuery2_af4f531c30a9b1aff5fd0474741611df3}{}\label{classGuiQuery2_af4f531c30a9b1aff5fd0474741611df3}
+
+\begin{DoxyCode}
+117                            \{
+118         \hyperlink{classGUIQuery_a6580b15e365bc754c1a5ccdd2d58a4bb}{submit}.addActionListener(\textcolor{keyword}{new} ActionListener()\{
+119                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e)\{
+120                     \hyperlink{classGuiQuery2_a09768aea9ccb55c5e1d1d9926e2ae048}{totalResults}.setText(\textcolor{stringliteral}{" "});
+121                     \hyperlink{classGuiQuery2_a0b3f16b0f92eabbdea82f4abd3ba4377}{query2Table}.setRowCount(0);
+122                     \textcolor{keywordtype}{int} count=0;
+123                     pages=0;
+124                     tableWorking=0;
+125                     \textcolor{keywordflow}{if}(\hyperlink{classGUIQuery_a2ffddedac70e763f8d4bfc6d24d9a0db}{isInteger}(\hyperlink{classGuiQuery2_aadf0bcfdb4aa2bad406378cf07be0c24}{publk}.getText()))\{
+126                         \hyperlink{classGuiQuery2_ab813118a2db6297717b32f054e5305e9}{warning}.setText(\textcolor{stringliteral}{" "});
+127                         \hyperlink{classGUIQuery_a2a20445d749185552014142b78f3e071}{q}.\hyperlink{classQueryFacade_ae9371edaf51074aa8ad0c108e492755f}{queryTwoFind}(Integer.parseInt(\hyperlink{classGuiQuery2_aadf0bcfdb4aa2bad406378cf07be0c24}{publk}.getText()));
+128                         \textcolor{keywordflow}{if}(\hyperlink{classGUIQuery_a2a20445d749185552014142b78f3e071}{q}.\hyperlink{classQueryFacade_a31b305c90f782be21b5c51692bc0d896}{queryTwoGetCount}()==0)\{
+129                             \hyperlink{classGuiQuery2_a09768aea9ccb55c5e1d1d9926e2ae048}{totalResults}.setText(\textcolor{stringliteral}{"No Result Found"});
+130                         \} \textcolor{keywordflow}{else}\{
+131                             \hyperlink{classGuiQuery2_a09768aea9ccb55c5e1d1d9926e2ae048}{totalResults}.setText(\textcolor{stringliteral}{"Total results = "}+
+      \hyperlink{classGUIQuery_a2a20445d749185552014142b78f3e071}{q}.\hyperlink{classQueryFacade_a31b305c90f782be21b5c51692bc0d896}{queryTwoGetCount}());\}
+132                         tableWorking=1;
+133                         \hyperlink{classAuthor}{Author} a =\hyperlink{classGUIQuery_a2a20445d749185552014142b78f3e071}{q}.\hyperlink{classQueryFacade_a01ab933fe12fac06556af3e2948dbe58}{queryTwoGetData}();
+134                         \textcolor{keywordflow}{while}(a!=null && count<20)\{
+135                             \hyperlink{classGuiQuery2_a0b3f16b0f92eabbdea82f4abd3ba4377}{query2Table}.addRow(\textcolor{keyword}{new} Object[]\{(count+1),a.
+      \hyperlink{classAuthor_a1b7371df3d6db53518e2f3556241c52e}{getName}()\});
+136                             a=\hyperlink{classGUIQuery_a2a20445d749185552014142b78f3e071}{q}.\hyperlink{classQueryFacade_a01ab933fe12fac06556af3e2948dbe58}{queryTwoGetData}();
+137                             count++;\}
+138                         pages=1;
+139                     \} \textcolor{keywordflow}{else}\{
+140                         \hyperlink{classGuiQuery2_ab813118a2db6297717b32f054e5305e9}{warning}.setText(\textcolor{stringliteral}{"Publications should be numbers"}); \}
+141                 \}
+142             \}); 
+143         \hyperlink{classGuiQuery2_a2a63533eaacb408e66da8beb1738b140}{next}.addActionListener(\textcolor{keyword}{new} ActionListener()\{
+144             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e)\{
+145                 \textcolor{keywordflow}{if}(tableWorking==1)\{
+146                     \hyperlink{classAuthor}{Author} a =\hyperlink{classGUIQuery_a2a20445d749185552014142b78f3e071}{q}.\hyperlink{classQueryFacade_a01ab933fe12fac06556af3e2948dbe58}{queryTwoGetData}();
+147                     \textcolor{keywordflow}{if}(a!=null)\{    
+148                         \textcolor{keywordtype}{int} count=0;
+149                         \hyperlink{classGuiQuery2_a0b3f16b0f92eabbdea82f4abd3ba4377}{query2Table}.setRowCount(0);
+150                         \textcolor{keywordflow}{while}(a!=null && count<20)\{
+151                             \hyperlink{classGuiQuery2_a0b3f16b0f92eabbdea82f4abd3ba4377}{query2Table}.addRow(\textcolor{keyword}{new} Object[]\{(pages*20)+(count+1),a.
+      \hyperlink{classAuthor_a1b7371df3d6db53518e2f3556241c52e}{getName}()\});
+152                             count++;
+153                             \textcolor{keywordflow}{if}(count<20)\{
+154                             a=\hyperlink{classGUIQuery_a2a20445d749185552014142b78f3e071}{q}.\hyperlink{classQueryFacade_a01ab933fe12fac06556af3e2948dbe58}{queryTwoGetData}();\} 
+155                         \}
+156                         pages+=1;\}
+157                 \} \textcolor{keywordflow}{else}\{
+158                     tableWorking=0;\}
+159             \}
+160         \});
+161     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{Gui\+Query2@{Gui\+Query2}!back@{back}}
+\index{back@{back}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{back}{back}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Button Gui\+Query2.\+back = new J\+Button(\char`\"{}B\+A\+CK\char`\"{})\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiQuery2_adb82d5a5b40c916e957bddbca80efb4b}{}\label{classGuiQuery2_adb82d5a5b40c916e957bddbca80efb4b}
+\index{Gui\+Query2@{Gui\+Query2}!display\+Table@{display\+Table}}
+\index{display\+Table@{display\+Table}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{display\+Table}{displayTable}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Table Gui\+Query2.\+display\+Table = new J\+Table({\bf query2\+Table})\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiQuery2_af15c62d5c9199ea2fdf2de7442495c72}{}\label{classGuiQuery2_af15c62d5c9199ea2fdf2de7442495c72}
+\index{Gui\+Query2@{Gui\+Query2}!disp\+Table@{disp\+Table}}
+\index{disp\+Table@{disp\+Table}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{disp\+Table}{dispTable}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Scroll\+Pane Gui\+Query2.\+disp\+Table = new J\+Scroll\+Pane({\bf display\+Table})\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiQuery2_abba8f10b666db3ea7653c3f6a647fb60}{}\label{classGuiQuery2_abba8f10b666db3ea7653c3f6a647fb60}
+\index{Gui\+Query2@{Gui\+Query2}!flag@{flag}}
+\index{flag@{flag}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{flag}{flag}}]{\setlength{\rightskip}{0pt plus 5cm}int Gui\+Query2.\+flag =0\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiQuery2_ac581df0639712a0ef23b6eee49df03e0}{}\label{classGuiQuery2_ac581df0639712a0ef23b6eee49df03e0}
+\index{Gui\+Query2@{Gui\+Query2}!next@{next}}
+\index{next@{next}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{next}{next}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Button Gui\+Query2.\+next = new J\+Button(\char`\"{}N\+E\+XT\char`\"{})\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiQuery2_a2a63533eaacb408e66da8beb1738b140}{}\label{classGuiQuery2_a2a63533eaacb408e66da8beb1738b140}
+\index{Gui\+Query2@{Gui\+Query2}!publk@{publk}}
+\index{publk@{publk}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{publk}{publk}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Text\+Field Gui\+Query2.\+publk =new J\+Text\+Field()\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiQuery2_aadf0bcfdb4aa2bad406378cf07be0c24}{}\label{classGuiQuery2_aadf0bcfdb4aa2bad406378cf07be0c24}
+\index{Gui\+Query2@{Gui\+Query2}!query2\+Table@{query2\+Table}}
+\index{query2\+Table@{query2\+Table}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{query2\+Table}{query2Table}}]{\setlength{\rightskip}{0pt plus 5cm}Default\+Table\+Model Gui\+Query2.\+query2\+Table = new Default\+Table\+Model()\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiQuery2_a0b3f16b0f92eabbdea82f4abd3ba4377}{}\label{classGuiQuery2_a0b3f16b0f92eabbdea82f4abd3ba4377}
+\index{Gui\+Query2@{Gui\+Query2}!res@{res}}
+\index{res@{res}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{res}{res}}]{\setlength{\rightskip}{0pt plus 5cm}Array\+List$<${\bf Author}$>$ Gui\+Query2.\+res = new Array\+List$<${\bf Author}$>$()\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiQuery2_a97d061ff962c9d44c1723bc040c34458}{}\label{classGuiQuery2_a97d061ff962c9d44c1723bc040c34458}
+\index{Gui\+Query2@{Gui\+Query2}!title@{title}}
+\index{title@{title}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{title}{title}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Label Gui\+Query2.\+title = new J\+Label(\char`\"{}No. of Publications\char`\"{})\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiQuery2_adb385146a2f0b88b98fa44c95cc4efc5}{}\label{classGuiQuery2_adb385146a2f0b88b98fa44c95cc4efc5}
+\index{Gui\+Query2@{Gui\+Query2}!total\+Results@{total\+Results}}
+\index{total\+Results@{total\+Results}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{total\+Results}{totalResults}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Label Gui\+Query2.\+total\+Results = new J\+Label(\char`\"{} \char`\"{})\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiQuery2_a09768aea9ccb55c5e1d1d9926e2ae048}{}\label{classGuiQuery2_a09768aea9ccb55c5e1d1d9926e2ae048}
+\index{Gui\+Query2@{Gui\+Query2}!warning@{warning}}
+\index{warning@{warning}!Gui\+Query2@{Gui\+Query2}}
+\subsubsection[{\texorpdfstring{warning}{warning}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Label Gui\+Query2.\+warning = new J\+Label(\char`\"{} \char`\"{})\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiQuery2_ab813118a2db6297717b32f054e5305e9}{}\label{classGuiQuery2_ab813118a2db6297717b32f054e5305e9}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{GuiQuery2_8java}{Gui\+Query2.\+java}\end{DoxyCompactItemize}

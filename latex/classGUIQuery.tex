@@ -1,0 +1,132 @@
+\hypertarget{classGUIQuery}{}\section{G\+U\+I\+Query Class Reference}
+\label{classGUIQuery}\index{G\+U\+I\+Query@{G\+U\+I\+Query}}
+
+
+Inheritance diagram for G\+U\+I\+Query\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGUIQuery__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for G\+U\+I\+Query\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGUIQuery__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract void \hyperlink{classGUIQuery_ac2ad3b1e3b09ddc71b4df76397786553}{init\+Query} ()
+\item 
+abstract void \hyperlink{classGUIQuery_a5ab63c960b5a562e5daa4be87dec89e3}{set\+Query} ()
+\item 
+final void \hyperlink{classGUIQuery_acc9553514ecac053151c7580b83dec21}{start} ()
+\item 
+boolean \hyperlink{classGUIQuery_a2ffddedac70e763f8d4bfc6d24d9a0db}{is\+Integer} (String s)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+J\+Frame \hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{main\+Frame}
+\item 
+J\+Panel \hyperlink{classGUIQuery_a37a678b81901083072a73283d7acf52f}{upper\+Panel}
+\item 
+J\+Panel \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{side\+Panel}
+\item 
+J\+Panel \hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{display\+Panel}
+\item 
+J\+Combo\+Box$<$ String $>$ \hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries}
+\item 
+J\+Button \hyperlink{classGUIQuery_a6580b15e365bc754c1a5ccdd2d58a4bb}{submit}
+\item 
+\hyperlink{classQueryFacade}{Query\+Facade} \hyperlink{classGUIQuery_a2a20445d749185552014142b78f3e071}{q} =null
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides Template Design Pattern 
+
+\subsection{Member Function Documentation}
+\index{G\+U\+I\+Query@{G\+U\+I\+Query}!init\+Query@{init\+Query}}
+\index{init\+Query@{init\+Query}!G\+U\+I\+Query@{G\+U\+I\+Query}}
+\subsubsection[{\texorpdfstring{init\+Query()}{initQuery()}}]{\setlength{\rightskip}{0pt plus 5cm}abstract void G\+U\+I\+Query.\+init\+Query (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}\hypertarget{classGUIQuery_ac2ad3b1e3b09ddc71b4df76397786553}{}\label{classGUIQuery_ac2ad3b1e3b09ddc71b4df76397786553}
+\index{G\+U\+I\+Query@{G\+U\+I\+Query}!is\+Integer@{is\+Integer}}
+\index{is\+Integer@{is\+Integer}!G\+U\+I\+Query@{G\+U\+I\+Query}}
+\subsubsection[{\texorpdfstring{is\+Integer(\+String s)}{isInteger(String s)}}]{\setlength{\rightskip}{0pt plus 5cm}boolean G\+U\+I\+Query.\+is\+Integer (
+\begin{DoxyParamCaption}
+\item[{String}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGUIQuery_a2ffddedac70e763f8d4bfc6d24d9a0db}{}\label{classGUIQuery_a2ffddedac70e763f8d4bfc6d24d9a0db}
+
+\begin{DoxyCode}
+36                                        \{
+37       \textcolor{keywordtype}{boolean} isValidInteger = \textcolor{keyword}{false};
+38       \textcolor{keywordflow}{try}
+39       \{
+40          Integer.parseInt(s);
+41          isValidInteger = \textcolor{keyword}{true};
+42       \}
+43       \textcolor{keywordflow}{catch} (NumberFormatException ex)
+44       \{\}
+45       \textcolor{keywordflow}{return} isValidInteger;
+46    \}
+\end{DoxyCode}
+\index{G\+U\+I\+Query@{G\+U\+I\+Query}!set\+Query@{set\+Query}}
+\index{set\+Query@{set\+Query}!G\+U\+I\+Query@{G\+U\+I\+Query}}
+\subsubsection[{\texorpdfstring{set\+Query()}{setQuery()}}]{\setlength{\rightskip}{0pt plus 5cm}abstract void G\+U\+I\+Query.\+set\+Query (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}\hypertarget{classGUIQuery_a5ab63c960b5a562e5daa4be87dec89e3}{}\label{classGUIQuery_a5ab63c960b5a562e5daa4be87dec89e3}
+\index{G\+U\+I\+Query@{G\+U\+I\+Query}!start@{start}}
+\index{start@{start}!G\+U\+I\+Query@{G\+U\+I\+Query}}
+\subsubsection[{\texorpdfstring{start()}{start()}}]{\setlength{\rightskip}{0pt plus 5cm}final void G\+U\+I\+Query.\+start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGUIQuery_acc9553514ecac053151c7580b83dec21}{}\label{classGUIQuery_acc9553514ecac053151c7580b83dec21}
+
+\begin{DoxyCode}
+31     \{
+32         \hyperlink{classGUIQuery_ac2ad3b1e3b09ddc71b4df76397786553}{initQuery}();
+33         \hyperlink{classGUIQuery_a5ab63c960b5a562e5daa4be87dec89e3}{setQuery}();
+34     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{G\+U\+I\+Query@{G\+U\+I\+Query}!display\+Panel@{display\+Panel}}
+\index{display\+Panel@{display\+Panel}!G\+U\+I\+Query@{G\+U\+I\+Query}}
+\subsubsection[{\texorpdfstring{display\+Panel}{displayPanel}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Panel G\+U\+I\+Query.\+display\+Panel\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{}\label{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}
+\index{G\+U\+I\+Query@{G\+U\+I\+Query}!main\+Frame@{main\+Frame}}
+\index{main\+Frame@{main\+Frame}!G\+U\+I\+Query@{G\+U\+I\+Query}}
+\subsubsection[{\texorpdfstring{main\+Frame}{mainFrame}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Frame G\+U\+I\+Query.\+main\+Frame\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{}\label{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}
+\index{G\+U\+I\+Query@{G\+U\+I\+Query}!q@{q}}
+\index{q@{q}!G\+U\+I\+Query@{G\+U\+I\+Query}}
+\subsubsection[{\texorpdfstring{q}{q}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Query\+Facade} G\+U\+I\+Query.\+q =null\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classGUIQuery_a2a20445d749185552014142b78f3e071}{}\label{classGUIQuery_a2a20445d749185552014142b78f3e071}
+\index{G\+U\+I\+Query@{G\+U\+I\+Query}!queries@{queries}}
+\index{queries@{queries}!G\+U\+I\+Query@{G\+U\+I\+Query}}
+\subsubsection[{\texorpdfstring{queries}{queries}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Combo\+Box$<$String$>$ G\+U\+I\+Query.\+queries\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{}\label{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}
+\index{G\+U\+I\+Query@{G\+U\+I\+Query}!side\+Panel@{side\+Panel}}
+\index{side\+Panel@{side\+Panel}!G\+U\+I\+Query@{G\+U\+I\+Query}}
+\subsubsection[{\texorpdfstring{side\+Panel}{sidePanel}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Panel G\+U\+I\+Query.\+side\+Panel\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{}\label{classGUIQuery_a70e233b1f14874166b7707edebe825d2}
+\index{G\+U\+I\+Query@{G\+U\+I\+Query}!submit@{submit}}
+\index{submit@{submit}!G\+U\+I\+Query@{G\+U\+I\+Query}}
+\subsubsection[{\texorpdfstring{submit}{submit}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Button G\+U\+I\+Query.\+submit\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classGUIQuery_a6580b15e365bc754c1a5ccdd2d58a4bb}{}\label{classGUIQuery_a6580b15e365bc754c1a5ccdd2d58a4bb}
+\index{G\+U\+I\+Query@{G\+U\+I\+Query}!upper\+Panel@{upper\+Panel}}
+\index{upper\+Panel@{upper\+Panel}!G\+U\+I\+Query@{G\+U\+I\+Query}}
+\subsubsection[{\texorpdfstring{upper\+Panel}{upperPanel}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Panel G\+U\+I\+Query.\+upper\+Panel\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classGUIQuery_a37a678b81901083072a73283d7acf52f}{}\label{classGUIQuery_a37a678b81901083072a73283d7acf52f}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{GUIQuery_8java}{G\+U\+I\+Query.\+java}\end{DoxyCompactItemize}

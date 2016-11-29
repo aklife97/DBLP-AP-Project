@@ -10,3 +10,12 @@ Objective is to create a DBLP Query Engine that parses data from the given XML f
 
 ##Resources
 The XML dataset and other details about it can be found at ​​<http://dblp.uni-trier.de/xml/>
+
+##Execution
+Please execute GUI.java
+
+##Doxygen Documentation
+Doxygen Docs can be found in html and latex folder
+
+##Report
+Report can be found in APfinalreport.pdf

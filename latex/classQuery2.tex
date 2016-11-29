@@ -1,0 +1,156 @@
+\hypertarget{classQuery2}{}\section{Query2 Class Reference}
+\label{classQuery2}\index{Query2@{Query2}}
+
+
+Collaboration diagram for Query2\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classQuery2__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classQuery2_ab5f9fd59b15dcdef599faec26ae49424}{find} (int k)
+\item 
+\hyperlink{classAuthor}{Author} \hyperlink{classQuery2_a70190cc13fb74f6bf00ce1347a8b8946}{get\+Data} ()
+\item 
+void \hyperlink{classQuery2_ae1f51e2c333e090fcd07a573a2ba7b10}{print\+Data} ()
+\item 
+int \hyperlink{classQuery2_afc9171c552d575feafb5e5f4b3a6cc19}{get\+Count} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classQuery2}{Query2} \hyperlink{classQuery2_a0a1270d32e0b8ac467ad09f546e0c3ee}{get\+Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classQuery2_ad2ab065a532d46e6a40c16fff5041a52}{Query2} (String \+\_\+filename)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Array\+List$<$ \hyperlink{classAuthor}{Author} $>$ \hyperlink{classQuery2_a0e6787ef46755e839db06e99a090e311}{result}
+\item 
+String \hyperlink{classQuery2_a2e312018f6ecd6d6b58e5ada0338ef6c}{filename}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classQuery2}{Query2} \hyperlink{classQuery2_ad0d6f793ef89bb9a3a82358a30cd086d}{instance} = new \hyperlink{classQuery2}{Query2}(\char`\"{}dblp.\+xml\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class uses \hyperlink{classDatabase}{Database} to extract data as needed for \hyperlink{classQuery2}{Query2}, the class is Singleton 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Query2@{Query2}!Query2@{Query2}}
+\index{Query2@{Query2}!Query2@{Query2}}
+\subsubsection[{\texorpdfstring{Query2(\+String \+\_\+filename)}{Query2(String _filename)}}]{\setlength{\rightskip}{0pt plus 5cm}Query2.\+Query2 (
+\begin{DoxyParamCaption}
+\item[{String}]{\+\_\+filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classQuery2_ad2ab065a532d46e6a40c16fff5041a52}{}\label{classQuery2_ad2ab065a532d46e6a40c16fff5041a52}
+
+\begin{DoxyCode}
+14                                     \{
+15         \hyperlink{classQuery2_a2e312018f6ecd6d6b58e5ada0338ef6c}{filename} = \_filename;
+16     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{Query2@{Query2}!find@{find}}
+\index{find@{find}!Query2@{Query2}}
+\subsubsection[{\texorpdfstring{find(int k)}{find(int k)}}]{\setlength{\rightskip}{0pt plus 5cm}void Query2.\+find (
+\begin{DoxyParamCaption}
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery2_ab5f9fd59b15dcdef599faec26ae49424}{}\label{classQuery2_ab5f9fd59b15dcdef599faec26ae49424}
+This method starts the finding of relevant data 
+\begin{DoxyCode}
+18                            \{
+19         \hyperlink{classQuery2_a0e6787ef46755e839db06e99a090e311}{result} = \hyperlink{classAuthorManager}{AuthorManager}.\hyperlink{classAuthorManager_a7aa5758d30203dc5f31f19154a15ec82}{getGreaterK}(k);
+20     \}
+\end{DoxyCode}
+\index{Query2@{Query2}!get\+Count@{get\+Count}}
+\index{get\+Count@{get\+Count}!Query2@{Query2}}
+\subsubsection[{\texorpdfstring{get\+Count()}{getCount()}}]{\setlength{\rightskip}{0pt plus 5cm}int Query2.\+get\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery2_afc9171c552d575feafb5e5f4b3a6cc19}{}\label{classQuery2_afc9171c552d575feafb5e5f4b3a6cc19}
+Gets the total number of results 
+\begin{DoxyCode}
+37                          \{
+38         \textcolor{keywordflow}{return} \hyperlink{classQuery2_a0e6787ef46755e839db06e99a090e311}{result}.size();
+39     \}
+\end{DoxyCode}
+\index{Query2@{Query2}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Query2@{Query2}}
+\subsubsection[{\texorpdfstring{get\+Data()}{getData()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Author} Query2.\+get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery2_a70190cc13fb74f6bf00ce1347a8b8946}{}\label{classQuery2_a70190cc13fb74f6bf00ce1347a8b8946}
+This method gives back data one element at a time returning null when finished 
+\begin{DoxyCode}
+22                            \{
+23         \textcolor{keywordflow}{if} (\hyperlink{classQuery2_a0e6787ef46755e839db06e99a090e311}{result}.size() == 0)
+24             \textcolor{keywordflow}{return} null;
+25         \textcolor{keywordflow}{else}\{
+26             \hyperlink{classAuthor}{Author} a = \hyperlink{classQuery2_a0e6787ef46755e839db06e99a090e311}{result}.get(0);
+27             \hyperlink{classQuery2_a0e6787ef46755e839db06e99a090e311}{result}.remove(0);
+28             \textcolor{keywordflow}{return} a;
+29         \}
+30     \}
+\end{DoxyCode}
+\index{Query2@{Query2}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Query2@{Query2}}
+\subsubsection[{\texorpdfstring{get\+Instance()}{getInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Query2} Query2.\+get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classQuery2_a0a1270d32e0b8ac467ad09f546e0c3ee}{}\label{classQuery2_a0a1270d32e0b8ac467ad09f546e0c3ee}
+
+\begin{DoxyCode}
+40                                       \{
+41         \textcolor{keywordflow}{return} \hyperlink{classQuery2_ad0d6f793ef89bb9a3a82358a30cd086d}{instance};
+42     \}
+\end{DoxyCode}
+\index{Query2@{Query2}!print\+Data@{print\+Data}}
+\index{print\+Data@{print\+Data}!Query2@{Query2}}
+\subsubsection[{\texorpdfstring{print\+Data()}{printData()}}]{\setlength{\rightskip}{0pt plus 5cm}void Query2.\+print\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery2_ae1f51e2c333e090fcd07a573a2ba7b10}{}\label{classQuery2_ae1f51e2c333e090fcd07a573a2ba7b10}
+
+\begin{DoxyCode}
+31                            \{
+32         \textcolor{keywordflow}{for} (\hyperlink{classAuthor}{Author} a : \hyperlink{classQuery2_a0e6787ef46755e839db06e99a090e311}{result})\{
+33             System.out.println(a.getName() + \textcolor{stringliteral}{" "} + a.getCount());
+34         \}
+35     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{Query2@{Query2}!filename@{filename}}
+\index{filename@{filename}!Query2@{Query2}}
+\subsubsection[{\texorpdfstring{filename}{filename}}]{\setlength{\rightskip}{0pt plus 5cm}String Query2.\+filename\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery2_a2e312018f6ecd6d6b58e5ada0338ef6c}{}\label{classQuery2_a2e312018f6ecd6d6b58e5ada0338ef6c}
+\index{Query2@{Query2}!instance@{instance}}
+\index{instance@{instance}!Query2@{Query2}}
+\subsubsection[{\texorpdfstring{instance}{instance}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Query2} Query2.\+instance = new {\bf Query2}(\char`\"{}dblp.\+xml\char`\"{})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classQuery2_ad0d6f793ef89bb9a3a82358a30cd086d}{}\label{classQuery2_ad0d6f793ef89bb9a3a82358a30cd086d}
+\index{Query2@{Query2}!result@{result}}
+\index{result@{result}!Query2@{Query2}}
+\subsubsection[{\texorpdfstring{result}{result}}]{\setlength{\rightskip}{0pt plus 5cm}Array\+List$<${\bf Author}$>$ Query2.\+result\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery2_a0e6787ef46755e839db06e99a090e311}{}\label{classQuery2_a0e6787ef46755e839db06e99a090e311}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Query2_8java}{Query2.\+java}\end{DoxyCompactItemize}

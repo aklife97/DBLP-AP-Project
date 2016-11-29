@@ -1,0 +1,136 @@
+\hypertarget{classGuiQuery1Control}{}\section{Gui\+Query1\+Control Class Reference}
+\label{classGuiQuery1Control}\index{Gui\+Query1\+Control@{Gui\+Query1\+Control}}
+
+
+Inheritance diagram for Gui\+Query1\+Control\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{classGuiQuery1Control__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Gui\+Query1\+Control\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGuiQuery1Control__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGuiQuery1Control_ac6989198b8ec672bd3d5329c98f0fe0a}{Gui\+Query1\+Control} (J\+Frame \hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{main\+Frame}, J\+Combo\+Box$<$ String $>$ \hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries}, J\+Panel \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{side\+Panel}, J\+Panel \hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{display\+Panel}, \hyperlink{classQueryFacade}{Query\+Facade} q1)
+\item 
+void \hyperlink{classGuiQuery1Control_a9d83b448fb4105b5a2c4c4902a7a1d49}{init\+Query} ()
+\item 
+void \hyperlink{classGuiQuery1Control_a7cf6dca14e3622abc057feff8c28260e}{set\+Query} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+J\+Combo\+Box$<$ String $>$ \hyperlink{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}{search\+By} = new J\+Combo\+Box$<$String$>$()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Controls how \hyperlink{classQuery1}{Query1} functions 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Gui\+Query1\+Control@{Gui\+Query1\+Control}!Gui\+Query1\+Control@{Gui\+Query1\+Control}}
+\index{Gui\+Query1\+Control@{Gui\+Query1\+Control}!Gui\+Query1\+Control@{Gui\+Query1\+Control}}
+\subsubsection[{\texorpdfstring{Gui\+Query1\+Control(\+J\+Frame main\+Frame, J\+Combo\+Box$<$ String $>$ queries, J\+Panel side\+Panel, J\+Panel display\+Panel, Query\+Facade q1)}{GuiQuery1Control(JFrame mainFrame, JComboBox< String > queries, JPanel sidePanel, JPanel displayPanel, QueryFacade q1)}}]{\setlength{\rightskip}{0pt plus 5cm}Gui\+Query1\+Control.\+Gui\+Query1\+Control (
+\begin{DoxyParamCaption}
+\item[{J\+Frame}]{main\+Frame, }
+\item[{J\+Combo\+Box$<$ String $>$}]{queries, }
+\item[{J\+Panel}]{side\+Panel, }
+\item[{J\+Panel}]{display\+Panel, }
+\item[{{\bf Query\+Facade}}]{q1}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGuiQuery1Control_ac6989198b8ec672bd3d5329c98f0fe0a}{}\label{classGuiQuery1Control_ac6989198b8ec672bd3d5329c98f0fe0a}
+
+\begin{DoxyCode}
+23     \{
+24         this.\hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{mainFrame}=\hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{mainFrame};
+25         this.\hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries}=\hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries};
+26         this.\hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel}=\hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel};
+27         this.\hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{displayPanel}=\hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{displayPanel};
+28         this.\hyperlink{classGUIQuery_a2a20445d749185552014142b78f3e071}{q}=q1;
+29         \hyperlink{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}{searchBy}.addItem(\textcolor{stringliteral}{"Search By"});
+30         \hyperlink{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}{searchBy}.addItem(\textcolor{stringliteral}{"Author Name"});
+31         \hyperlink{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}{searchBy}.addItem(\textcolor{stringliteral}{"Title Tag"});
+32         \hyperlink{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}{searchBy}.setSelectedItem(\textcolor{stringliteral}{"Search By"});
+33         \hyperlink{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}{searchBy}.setBounds(50,50,100,20);
+34         \hyperlink{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}{searchBy}.setFont(\textcolor{keyword}{new} Font(\textcolor{stringliteral}{"Calibri"}, Font.PLAIN, 10));
+35     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{Gui\+Query1\+Control@{Gui\+Query1\+Control}!init\+Query@{init\+Query}}
+\index{init\+Query@{init\+Query}!Gui\+Query1\+Control@{Gui\+Query1\+Control}}
+\subsubsection[{\texorpdfstring{init\+Query()}{initQuery()}}]{\setlength{\rightskip}{0pt plus 5cm}void Gui\+Query1\+Control.\+init\+Query (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGuiQuery1Control_a9d83b448fb4105b5a2c4c4902a7a1d49}{}\label{classGuiQuery1Control_a9d83b448fb4105b5a2c4c4902a7a1d49}
+
+\begin{DoxyCode}
+38     \{
+39         
+40     \}
+\end{DoxyCode}
+\index{Gui\+Query1\+Control@{Gui\+Query1\+Control}!set\+Query@{set\+Query}}
+\index{set\+Query@{set\+Query}!Gui\+Query1\+Control@{Gui\+Query1\+Control}}
+\subsubsection[{\texorpdfstring{set\+Query()}{setQuery()}}]{\setlength{\rightskip}{0pt plus 5cm}void Gui\+Query1\+Control.\+set\+Query (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGuiQuery1Control_a7cf6dca14e3622abc057feff8c28260e}{}\label{classGuiQuery1Control_a7cf6dca14e3622abc057feff8c28260e}
+
+\begin{DoxyCode}
+43     \{
+44         \hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries}.removeItem(\textcolor{stringliteral}{"Queries"});
+45         \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel}.removeAll();
+46         \hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{displayPanel}.removeAll();
+47         \hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries}.setBounds(50,20,100,20);
+48         \hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries}.setSelectedItem(\textcolor{stringliteral}{"Query 1"});
+49         \textcolor{comment}{//----  }
+50         \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel}.add(\hyperlink{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}{searchBy});
+51         \hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel}.add(\hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries});
+52         \hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{mainFrame}.revalidate();
+53         \hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{mainFrame}.repaint();
+54 
+55         \hyperlink{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}{searchBy}.addActionListener(\textcolor{keyword}{new} ActionListener() \{
+56             @Override
+57             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent event) \{
+58                     JComboBox<? extends Object> t= (JComboBox<? extends Object>) event.getSource();
+59                 String selectedQuery = (String) t.getSelectedItem();
+60                 \textcolor{keywordflow}{if} (selectedQuery.equals(\textcolor{stringliteral}{"Author Name"})) \{
+61                    \hyperlink{classGuiQuery1Author}{GuiQuery1Author} ga= \textcolor{keyword}{new} \hyperlink{classGuiQuery1Author}{GuiQuery1Author}(
+      \hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{mainFrame},\hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries},\hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel},\hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{displayPanel},\hyperlink{classGUIQuery_a2a20445d749185552014142b78f3e071}{q},
+      \hyperlink{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}{searchBy});
+62                    ga.\hyperlink{classGuiQuery1Author_a0bf8cce7ac52411d08c756b443be7b74}{setQueryAuthor}();
+63                 \}     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (selectedQuery.equals(\textcolor{stringliteral}{"Title Tag"})) \{
+64                     \hyperlink{classGuiQuery1Title}{GuiQuery1Title} gt= \textcolor{keyword}{new} \hyperlink{classGuiQuery1Title}{GuiQuery1Title}(
+      \hyperlink{classGUIQuery_aba988b5bec899d53480a472de7b87dfa}{mainFrame},\hyperlink{classGUIQuery_a0db8bd960b4512cadf9aa40642934680}{queries},\hyperlink{classGUIQuery_a70e233b1f14874166b7707edebe825d2}{sidePanel},\hyperlink{classGUIQuery_a8b4dbf257e0859c597591f072349b75c}{displayPanel},\hyperlink{classGUIQuery_a2a20445d749185552014142b78f3e071}{q},
+      \hyperlink{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}{searchBy});
+65                    gt.\hyperlink{classGuiQuery1Title_ab549b18802bf2e90895154fbb4d9d51b}{setQueryTitle}();
+66                 \}
+67             \}
+68         \});
+69     \}   
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{Gui\+Query1\+Control@{Gui\+Query1\+Control}!search\+By@{search\+By}}
+\index{search\+By@{search\+By}!Gui\+Query1\+Control@{Gui\+Query1\+Control}}
+\subsubsection[{\texorpdfstring{search\+By}{searchBy}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Combo\+Box$<$String$>$ Gui\+Query1\+Control.\+search\+By = new J\+Combo\+Box$<$String$>$()\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}{}\label{classGuiQuery1Control_aff1971237254429cafcc0c76a1937793}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{GuiQuery1Control_8java}{Gui\+Query1\+Control.\+java}\end{DoxyCompactItemize}

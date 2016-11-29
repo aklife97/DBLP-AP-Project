@@ -1,0 +1,289 @@
+\hypertarget{classAuthorManager}{}\section{Author\+Manager Class Reference}
+\label{classAuthorManager}\index{Author\+Manager@{Author\+Manager}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classAuthorManager_a5cb4134008bb414c37149602662769d8}{is\+Map\+Created} ()
+\item 
+boolean \hyperlink{classAuthorManager_ad983b61aa9ddd96c8ba87a334aa5cc53}{is\+Count\+Added} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classAuthorManager_ae490d0dc2f66dacae33a7ab1145c99d8}{print\+Data} ()
+\item 
+static void \hyperlink{classAuthorManager_a2fd95ddd7a1565f7665a7d961b445788}{add\+File} (String \+\_\+filename)
+\item 
+static \hyperlink{classAuthor}{Author} \hyperlink{classAuthorManager_a2442f65701e05d1c2f9f7edb473cb0f3}{resolve\+Author} (String name)
+\item 
+static Array\+List$<$ \hyperlink{classAuthor}{Author} $>$ \hyperlink{classAuthorManager_a7aa5758d30203dc5f31f19154a15ec82}{get\+GreaterK} (int k)
+\item 
+static void \hyperlink{classAuthorManager_ac6244bdca3be32f6037f5c045c69f6f5}{create\+Map} ()
+\item 
+static void \hyperlink{classAuthorManager_a046c775056c501681d92dbfcf4a9bbf2}{add\+Count} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Hash\+Map$<$ String, \hyperlink{classAuthor}{Author} $>$ \hyperlink{classAuthorManager_a0adde1702d5fc9ec68f403848dee10a6}{author\+Map} = new Hash\+Map$<$String, \hyperlink{classAuthor}{Author}$>$()
+\item 
+static Array\+List$<$ \hyperlink{classAuthor}{Author} $>$ \hyperlink{classAuthorManager_a16d40e3ce8111e6d3a8eccf786b1e6c8}{authors\+List} = new Array\+List$<$\hyperlink{classAuthor}{Author}$>$()
+\item 
+static boolean \hyperlink{classAuthorManager_a8007cf90e289ab4af6178566708969bc}{map\+Created} = false
+\item 
+static boolean \hyperlink{classAuthorManager_a5d91f1fb549ce31ad9cfcb2d6fc38817}{count\+Added} = false
+\item 
+static String \hyperlink{classAuthorManager_ab51e8e8b1326d63e88c21d56a9ea631a}{filename}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classAuthorManager}{Author\+Manager} provides us a way to resolve Authors i.\+e. Does entity resolution work 
+
+\subsection{Member Function Documentation}
+\index{Author\+Manager@{Author\+Manager}!add\+Count@{add\+Count}}
+\index{add\+Count@{add\+Count}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{add\+Count()}{addCount()}}]{\setlength{\rightskip}{0pt plus 5cm}static void Author\+Manager.\+add\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classAuthorManager_a046c775056c501681d92dbfcf4a9bbf2}{}\label{classAuthorManager_a046c775056c501681d92dbfcf4a9bbf2}
+Designates each \hyperlink{classAuthor}{Author} with his respective number of Publications 
+\begin{DoxyCode}
+107                                  \{
+108         \textcolor{keywordflow}{if} (!\hyperlink{classAuthorManager_a8007cf90e289ab4af6178566708969bc}{mapCreated})
+109             \hyperlink{classAuthorManager}{AuthorManager}.\hyperlink{classAuthorManager_ac6244bdca3be32f6037f5c045c69f6f5}{createMap}();
+110         \textcolor{keywordflow}{try}\{
+111             SAXParserFactory factory = SAXParserFactory.newInstance();
+112             SAXParser parser = factory.newSAXParser();
+113             DefaultHandler handle = \textcolor{keyword}{new} DefaultHandler()\{
+114                 \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} bAuthor = \textcolor{keyword}{false};
+115                 \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} bTitle = \textcolor{keyword}{false};
+116                 \textcolor{keyword}{private} String author;
+117                 \textcolor{keyword}{private} String title;
+118                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} startElement(String uri, String localName, String qName, Attributes attributes)
+       \textcolor{keywordflow}{throws} SAXException\{
+119                     \textcolor{keywordflow}{if} (qName.equalsIgnoreCase(\textcolor{stringliteral}{"author"}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"editor"}))
+120                         bAuthor = \textcolor{keyword}{true};
+121                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (qName.equalsIgnoreCase(\textcolor{stringliteral}{"title"}))
+122                         bTitle = \textcolor{keyword}{true};
+123                 \}
+124                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} endElement(String uri, String localName, String qName) \textcolor{keywordflow}{throws} SAXException\{
+125                     \textcolor{keywordflow}{if} (qName.equalsIgnoreCase(\textcolor{stringliteral}{"author"}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"editor"}))\{
+126                         author = author + \textcolor{stringliteral}{","};
+127                         bAuthor = \textcolor{keyword}{false};
+128                     \}
+129                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (qName.equalsIgnoreCase(\textcolor{stringliteral}{"title"}))
+130                         bTitle = \textcolor{keyword}{false};
+131                     \textcolor{keywordflow}{if} (qName.equalsIgnoreCase(\textcolor{stringliteral}{"article"}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"inproceedings"}) || 
+      qName.equalsIgnoreCase(\textcolor{stringliteral}{"proceedings"}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"book"}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"incollection
+      "}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"phdthesis"}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"mastersthesis"}) || qName.
+      equalsIgnoreCase(\textcolor{stringliteral}{"www"}))\{
+132                         \textcolor{keywordflow}{if} (author != null)
+133                             author = author.substring(0, author.length()-1);
+134                         \textcolor{keywordflow}{if} (author != null && title != null && !title.equalsIgnoreCase(\textcolor{stringliteral}{"Home Page"}))\{
+135                             String[] authors = author.split(\textcolor{stringliteral}{","});
+136                             \textcolor{keywordflow}{for} (String a : authors)\{
+137                                 \hyperlink{classAuthor}{Author} au = \hyperlink{classAuthorManager_a0adde1702d5fc9ec68f403848dee10a6}{authorMap}.get(a.toLowerCase());
+138                                 au.\hyperlink{classAuthor_ad3fce97df74d93d780a0fe81ee485e15}{increaseCount}();
+139                             \}
+140                         \}
+141                         author = title = null;
+142                     \}
+143                 \}
+144                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} characters(\textcolor{keywordtype}{char} ch[], \textcolor{keywordtype}{int} start, \textcolor{keywordtype}{int} length) \textcolor{keywordflow}{throws} SAXException\{
+145                     \textcolor{keywordflow}{if} (bAuthor)\{
+146                         \textcolor{keywordflow}{if} (author != null) author = author + \textcolor{keyword}{new} String(ch, start, length);
+147                         \textcolor{keywordflow}{else} author = (\textcolor{keyword}{new} String(ch, start, length));
+148                     \}
+149                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (bTitle) title = \textcolor{keyword}{new} String(ch, start, length);
+150                 \}
+151             \};
+152             parser.parse(\hyperlink{classAuthorManager_ab51e8e8b1326d63e88c21d56a9ea631a}{filename}, handle);
+153             \hyperlink{classAuthorManager_a5d91f1fb549ce31ad9cfcb2d6fc38817}{countAdded} = \textcolor{keyword}{true};
+154         \}
+155         \textcolor{keywordflow}{catch}(Exception e)\{e.printStackTrace();\}
+156     \}
+\end{DoxyCode}
+\index{Author\+Manager@{Author\+Manager}!add\+File@{add\+File}}
+\index{add\+File@{add\+File}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{add\+File(\+String \+\_\+filename)}{addFile(String _filename)}}]{\setlength{\rightskip}{0pt plus 5cm}static void Author\+Manager.\+add\+File (
+\begin{DoxyParamCaption}
+\item[{String}]{\+\_\+filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classAuthorManager_a2fd95ddd7a1565f7665a7d961b445788}{}\label{classAuthorManager_a2fd95ddd7a1565f7665a7d961b445788}
+
+\begin{DoxyCode}
+30                                                 \{
+31         \hyperlink{classAuthorManager_ab51e8e8b1326d63e88c21d56a9ea631a}{filename} = \_filename;
+32         \hyperlink{classAuthorManager_a8007cf90e289ab4af6178566708969bc}{mapCreated} = \textcolor{keyword}{false};
+33         \hyperlink{classAuthorManager_a5d91f1fb549ce31ad9cfcb2d6fc38817}{countAdded} = \textcolor{keyword}{false};
+34     \}
+\end{DoxyCode}
+\index{Author\+Manager@{Author\+Manager}!create\+Map@{create\+Map}}
+\index{create\+Map@{create\+Map}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{create\+Map()}{createMap()}}]{\setlength{\rightskip}{0pt plus 5cm}static void Author\+Manager.\+create\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classAuthorManager_ac6244bdca3be32f6037f5c045c69f6f5}{}\label{classAuthorManager_ac6244bdca3be32f6037f5c045c69f6f5}
+Creates a map of \hyperlink{classAuthor}{Author} name to object 
+\begin{DoxyCode}
+57                                   \{
+58         \textcolor{keywordflow}{if} (\hyperlink{classAuthorManager_ab51e8e8b1326d63e88c21d56a9ea631a}{filename} == null)
+59             \textcolor{keywordflow}{return};
+60         \textcolor{keywordflow}{try}\{
+61             SAXParserFactory factory = SAXParserFactory.newInstance();
+62             SAXParser parser = factory.newSAXParser();
+63             DefaultHandler handle = \textcolor{keyword}{new} DefaultHandler()\{
+64                 \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} bAuthor = \textcolor{keyword}{false}, bTitle = \textcolor{keyword}{false}, bHomePage = \textcolor{keyword}{false};
+65                 \textcolor{keyword}{private} String author, title;
+66                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} startElement(String uri, String localName, String qName, Attributes attributes)
+       \textcolor{keywordflow}{throws} SAXException\{
+67                     \textcolor{keywordflow}{if} (qName.equalsIgnoreCase(\textcolor{stringliteral}{"author"}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"editor"}))
+68                         bAuthor = \textcolor{keyword}{true};
+69                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (qName.equalsIgnoreCase(\textcolor{stringliteral}{"title"}))
+70                         bTitle = \textcolor{keyword}{true};
+71                 \}
+72                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} endElement(String uri, String localName, String qName) \textcolor{keywordflow}{throws} SAXException\{
+73                     \textcolor{keywordflow}{if} (qName.equalsIgnoreCase(\textcolor{stringliteral}{"author"}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"editor"}))\{
+74                         author = author + \textcolor{stringliteral}{","};
+75                         bAuthor = \textcolor{keyword}{false};
+76                     \}
+77                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (qName.equalsIgnoreCase(\textcolor{stringliteral}{"title"}))
+78                         bTitle = \textcolor{keyword}{false};
+79                     \textcolor{keywordflow}{if} (qName.equalsIgnoreCase(\textcolor{stringliteral}{"article"}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"inproceedings"}) || 
+      qName.equalsIgnoreCase(\textcolor{stringliteral}{"proceedings"}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"book"}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"incollection
+      "}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"phdthesis"}) || qName.equalsIgnoreCase(\textcolor{stringliteral}{"mastersthesis"}) || qName.
+      equalsIgnoreCase(\textcolor{stringliteral}{"www"}))\{
+80                         \textcolor{keywordflow}{if} (author != null)
+81                             author = author.substring(0, author.length()-1);
+82                         \textcolor{keywordflow}{if} (author != null && title != null && title.equalsIgnoreCase(\textcolor{stringliteral}{"Home Page"}))\{
+83                             String[] authors = author.split(\textcolor{stringliteral}{","});
+84                             \hyperlink{classAuthor}{Author} au = \textcolor{keyword}{new} \hyperlink{classAuthor}{Author}(authors[0]);
+85                             \hyperlink{classAuthorManager_a16d40e3ce8111e6d3a8eccf786b1e6c8}{authorsList}.add(au);
+86                             \textcolor{keywordflow}{for} (String a : authors)\{
+87                                 \hyperlink{classAuthorManager_a0adde1702d5fc9ec68f403848dee10a6}{authorMap}.put(a.toLowerCase(), au);
+88                             \}
+89                         \}
+90                         author = title = null;
+91                     \}
+92                 \}
+93                 \textcolor{keyword}{public} \textcolor{keywordtype}{void} characters(\textcolor{keywordtype}{char} ch[], \textcolor{keywordtype}{int} start, \textcolor{keywordtype}{int} length) \textcolor{keywordflow}{throws} SAXException\{
+94                     \textcolor{keywordflow}{if} (bAuthor)\{
+95                         \textcolor{keywordflow}{if} (author != null) author = author + \textcolor{keyword}{new} String(ch, start, length);
+96                         \textcolor{keywordflow}{else} author = (\textcolor{keyword}{new} String(ch, start, length));
+97                     \}
+98                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (bTitle) title = \textcolor{keyword}{new} String(ch, start, length);
+99                 \}
+100             \};
+101             parser.parse(\hyperlink{classAuthorManager_ab51e8e8b1326d63e88c21d56a9ea631a}{filename}, handle);
+102             \hyperlink{classAuthorManager_a8007cf90e289ab4af6178566708969bc}{mapCreated} = \textcolor{keyword}{true};
+103         \}
+104         \textcolor{keywordflow}{catch}(Exception e)\{e.printStackTrace();\}
+105     \}
+\end{DoxyCode}
+\index{Author\+Manager@{Author\+Manager}!get\+GreaterK@{get\+GreaterK}}
+\index{get\+GreaterK@{get\+GreaterK}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{get\+Greater\+K(int k)}{getGreaterK(int k)}}]{\setlength{\rightskip}{0pt plus 5cm}static Array\+List$<${\bf Author}$>$ Author\+Manager.\+get\+GreaterK (
+\begin{DoxyParamCaption}
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classAuthorManager_a7aa5758d30203dc5f31f19154a15ec82}{}\label{classAuthorManager_a7aa5758d30203dc5f31f19154a15ec82}
+
+\begin{DoxyCode}
+44                                                       \{
+45         \textcolor{keywordflow}{if} (!\hyperlink{classAuthorManager_a5d91f1fb549ce31ad9cfcb2d6fc38817}{countAdded})\{
+46             \hyperlink{classAuthorManager}{AuthorManager}.\hyperlink{classAuthorManager_a046c775056c501681d92dbfcf4a9bbf2}{addCount}();
+47         \}
+48         ArrayList<Author> au = \textcolor{keyword}{new} ArrayList<Author>();
+49         \textcolor{keywordflow}{for} (\hyperlink{classAuthor}{Author} a : \hyperlink{classAuthorManager_a16d40e3ce8111e6d3a8eccf786b1e6c8}{authorsList})\{
+50             \textcolor{keywordflow}{if} (a.getCount() >=k)\{
+51                 au.add(a);
+52             \}
+53         \}
+54         \textcolor{keywordflow}{return} au;
+55     \}
+\end{DoxyCode}
+\index{Author\+Manager@{Author\+Manager}!is\+Count\+Added@{is\+Count\+Added}}
+\index{is\+Count\+Added@{is\+Count\+Added}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{is\+Count\+Added()}{isCountAdded()}}]{\setlength{\rightskip}{0pt plus 5cm}boolean Author\+Manager.\+is\+Count\+Added (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classAuthorManager_ad983b61aa9ddd96c8ba87a334aa5cc53}{}\label{classAuthorManager_ad983b61aa9ddd96c8ba87a334aa5cc53}
+
+\begin{DoxyCode}
+22                                  \{
+23         \textcolor{keywordflow}{return} \hyperlink{classAuthorManager_a5d91f1fb549ce31ad9cfcb2d6fc38817}{countAdded};
+24     \}
+\end{DoxyCode}
+\index{Author\+Manager@{Author\+Manager}!is\+Map\+Created@{is\+Map\+Created}}
+\index{is\+Map\+Created@{is\+Map\+Created}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{is\+Map\+Created()}{isMapCreated()}}]{\setlength{\rightskip}{0pt plus 5cm}boolean Author\+Manager.\+is\+Map\+Created (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classAuthorManager_a5cb4134008bb414c37149602662769d8}{}\label{classAuthorManager_a5cb4134008bb414c37149602662769d8}
+
+\begin{DoxyCode}
+19                                  \{
+20         \textcolor{keywordflow}{return} \hyperlink{classAuthorManager_a8007cf90e289ab4af6178566708969bc}{mapCreated};
+21     \}
+\end{DoxyCode}
+\index{Author\+Manager@{Author\+Manager}!print\+Data@{print\+Data}}
+\index{print\+Data@{print\+Data}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{print\+Data()}{printData()}}]{\setlength{\rightskip}{0pt plus 5cm}static void Author\+Manager.\+print\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classAuthorManager_ae490d0dc2f66dacae33a7ab1145c99d8}{}\label{classAuthorManager_ae490d0dc2f66dacae33a7ab1145c99d8}
+
+\begin{DoxyCode}
+25                                   \{
+26         \textcolor{keywordflow}{for} (Map.Entry m : \hyperlink{classAuthorManager_a0adde1702d5fc9ec68f403848dee10a6}{authorMap}.entrySet())\{
+27             System.out.println(m.getKey()+\textcolor{stringliteral}{" "}+((\hyperlink{classAuthor}{Author})m.getValue()).getName());
+28         \}
+29     \}
+\end{DoxyCode}
+\index{Author\+Manager@{Author\+Manager}!resolve\+Author@{resolve\+Author}}
+\index{resolve\+Author@{resolve\+Author}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{resolve\+Author(\+String name)}{resolveAuthor(String name)}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Author} Author\+Manager.\+resolve\+Author (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classAuthorManager_a2442f65701e05d1c2f9f7edb473cb0f3}{}\label{classAuthorManager_a2442f65701e05d1c2f9f7edb473cb0f3}
+Given the name of an author it returns a unique \hyperlink{classAuthor}{Author} object, hence reolving the entity 
+\begin{DoxyCode}
+36                                                    \{
+37         \hyperlink{classAuthor}{Author} value =    \hyperlink{classAuthorManager_a0adde1702d5fc9ec68f403848dee10a6}{authorMap}.get(name);
+38         \textcolor{keywordflow}{if} (value == null)\{
+39             value = \textcolor{keyword}{new} \hyperlink{classAuthor}{Author}(name);
+40             \hyperlink{classAuthorManager_a0adde1702d5fc9ec68f403848dee10a6}{authorMap}.put(name, value);
+41         \}
+42         \textcolor{keywordflow}{return} value;
+43     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{Author\+Manager@{Author\+Manager}!author\+Map@{author\+Map}}
+\index{author\+Map@{author\+Map}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{author\+Map}{authorMap}}]{\setlength{\rightskip}{0pt plus 5cm}Hash\+Map$<$String, {\bf Author}$>$ Author\+Manager.\+author\+Map = new Hash\+Map$<$String, {\bf Author}$>$()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classAuthorManager_a0adde1702d5fc9ec68f403848dee10a6}{}\label{classAuthorManager_a0adde1702d5fc9ec68f403848dee10a6}
+\index{Author\+Manager@{Author\+Manager}!authors\+List@{authors\+List}}
+\index{authors\+List@{authors\+List}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{authors\+List}{authorsList}}]{\setlength{\rightskip}{0pt plus 5cm}Array\+List$<${\bf Author}$>$ Author\+Manager.\+authors\+List = new Array\+List$<${\bf Author}$>$()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classAuthorManager_a16d40e3ce8111e6d3a8eccf786b1e6c8}{}\label{classAuthorManager_a16d40e3ce8111e6d3a8eccf786b1e6c8}
+\index{Author\+Manager@{Author\+Manager}!count\+Added@{count\+Added}}
+\index{count\+Added@{count\+Added}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{count\+Added}{countAdded}}]{\setlength{\rightskip}{0pt plus 5cm}boolean Author\+Manager.\+count\+Added = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classAuthorManager_a5d91f1fb549ce31ad9cfcb2d6fc38817}{}\label{classAuthorManager_a5d91f1fb549ce31ad9cfcb2d6fc38817}
+\index{Author\+Manager@{Author\+Manager}!filename@{filename}}
+\index{filename@{filename}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{filename}{filename}}]{\setlength{\rightskip}{0pt plus 5cm}String Author\+Manager.\+filename\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classAuthorManager_ab51e8e8b1326d63e88c21d56a9ea631a}{}\label{classAuthorManager_ab51e8e8b1326d63e88c21d56a9ea631a}
+\index{Author\+Manager@{Author\+Manager}!map\+Created@{map\+Created}}
+\index{map\+Created@{map\+Created}!Author\+Manager@{Author\+Manager}}
+\subsubsection[{\texorpdfstring{map\+Created}{mapCreated}}]{\setlength{\rightskip}{0pt plus 5cm}boolean Author\+Manager.\+map\+Created = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classAuthorManager_a8007cf90e289ab4af6178566708969bc}{}\label{classAuthorManager_a8007cf90e289ab4af6178566708969bc}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{AuthorManager_8java}{Author\+Manager.\+java}\end{DoxyCompactItemize}

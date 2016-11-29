@@ -1,0 +1,284 @@
+\hypertarget{classGUI}{}\section{G\+UI Class Reference}
+\label{classGUI}\index{G\+UI@{G\+UI}}
+
+
+Collaboration diagram for G\+UI\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGUI__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGUI_a35a15f9dcfca9111335e4401a46567ed}{G\+UI} ()
+\item 
+void \hyperlink{classGUI_a23acbb0a9e9350e946407b677e88b5b5}{run\+Frame} ()
+\item 
+void \hyperlink{classGUI_a110149939fa2b371bcc1f86b15aa2f63}{initframe} ()
+\item 
+void \hyperlink{classGUI_aff3d813da1e25b7926c7b340ed57009b}{change} (int i)
+\item 
+void \hyperlink{classGUI_a2ecefd4112807c7f4d96e49b1cf0a46c}{change\+Mode} (int i)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classGUI_a8202c223d5b25c7dd94ce70bd6a267ac}{main} (String\mbox{[}$\,$\mbox{]} args)
+\item 
+static boolean \hyperlink{classGUI_a0ec9bf129676c56850ebc391c4c4b54e}{is\+Integer} (String s)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+J\+Frame \hyperlink{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{main\+Frame}
+\item 
+J\+Panel \hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upper\+Panel}
+\item 
+J\+Panel \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{side\+Panel}
+\item 
+J\+Panel \hyperlink{classGUI_aa88e747a84e0e3b6ba35371f007c8151}{display\+Panel}
+\item 
+J\+Combo\+Box$<$ String $>$ \hyperlink{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}{queries}
+\item 
+J\+Button \hyperlink{classGUI_a4a469da0727abf52b86e23b12ca91fc6}{submit}
+\item 
+\hyperlink{classGUIQuery}{G\+U\+I\+Query} \hyperlink{classGUI_a267a714cad7b99c5f450e33e2bd91d0d}{g}
+\item 
+\hyperlink{classGUIFactory}{G\+U\+I\+Factory} \hyperlink{classGUI_ac95015c84714d8ba5c83e4a875466785}{g\+Factory}
+\item 
+\hyperlink{classQueryFacade}{Query\+Facade} \hyperlink{classGUI_a55cc973319a37d99e306b0c8cc665269}{q0} = new \hyperlink{classQueryFacade}{Query\+Facade}()
+\item 
+int \hyperlink{classGUI_a268ed195698683851c5ae951338182d1}{flag} =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains the base \hyperlink{classGUI}{G\+UI} class that loads the frame, also contains the projects main 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{G\+UI@{G\+UI}!G\+UI@{G\+UI}}
+\index{G\+UI@{G\+UI}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{G\+U\+I()}{GUI()}}]{\setlength{\rightskip}{0pt plus 5cm}G\+U\+I.\+G\+UI (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGUI_a35a15f9dcfca9111335e4401a46567ed}{}\label{classGUI_a35a15f9dcfca9111335e4401a46567ed}
+
+\begin{DoxyCode}
+32     \{
+33         \hyperlink{classGUI_a23acbb0a9e9350e946407b677e88b5b5}{runFrame}();
+34         \hyperlink{classGUI_a110149939fa2b371bcc1f86b15aa2f63}{initframe}();
+35     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{G\+UI@{G\+UI}!change@{change}}
+\index{change@{change}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{change(int i)}{change(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+U\+I.\+change (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGUI_aff3d813da1e25b7926c7b340ed57009b}{}\label{classGUI_aff3d813da1e25b7926c7b340ed57009b}
+
+\begin{DoxyCode}
+135     \{
+136         \hyperlink{classGUI_a268ed195698683851c5ae951338182d1}{flag}=i;
+137     \}
+\end{DoxyCode}
+\index{G\+UI@{G\+UI}!change\+Mode@{change\+Mode}}
+\index{change\+Mode@{change\+Mode}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{change\+Mode(int i)}{changeMode(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+U\+I.\+change\+Mode (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGUI_a2ecefd4112807c7f4d96e49b1cf0a46c}{}\label{classGUI_a2ecefd4112807c7f4d96e49b1cf0a46c}
+
+\begin{DoxyCode}
+139     \{
+140         flag2=i;
+141     \}
+\end{DoxyCode}
+\index{G\+UI@{G\+UI}!initframe@{initframe}}
+\index{initframe@{initframe}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{initframe()}{initframe()}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+U\+I.\+initframe (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGUI_a110149939fa2b371bcc1f86b15aa2f63}{}\label{classGUI_a110149939fa2b371bcc1f86b15aa2f63}
+
+\begin{DoxyCode}
+79     \{
+80         \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel}.add(\hyperlink{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}{queries});
+81         \hyperlink{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}{queries}.setBounds(50,100,100,20);
+82         \hyperlink{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}{queries}.setAlignmentX(Component.CENTER\_ALIGNMENT);
+83         JLabel random = \textcolor{keyword}{new} JLabel(\textcolor{stringliteral}{"Results Here"});
+84         random.setBounds(150,100,150,40);
+85         \hyperlink{classGUI_aa88e747a84e0e3b6ba35371f007c8151}{displayPanel}.add(random);
+86         JLabel header=\textcolor{keyword}{new} JLabel(\textcolor{stringliteral}{"<html><b>DBLP Query Engine</b></html>"},JLabel.CENTER);
+87         header.setFont(\textcolor{keyword}{new} Font(\textcolor{stringliteral}{"Calibri"}, Font.PLAIN, 45));
+88         header.setBounds(200,10,500,60);
+89         header.setAlignmentX(Component.CENTER\_ALIGNMENT);
+90         \hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upperPanel}.add(header);
+91         \hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upperPanel}.setBorder(BorderFactory.createLineBorder(Color.black,2));
+92         \hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upperPanel}.setBackground(Color.WHITE);
+93         \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel}.setVisible(\textcolor{keyword}{true});
+94         \hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upperPanel}.setVisible(\textcolor{keyword}{true});
+95         \hyperlink{classGUI_aa88e747a84e0e3b6ba35371f007c8151}{displayPanel}.setVisible(\textcolor{keyword}{true});
+96         \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel}.setBounds(0,80,250,440);
+97         \hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upperPanel}.setBounds(0,0,1200,80);
+98         \hyperlink{classGUI_aa88e747a84e0e3b6ba35371f007c8151}{displayPanel}.setBounds(250,80,950,440);
+99         \hyperlink{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{mainFrame}.add(\hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel});
+100         \hyperlink{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{mainFrame}.add(\hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upperPanel});
+101         \hyperlink{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{mainFrame}.add(\hyperlink{classGUI_aa88e747a84e0e3b6ba35371f007c8151}{displayPanel});
+102         \hyperlink{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{mainFrame}.setVisible(\textcolor{keyword}{true}); 
+103         \hyperlink{classGUI_ac95015c84714d8ba5c83e4a875466785}{gFactory} = \textcolor{keyword}{new} \hyperlink{classGUIFactory}{GUIFactory}(\hyperlink{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{mainFrame},\hyperlink{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}{queries},
+      \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel},\hyperlink{classGUI_aa88e747a84e0e3b6ba35371f007c8151}{displayPanel},\hyperlink{classGUI_a55cc973319a37d99e306b0c8cc665269}{q0});
+104         \hyperlink{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}{queries}.addActionListener(\textcolor{keyword}{new} ActionListener() \{
+105             @Override
+106             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent event) \{
+107                     JComboBox<? extends Object> q = (JComboBox<? extends Object>) event.getSource();
+108                 String selectedQuery = (String) q.getSelectedItem();
+109                 \textcolor{keywordflow}{if} (selectedQuery.equals(\textcolor{stringliteral}{"Query 1"})) \{
+110                    \hyperlink{classGUI_a267a714cad7b99c5f450e33e2bd91d0d}{g}=\hyperlink{classGUI_ac95015c84714d8ba5c83e4a875466785}{gFactory}.\hyperlink{classGUIFactory_a2b891d0369711430ae1d172f15b78317}{getQuery}(\textcolor{stringliteral}{"Query1"});
+111                    \hyperlink{classGUI_a267a714cad7b99c5f450e33e2bd91d0d}{g}.\hyperlink{classGUIQuery_acc9553514ecac053151c7580b83dec21}{start}();
+112                 \}     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (selectedQuery.equals(\textcolor{stringliteral}{"Query 2"})) \{
+113                     \hyperlink{classGUI_a267a714cad7b99c5f450e33e2bd91d0d}{g}=\hyperlink{classGUI_ac95015c84714d8ba5c83e4a875466785}{gFactory}.\hyperlink{classGUIFactory_a2b891d0369711430ae1d172f15b78317}{getQuery}(\textcolor{stringliteral}{"Query2"});
+114                     \hyperlink{classGUI_a267a714cad7b99c5f450e33e2bd91d0d}{g}.\hyperlink{classGUIQuery_acc9553514ecac053151c7580b83dec21}{start}();
+115                 \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(selectedQuery.equals(\textcolor{stringliteral}{"Query 3"})) \{
+116                     \hyperlink{classGUI_a267a714cad7b99c5f450e33e2bd91d0d}{g}=\hyperlink{classGUI_ac95015c84714d8ba5c83e4a875466785}{gFactory}.\hyperlink{classGUIFactory_a2b891d0369711430ae1d172f15b78317}{getQuery}(\textcolor{stringliteral}{"Query3"});
+117                     \hyperlink{classGUI_a267a714cad7b99c5f450e33e2bd91d0d}{g}.\hyperlink{classGUIQuery_acc9553514ecac053151c7580b83dec21}{start}();
+118                 \}
+119             \}
+120         \});
+121     \}
+\end{DoxyCode}
+\index{G\+UI@{G\+UI}!is\+Integer@{is\+Integer}}
+\index{is\+Integer@{is\+Integer}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{is\+Integer(\+String s)}{isInteger(String s)}}]{\setlength{\rightskip}{0pt plus 5cm}static boolean G\+U\+I.\+is\+Integer (
+\begin{DoxyParamCaption}
+\item[{String}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classGUI_a0ec9bf129676c56850ebc391c4c4b54e}{}\label{classGUI_a0ec9bf129676c56850ebc391c4c4b54e}
+
+\begin{DoxyCode}
+142                                               \{
+143       \textcolor{keywordtype}{boolean} isValidInteger = \textcolor{keyword}{false};
+144       \textcolor{keywordflow}{try}
+145       \{
+146          Integer.parseInt(s);
+147          isValidInteger = \textcolor{keyword}{true};
+148       \}
+149       \textcolor{keywordflow}{catch} (NumberFormatException ex)
+150       \{\}
+151       \textcolor{keywordflow}{return} isValidInteger;
+152    \}
+\end{DoxyCode}
+\index{G\+UI@{G\+UI}!main@{main}}
+\index{main@{main}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{main(\+String[] args)}{main(String[] args)}}]{\setlength{\rightskip}{0pt plus 5cm}static void G\+U\+I.\+main (
+\begin{DoxyParamCaption}
+\item[{String\mbox{[}$\,$\mbox{]}}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classGUI_a8202c223d5b25c7dd94ce70bd6a267ac}{}\label{classGUI_a8202c223d5b25c7dd94ce70bd6a267ac}
+
+\begin{DoxyCode}
+124     \{
+125         System.setProperty(\textcolor{stringliteral}{"jdk.xml.entityExpansionLimit"}, \textcolor{stringliteral}{"0"});
+126         \hyperlink{classAuthorManager}{AuthorManager}.\hyperlink{classAuthorManager_a2fd95ddd7a1565f7665a7d961b445788}{addFile}(\textcolor{stringliteral}{"dblp.xml"});
+127         \hyperlink{classGuiLoading}{GuiLoading} gl = \textcolor{keyword}{new} \hyperlink{classGuiLoading}{GuiLoading}();
+128         gl.\hyperlink{classGuiLoading_aa13c96669e7ef681bfeae1a5b2dfab85}{start}();
+129         \hyperlink{classAuthorManager}{AuthorManager}.\hyperlink{classAuthorManager_ac6244bdca3be32f6037f5c045c69f6f5}{createMap}();
+130         gl.\hyperlink{classGuiLoading_addd66da1f2d489192a2afdc66abef566}{stop}();
+131         \hyperlink{classGUI}{GUI} a = \textcolor{keyword}{new} \hyperlink{classGUI_a35a15f9dcfca9111335e4401a46567ed}{GUI}();
+132     \}
+\end{DoxyCode}
+\index{G\+UI@{G\+UI}!run\+Frame@{run\+Frame}}
+\index{run\+Frame@{run\+Frame}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{run\+Frame()}{runFrame()}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+U\+I.\+run\+Frame (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGUI_a23acbb0a9e9350e946407b677e88b5b5}{}\label{classGUI_a23acbb0a9e9350e946407b677e88b5b5}
+
+\begin{DoxyCode}
+38     \{
+39         \hyperlink{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{mainFrame}=\textcolor{keyword}{new} JFrame(\textcolor{stringliteral}{"DBLP query engine"});
+40         \hyperlink{classGUI_a4a469da0727abf52b86e23b12ca91fc6}{submit}=\textcolor{keyword}{new} JButton(\textcolor{stringliteral}{"Submit"});
+41         reset=\textcolor{keyword}{new} JButton(\textcolor{stringliteral}{"Reset"});
+42         \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel}=\textcolor{keyword}{new} JPanel();
+43         \hyperlink{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}{queries} = \textcolor{keyword}{new} JComboBox<String>();
+44         \hyperlink{classGUI_aa88e747a84e0e3b6ba35371f007c8151}{displayPanel}=\textcolor{keyword}{new} JPanel();
+45         \hyperlink{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}{queries}.addItem(\textcolor{stringliteral}{"Queries"});
+46         \hyperlink{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}{queries}.addItem(\textcolor{stringliteral}{"Query 1"});
+47         \hyperlink{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}{queries}.addItem(\textcolor{stringliteral}{"Query 2"});
+48         \hyperlink{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}{queries}.addItem(\textcolor{stringliteral}{"Query 3"});
+49         \hyperlink{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{mainFrame}.setSize(1200,520); 
+50         \hyperlink{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{mainFrame}.setLocation(0,0);
+51         \hyperlink{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{mainFrame}.setResizable(\textcolor{keyword}{false});
+52         \hyperlink{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{mainFrame}.setLayout(null);
+53         \hyperlink{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{mainFrame}.setDefaultCloseOperation(JFrame.EXIT\_ON\_CLOSE);
+54         \hyperlink{classGUI_a4a469da0727abf52b86e23b12ca91fc6}{submit}.setBackground(Color.BLACK);
+55         reset.setBackground(Color.RED);
+56         \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel}.setPreferredSize(\textcolor{keyword}{new} Dimension(250,440));
+57         \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel}.setMinimumSize(\textcolor{keyword}{new} Dimension(250,440));
+58         \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel}.setMaximumSize(\textcolor{keyword}{new} Dimension(250,440));
+59         \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel}.setLocation(0,80);
+60         \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel}.setLayout(null);
+61         \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel}.setBorder(BorderFactory.createLineBorder(Color.black,2));
+62         \hyperlink{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{sidePanel}.setBackground(Color.WHITE);
+63         displayPanel.setPreferredSize(\textcolor{keyword}{new} Dimension(950,440));
+64         displayPanel.setMinimumSize(\textcolor{keyword}{new} Dimension(950,440));
+65         displayPanel.setMaximumSize(\textcolor{keyword}{new} Dimension(950,440));
+66         displayPanel.setLocation(250,80);
+67         displayPanel.setLayout(null);
+68         displayPanel.setBorder(BorderFactory.createLineBorder(Color.black,2));
+69         displayPanel.setBackground(Color.WHITE);
+70         \hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upperPanel}=\textcolor{keyword}{new} JPanel();
+71         \hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upperPanel}.setSize(\textcolor{keyword}{new} Dimension(1200,80));
+72         \hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upperPanel}.setMinimumSize(\textcolor{keyword}{new} Dimension(1200,80));
+73         \hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upperPanel}.setMaximumSize(\textcolor{keyword}{new} Dimension(1200,80));
+74         \hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upperPanel}.setLocation(0,0);
+75         \hyperlink{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{upperPanel}.setLayout(null);
+76     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{G\+UI@{G\+UI}!display\+Panel@{display\+Panel}}
+\index{display\+Panel@{display\+Panel}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{display\+Panel}{displayPanel}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Panel G\+U\+I.\+display\+Panel\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUI_aa88e747a84e0e3b6ba35371f007c8151}{}\label{classGUI_aa88e747a84e0e3b6ba35371f007c8151}
+\index{G\+UI@{G\+UI}!flag@{flag}}
+\index{flag@{flag}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{flag}{flag}}]{\setlength{\rightskip}{0pt plus 5cm}int G\+U\+I.\+flag =0\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUI_a268ed195698683851c5ae951338182d1}{}\label{classGUI_a268ed195698683851c5ae951338182d1}
+\index{G\+UI@{G\+UI}!g@{g}}
+\index{g@{g}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{g}{g}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+U\+I\+Query} G\+U\+I.\+g\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUI_a267a714cad7b99c5f450e33e2bd91d0d}{}\label{classGUI_a267a714cad7b99c5f450e33e2bd91d0d}
+\index{G\+UI@{G\+UI}!g\+Factory@{g\+Factory}}
+\index{g\+Factory@{g\+Factory}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{g\+Factory}{gFactory}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+U\+I\+Factory} G\+U\+I.\+g\+Factory\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUI_ac95015c84714d8ba5c83e4a875466785}{}\label{classGUI_ac95015c84714d8ba5c83e4a875466785}
+\index{G\+UI@{G\+UI}!main\+Frame@{main\+Frame}}
+\index{main\+Frame@{main\+Frame}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{main\+Frame}{mainFrame}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Frame G\+U\+I.\+main\+Frame\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}{}\label{classGUI_ad0edd6841874d6f0d4d92b38fe4c58fa}
+\index{G\+UI@{G\+UI}!q0@{q0}}
+\index{q0@{q0}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{q0}{q0}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Query\+Facade} G\+U\+I.\+q0 = new {\bf Query\+Facade}()\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUI_a55cc973319a37d99e306b0c8cc665269}{}\label{classGUI_a55cc973319a37d99e306b0c8cc665269}
+\index{G\+UI@{G\+UI}!queries@{queries}}
+\index{queries@{queries}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{queries}{queries}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Combo\+Box$<$String$>$ G\+U\+I.\+queries\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}{}\label{classGUI_ac15dd4c4cf3422b2e3ad7209b70b2df2}
+\index{G\+UI@{G\+UI}!side\+Panel@{side\+Panel}}
+\index{side\+Panel@{side\+Panel}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{side\+Panel}{sidePanel}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Panel G\+U\+I.\+side\+Panel\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}{}\label{classGUI_a6930a3cfc244b0ce0d03e3fab60d33c7}
+\index{G\+UI@{G\+UI}!submit@{submit}}
+\index{submit@{submit}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{submit}{submit}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Button G\+U\+I.\+submit\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUI_a4a469da0727abf52b86e23b12ca91fc6}{}\label{classGUI_a4a469da0727abf52b86e23b12ca91fc6}
+\index{G\+UI@{G\+UI}!upper\+Panel@{upper\+Panel}}
+\index{upper\+Panel@{upper\+Panel}!G\+UI@{G\+UI}}
+\subsubsection[{\texorpdfstring{upper\+Panel}{upperPanel}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Panel G\+U\+I.\+upper\+Panel\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}{}\label{classGUI_a5ae695a244b7bf0e35c5387063d0a6ae}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{GUI_8java}{G\+U\+I.\+java}\end{DoxyCompactItemize}

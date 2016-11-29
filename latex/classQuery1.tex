@@ -1,0 +1,290 @@
+\hypertarget{classQuery1}{}\section{Query1 Class Reference}
+\label{classQuery1}\index{Query1@{Query1}}
+
+
+Inheritance diagram for Query1\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{classQuery1__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Query1\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classQuery1__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classQuery1_aca728525a5aaf4f2a993a414eb4495b2}{Query1} (String \+\_\+filename)
+\item 
+void \hyperlink{classQuery1_a13c86103ce4bda48db0a398a7d7d107c}{find} (int \+\_\+mode, String \+\_\+q, int \+\_\+since, int \+\_\+to, int \+\_\+sort\+Mode)
+\item 
+void \hyperlink{classQuery1_a5c7f9b2155dfe6bde03c6579fb00b61a}{check} (\hyperlink{classDataRecords}{Data\+Records} d)
+\item 
+\hyperlink{classDataRecords}{Data\+Records} \hyperlink{classQuery1_a3590292b24792c860c2dedb170683497}{get\+Data} ()
+\item 
+int \hyperlink{classQuery1_a6c3cfaf81d41e28b40f835d533865182}{get\+Count} ()
+\item 
+void \hyperlink{classQuery1_a4ac5185895a11f7dd7906a22d8854caf}{print\+Data} ()
+\item 
+int \hyperlink{classQuery1_a1fe6a57adb424a935bedb8a7ca6cf40f}{get\+Distance} (String s, String t)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classQuery1}{Query1} \hyperlink{classQuery1_a2b63c437c3dbe7c615254a629bdd742f}{get\+Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDatabase}{Database} \hyperlink{classQuery1_af7fea4172dbe6f682854a92fed28e583}{dbase}
+\item 
+String \hyperlink{classQuery1_a747a19c9f4b24c9c47f7c7f13e8932e7}{filename}
+\item 
+int \hyperlink{classQuery1_a91868e1771a4ea60d950ffd61c56827d}{mode}
+\item 
+String \hyperlink{classQuery1_acaa7bb7db670b4e6ffce9380b960b9e3}{q}
+\item 
+Priority\+Queue$<$ \hyperlink{classDataRecords}{Data\+Records} $>$ \hyperlink{classQuery1_a418a5ab9b0660ea8b3c5481beb385bbc}{data\+Rec}
+\item 
+Priority\+Queue$<$ \hyperlink{classDataRecords}{Data\+Records} $>$ \hyperlink{classQuery1_ace614dbbc820194d2c7092827b9c2491}{data\+Rec2}
+\item 
+int \hyperlink{classQuery1_a916bfb3d18a8fa0663bfc9728d40961f}{count} =0
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classQuery1}{Query1} \hyperlink{classQuery1_aca7ee51acbe7e939d39bbd950738fef2}{instance} = new \hyperlink{classQuery1}{Query1}(\char`\"{}dblp.\+xml\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class uses \hyperlink{classDatabase}{Database} to extract data as needed for \hyperlink{classQuery1}{Query1}, the class is Singleton 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Query1@{Query1}!Query1@{Query1}}
+\index{Query1@{Query1}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{Query1(\+String \+\_\+filename)}{Query1(String _filename)}}]{\setlength{\rightskip}{0pt plus 5cm}Query1.\+Query1 (
+\begin{DoxyParamCaption}
+\item[{String}]{\+\_\+filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery1_aca728525a5aaf4f2a993a414eb4495b2}{}\label{classQuery1_aca728525a5aaf4f2a993a414eb4495b2}
+
+\begin{DoxyCode}
+19                                    \{
+20         \hyperlink{classQuery1_a747a19c9f4b24c9c47f7c7f13e8932e7}{filename} = \_filename;
+21     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{Query1@{Query1}!check@{check}}
+\index{check@{check}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{check(\+Data\+Records d)}{check(DataRecords d)}}]{\setlength{\rightskip}{0pt plus 5cm}void Query1.\+check (
+\begin{DoxyParamCaption}
+\item[{{\bf Data\+Records}}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery1_a5c7f9b2155dfe6bde03c6579fb00b61a}{}\label{classQuery1_a5c7f9b2155dfe6bde03c6579fb00b61a}
+
+
+Implements \hyperlink{interfaceQuery13_aa8625da54bbd25beb6968df65fe05e57}{Query13}.
+
+
+\begin{DoxyCode}
+44                                     \{
+45         \textcolor{keywordtype}{int} t;
+46         \textcolor{keywordflow}{if} (\hyperlink{classQuery1_a91868e1771a4ea60d950ffd61c56827d}{mode} == 1 && d.\hyperlink{classDataRecords_a9b0dba84ec8d539395853caff7d4080f}{getAuthor}() != null)\{
+47             String[] authors = d.\hyperlink{classDataRecords_a9b0dba84ec8d539395853caff7d4080f}{getAuthor}().split(\textcolor{stringliteral}{","});
+48             \textcolor{keywordflow}{for} (String a : authors)\{
+49                 \textcolor{keywordflow}{if} (\hyperlink{classAuthorManager}{AuthorManager}.\hyperlink{classAuthorManager_a2442f65701e05d1c2f9f7edb473cb0f3}{resolveAuthor}(a.toLowerCase()) == 
+      \hyperlink{classAuthorManager}{AuthorManager}.\hyperlink{classAuthorManager_a2442f65701e05d1c2f9f7edb473cb0f3}{resolveAuthor}(\hyperlink{classQuery1_acaa7bb7db670b4e6ffce9380b960b9e3}{q}) && d.\hyperlink{classDataRecords_a9918de1a257be6b753ef46d66c43989c}{getYear}() >= since && d.
+      \hyperlink{classDataRecords_a9918de1a257be6b753ef46d66c43989c}{getYear}() <= to)\{
+50                     \hyperlink{classQuery1_a418a5ab9b0660ea8b3c5481beb385bbc}{dataRec}.add(d);
+51                     \hyperlink{classQuery1_a916bfb3d18a8fa0663bfc9728d40961f}{count}++;
+52                 \}
+53             \}
+54         \}       
+55         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (sortMode==0 && \hyperlink{classQuery1_a91868e1771a4ea60d950ffd61c56827d}{mode} == 2 && d.\hyperlink{classDataRecords_a2b6d27b078eb3a16734562f9ded6e1c6}{getTitle}()!=null && (t=this.
+      \hyperlink{classQuery1_a1fe6a57adb424a935bedb8a7ca6cf40f}{getDistance}(\hyperlink{classQuery1_acaa7bb7db670b4e6ffce9380b960b9e3}{q}.toLowerCase(), d.\hyperlink{classDataRecords_a2b6d27b078eb3a16734562f9ded6e1c6}{getTitle}()))>0 && d.\hyperlink{classDataRecords_a9918de1a257be6b753ef46d66c43989c}{getYear}() >= since && d.
+      \hyperlink{classDataRecords_a9918de1a257be6b753ef46d66c43989c}{getYear}() <= to)\{
+56             \hyperlink{classQuery1_a418a5ab9b0660ea8b3c5481beb385bbc}{dataRec}.add(d);
+57             \hyperlink{classQuery1_a916bfb3d18a8fa0663bfc9728d40961f}{count}++;
+58         \} 
+59         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (sortMode==1 && \hyperlink{classQuery1_a91868e1771a4ea60d950ffd61c56827d}{mode} == 2 && d.\hyperlink{classDataRecords_a2b6d27b078eb3a16734562f9ded6e1c6}{getTitle}()!=null && (t=this.
+      \hyperlink{classQuery1_a1fe6a57adb424a935bedb8a7ca6cf40f}{getDistance}(\hyperlink{classQuery1_acaa7bb7db670b4e6ffce9380b960b9e3}{q}.toLowerCase(), d.\hyperlink{classDataRecords_a2b6d27b078eb3a16734562f9ded6e1c6}{getTitle}()))>0 && d.\hyperlink{classDataRecords_a9918de1a257be6b753ef46d66c43989c}{getYear}() >= since && d.
+      \hyperlink{classDataRecords_a9918de1a257be6b753ef46d66c43989c}{getYear}() <= to)\{
+60             \textcolor{keywordflow}{if} (t>d.\hyperlink{classDataRecords_a7487a30fa32c0f7e8a05f26b6f23f25a}{getStringMatch}())
+61                 d.\hyperlink{classDataRecords_a1e41c4c115595d47b7bbf4016919ff8c}{setStringMatch}(t);
+62             \hyperlink{classQuery1_ace614dbbc820194d2c7092827b9c2491}{dataRec2}.add(d);
+63             \hyperlink{classQuery1_a916bfb3d18a8fa0663bfc9728d40961f}{count}++;
+64         \} 
+65     \}
+\end{DoxyCode}
+\index{Query1@{Query1}!find@{find}}
+\index{find@{find}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{find(int \+\_\+mode, String \+\_\+q, int \+\_\+since, int \+\_\+to, int \+\_\+sort\+Mode)}{find(int _mode, String _q, int _since, int _to, int _sortMode)}}]{\setlength{\rightskip}{0pt plus 5cm}void Query1.\+find (
+\begin{DoxyParamCaption}
+\item[{int}]{\+\_\+mode, }
+\item[{String}]{\+\_\+q, }
+\item[{int}]{\+\_\+since, }
+\item[{int}]{\+\_\+to, }
+\item[{int}]{\+\_\+sort\+Mode}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery1_a13c86103ce4bda48db0a398a7d7d107c}{}\label{classQuery1_a13c86103ce4bda48db0a398a7d7d107c}
+This method starts the finding of relevant data 
+\begin{DoxyCode}
+23                                                                              \{
+24         \hyperlink{classQuery1_a418a5ab9b0660ea8b3c5481beb385bbc}{dataRec} = \textcolor{keyword}{new} PriorityQueue<DataRecords>();
+25         \hyperlink{classQuery1_ace614dbbc820194d2c7092827b9c2491}{dataRec2} = \textcolor{keyword}{new} PriorityQueue<DataRecords>(\textcolor{keyword}{new} Comparator<DataRecords>() \{
+26                 \textcolor{keyword}{public} \textcolor{keywordtype}{int} compare(\hyperlink{classDataRecords}{DataRecords} d1, \hyperlink{classDataRecords}{DataRecords} d2) \{
+27                     \textcolor{keywordflow}{if}(d1.\hyperlink{classDataRecords_a7487a30fa32c0f7e8a05f26b6f23f25a}{getStringMatch}()<d2.\hyperlink{classDataRecords_a7487a30fa32c0f7e8a05f26b6f23f25a}{getStringMatch}())\{
+28                         \textcolor{keywordflow}{return} 1;
+29                     \}            
+30                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(d1.\hyperlink{classDataRecords_a7487a30fa32c0f7e8a05f26b6f23f25a}{getStringMatch}()==d2.\hyperlink{classDataRecords_a7487a30fa32c0f7e8a05f26b6f23f25a}{getStringMatch}())\{
+31                         \textcolor{keywordflow}{return} 0;
+32                     \} 
+33                     \textcolor{keywordflow}{return} -1;                                               
+34                 \}
+35             \});
+36         \hyperlink{classQuery1_a91868e1771a4ea60d950ffd61c56827d}{mode} = \_mode;
+37         since = \_since;
+38         to = \_to;
+39         sortMode=\_sortMode;
+40         \hyperlink{classQuery1_acaa7bb7db670b4e6ffce9380b960b9e3}{q} = \_q.toLowerCase();
+41         \hyperlink{classQuery1_a916bfb3d18a8fa0663bfc9728d40961f}{count}=0;
+42         \hyperlink{classQuery1_af7fea4172dbe6f682854a92fed28e583}{dbase} = \textcolor{keyword}{new} \hyperlink{classDatabase}{Database}(\hyperlink{classQuery1_a747a19c9f4b24c9c47f7c7f13e8932e7}{filename}, \textcolor{keyword}{this});
+43     \}
+\end{DoxyCode}
+\index{Query1@{Query1}!get\+Count@{get\+Count}}
+\index{get\+Count@{get\+Count}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{get\+Count()}{getCount()}}]{\setlength{\rightskip}{0pt plus 5cm}int Query1.\+get\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery1_a6c3cfaf81d41e28b40f835d533865182}{}\label{classQuery1_a6c3cfaf81d41e28b40f835d533865182}
+Gets the total number of results 
+\begin{DoxyCode}
+76                          \{
+77         \textcolor{keywordflow}{return} \hyperlink{classQuery1_a916bfb3d18a8fa0663bfc9728d40961f}{count};
+78     \}
+\end{DoxyCode}
+\index{Query1@{Query1}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{get\+Data()}{getData()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data\+Records} Query1.\+get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery1_a3590292b24792c860c2dedb170683497}{}\label{classQuery1_a3590292b24792c860c2dedb170683497}
+This method gives back data one element at a time returning null when finished 
+\begin{DoxyCode}
+67                                 \{
+68         \textcolor{keywordflow}{if}(\hyperlink{classQuery1_a91868e1771a4ea60d950ffd61c56827d}{mode}== 1 && (sortMode==0 || sortMode ==1))
+69             \textcolor{keywordflow}{return} \hyperlink{classQuery1_a418a5ab9b0660ea8b3c5481beb385bbc}{dataRec}.poll();
+70         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{classQuery1_a91868e1771a4ea60d950ffd61c56827d}{mode}==2 && (sortMode==0))
+71             \textcolor{keywordflow}{return} \hyperlink{classQuery1_a418a5ab9b0660ea8b3c5481beb385bbc}{dataRec}.poll();
+72         \textcolor{keywordflow}{else}
+73             \textcolor{keywordflow}{return} \hyperlink{classQuery1_ace614dbbc820194d2c7092827b9c2491}{dataRec2}.poll();     
+74     \}
+\end{DoxyCode}
+\index{Query1@{Query1}!get\+Distance@{get\+Distance}}
+\index{get\+Distance@{get\+Distance}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{get\+Distance(\+String s, String t)}{getDistance(String s, String t)}}]{\setlength{\rightskip}{0pt plus 5cm}int Query1.\+get\+Distance (
+\begin{DoxyParamCaption}
+\item[{String}]{s, }
+\item[{String}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery1_a1fe6a57adb424a935bedb8a7ca6cf40f}{}\label{classQuery1_a1fe6a57adb424a935bedb8a7ca6cf40f}
+
+\begin{DoxyCode}
+91                                               \{
+92         String[] arr = s.split(\textcolor{stringliteral}{" "});  
+93         String[] arr2 = t.split(\textcolor{stringliteral}{" "});
+94         \textcolor{keywordtype}{int} \hyperlink{classQuery1_a916bfb3d18a8fa0663bfc9728d40961f}{count}=0;
+95         \textcolor{keywordflow}{for}(String a:arr)\{
+96             \textcolor{keywordflow}{for}(String b:arr2)\{
+97                 \textcolor{keywordflow}{if}(a.equalsIgnoreCase(b) && b.length()>=4)\{
+98                     count++;
+99                     \textcolor{keywordflow}{break};
+100                 \}
+101             \}
+102         \}  
+103         \textcolor{keywordflow}{return} \hyperlink{classQuery1_a916bfb3d18a8fa0663bfc9728d40961f}{count};
+104     \}
+\end{DoxyCode}
+\index{Query1@{Query1}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{get\+Instance()}{getInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Query1} Query1.\+get\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classQuery1_a2b63c437c3dbe7c615254a629bdd742f}{}\label{classQuery1_a2b63c437c3dbe7c615254a629bdd742f}
+
+\begin{DoxyCode}
+105                                       \{
+106         \textcolor{keywordflow}{return} \hyperlink{classQuery1_aca7ee51acbe7e939d39bbd950738fef2}{instance};
+107     \}
+\end{DoxyCode}
+\index{Query1@{Query1}!print\+Data@{print\+Data}}
+\index{print\+Data@{print\+Data}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{print\+Data()}{printData()}}]{\setlength{\rightskip}{0pt plus 5cm}void Query1.\+print\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classQuery1_a4ac5185895a11f7dd7906a22d8854caf}{}\label{classQuery1_a4ac5185895a11f7dd7906a22d8854caf}
+
+
+Implements \hyperlink{interfaceQuery13_a7b04f8c829e445286d760995b0205ded}{Query13}.
+
+
+\begin{DoxyCode}
+79                            \{
+80         \hyperlink{classDataRecords}{DataRecords} d;
+81         System.out.println(\textcolor{stringliteral}{"size- "}+\hyperlink{classQuery1_a418a5ab9b0660ea8b3c5481beb385bbc}{dataRec}.size());
+82         \textcolor{keywordflow}{while} ((d = \hyperlink{classQuery1_a418a5ab9b0660ea8b3c5481beb385bbc}{dataRec}.poll())!=null)\{
+83             System.out.println(d.\hyperlink{classDataRecords_a2b6d27b078eb3a16734562f9ded6e1c6}{getTitle}());
+84             String[] authors = d.\hyperlink{classDataRecords_a9b0dba84ec8d539395853caff7d4080f}{getAuthor}().split(\textcolor{stringliteral}{","});
+85                 \textcolor{keywordflow}{for} (String a : authors)\{
+86                     System.out.print(a+\textcolor{stringliteral}{" "});
+87                 \}
+88                 System.out.println(\textcolor{stringliteral}{" "});
+89         \}
+90     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{Query1@{Query1}!count@{count}}
+\index{count@{count}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{count}{count}}]{\setlength{\rightskip}{0pt plus 5cm}int Query1.\+count =0\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery1_a916bfb3d18a8fa0663bfc9728d40961f}{}\label{classQuery1_a916bfb3d18a8fa0663bfc9728d40961f}
+\index{Query1@{Query1}!data\+Rec@{data\+Rec}}
+\index{data\+Rec@{data\+Rec}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{data\+Rec}{dataRec}}]{\setlength{\rightskip}{0pt plus 5cm}Priority\+Queue$<${\bf Data\+Records}$>$ Query1.\+data\+Rec\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery1_a418a5ab9b0660ea8b3c5481beb385bbc}{}\label{classQuery1_a418a5ab9b0660ea8b3c5481beb385bbc}
+\index{Query1@{Query1}!data\+Rec2@{data\+Rec2}}
+\index{data\+Rec2@{data\+Rec2}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{data\+Rec2}{dataRec2}}]{\setlength{\rightskip}{0pt plus 5cm}Priority\+Queue$<${\bf Data\+Records}$>$ Query1.\+data\+Rec2\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery1_ace614dbbc820194d2c7092827b9c2491}{}\label{classQuery1_ace614dbbc820194d2c7092827b9c2491}
+\index{Query1@{Query1}!dbase@{dbase}}
+\index{dbase@{dbase}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{dbase}{dbase}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Database} Query1.\+dbase\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery1_af7fea4172dbe6f682854a92fed28e583}{}\label{classQuery1_af7fea4172dbe6f682854a92fed28e583}
+\index{Query1@{Query1}!filename@{filename}}
+\index{filename@{filename}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{filename}{filename}}]{\setlength{\rightskip}{0pt plus 5cm}String Query1.\+filename\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery1_a747a19c9f4b24c9c47f7c7f13e8932e7}{}\label{classQuery1_a747a19c9f4b24c9c47f7c7f13e8932e7}
+\index{Query1@{Query1}!instance@{instance}}
+\index{instance@{instance}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{instance}{instance}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Query1} Query1.\+instance = new {\bf Query1}(\char`\"{}dblp.\+xml\char`\"{})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classQuery1_aca7ee51acbe7e939d39bbd950738fef2}{}\label{classQuery1_aca7ee51acbe7e939d39bbd950738fef2}
+\index{Query1@{Query1}!mode@{mode}}
+\index{mode@{mode}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{mode}{mode}}]{\setlength{\rightskip}{0pt plus 5cm}int Query1.\+mode\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery1_a91868e1771a4ea60d950ffd61c56827d}{}\label{classQuery1_a91868e1771a4ea60d950ffd61c56827d}
+\index{Query1@{Query1}!q@{q}}
+\index{q@{q}!Query1@{Query1}}
+\subsubsection[{\texorpdfstring{q}{q}}]{\setlength{\rightskip}{0pt plus 5cm}String Query1.\+q\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classQuery1_acaa7bb7db670b4e6ffce9380b960b9e3}{}\label{classQuery1_acaa7bb7db670b4e6ffce9380b960b9e3}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Query1_8java}{Query1.\+java}\end{DoxyCompactItemize}

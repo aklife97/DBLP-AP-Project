@@ -1,0 +1,110 @@
+\hypertarget{classGUIFactory}{}\section{G\+U\+I\+Factory Class Reference}
+\label{classGUIFactory}\index{G\+U\+I\+Factory@{G\+U\+I\+Factory}}
+
+
+Collaboration diagram for G\+U\+I\+Factory\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGUIFactory__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGUIFactory_a133845e2346ee4986e09793e48a90241}{G\+U\+I\+Factory} (J\+Frame \hyperlink{classGUIFactory_afb70d82da7ea373c87a3cb8c2f6eb075}{main\+Frame}, J\+Combo\+Box$<$ String $>$ \hyperlink{classGUIFactory_a244f5c63e4a280528e2b08316a652287}{queries}, J\+Panel \hyperlink{classGUIFactory_a76d0958fe1b53efd8953c3744fc9db01}{side\+Panel}, J\+Panel \hyperlink{classGUIFactory_aa9d579163a66ea0c377f2dc87f9449dd}{display\+Panel}, \hyperlink{classQueryFacade}{Query\+Facade} q)
+\item 
+\hyperlink{classGUIQuery}{G\+U\+I\+Query} \hyperlink{classGUIFactory_a2b891d0369711430ae1d172f15b78317}{get\+Query} (String query\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+J\+Frame \hyperlink{classGUIFactory_afb70d82da7ea373c87a3cb8c2f6eb075}{main\+Frame}
+\item 
+J\+Panel \hyperlink{classGUIFactory_a76d0958fe1b53efd8953c3744fc9db01}{side\+Panel}
+\item 
+J\+Panel \hyperlink{classGUIFactory_aa9d579163a66ea0c377f2dc87f9449dd}{display\+Panel}
+\item 
+J\+Combo\+Box$<$ String $>$ \hyperlink{classGUIFactory_a244f5c63e4a280528e2b08316a652287}{queries}
+\item 
+\hyperlink{classQueryFacade}{Query\+Facade} \hyperlink{classGUIFactory_a6f1a7d65f7a410b4a47ce24164e1d594}{q0} =null
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classGUIFactory}{G\+U\+I\+Factory} returns insatce according to type specified, i.\+e. implements Factory Design Pattern 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{G\+U\+I\+Factory@{G\+U\+I\+Factory}!G\+U\+I\+Factory@{G\+U\+I\+Factory}}
+\index{G\+U\+I\+Factory@{G\+U\+I\+Factory}!G\+U\+I\+Factory@{G\+U\+I\+Factory}}
+\subsubsection[{\texorpdfstring{G\+U\+I\+Factory(\+J\+Frame main\+Frame, J\+Combo\+Box$<$ String $>$ queries, J\+Panel side\+Panel, J\+Panel display\+Panel, Query\+Facade q)}{GUIFactory(JFrame mainFrame, JComboBox< String > queries, JPanel sidePanel, JPanel displayPanel, QueryFacade q)}}]{\setlength{\rightskip}{0pt plus 5cm}G\+U\+I\+Factory.\+G\+U\+I\+Factory (
+\begin{DoxyParamCaption}
+\item[{J\+Frame}]{main\+Frame, }
+\item[{J\+Combo\+Box$<$ String $>$}]{queries, }
+\item[{J\+Panel}]{side\+Panel, }
+\item[{J\+Panel}]{display\+Panel, }
+\item[{{\bf Query\+Facade}}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGUIFactory_a133845e2346ee4986e09793e48a90241}{}\label{classGUIFactory_a133845e2346ee4986e09793e48a90241}
+
+\begin{DoxyCode}
+30     \{
+31         this.\hyperlink{classGUIFactory_afb70d82da7ea373c87a3cb8c2f6eb075}{mainFrame}=\hyperlink{classGUIFactory_afb70d82da7ea373c87a3cb8c2f6eb075}{mainFrame};
+32         this.\hyperlink{classGUIFactory_a244f5c63e4a280528e2b08316a652287}{queries}=\hyperlink{classGUIFactory_a244f5c63e4a280528e2b08316a652287}{queries};
+33         this.\hyperlink{classGUIFactory_a76d0958fe1b53efd8953c3744fc9db01}{sidePanel}=\hyperlink{classGUIFactory_a76d0958fe1b53efd8953c3744fc9db01}{sidePanel};
+34         this.\hyperlink{classGUIFactory_aa9d579163a66ea0c377f2dc87f9449dd}{displayPanel}=\hyperlink{classGUIFactory_aa9d579163a66ea0c377f2dc87f9449dd}{displayPanel};
+35         this.\hyperlink{classGUIFactory_a6f1a7d65f7a410b4a47ce24164e1d594}{q0}=q;
+36     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{G\+U\+I\+Factory@{G\+U\+I\+Factory}!get\+Query@{get\+Query}}
+\index{get\+Query@{get\+Query}!G\+U\+I\+Factory@{G\+U\+I\+Factory}}
+\subsubsection[{\texorpdfstring{get\+Query(\+String query\+Name)}{getQuery(String queryName)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+U\+I\+Query} G\+U\+I\+Factory.\+get\+Query (
+\begin{DoxyParamCaption}
+\item[{String}]{query\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGUIFactory_a2b891d0369711430ae1d172f15b78317}{}\label{classGUIFactory_a2b891d0369711430ae1d172f15b78317}
+
+\begin{DoxyCode}
+39     \{
+40         \textcolor{keywordflow}{if}(queryName==null)\{
+41             \textcolor{keywordflow}{return} null;
+42         \}
+43         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(queryName.equalsIgnoreCase(\textcolor{stringliteral}{"Query1"}))\{
+44             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classGuiQuery1Control}{GuiQuery1Control}(\hyperlink{classGUIFactory_afb70d82da7ea373c87a3cb8c2f6eb075}{mainFrame},
+      \hyperlink{classGUIFactory_a244f5c63e4a280528e2b08316a652287}{queries},\hyperlink{classGUIFactory_a76d0958fe1b53efd8953c3744fc9db01}{sidePanel},\hyperlink{classGUIFactory_aa9d579163a66ea0c377f2dc87f9449dd}{displayPanel},\hyperlink{classGUIFactory_a6f1a7d65f7a410b4a47ce24164e1d594}{q0});
+45         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(queryName.equalsIgnoreCase(\textcolor{stringliteral}{"Query2"}))\{
+46             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classGuiQuery2}{GuiQuery2}(\hyperlink{classGUIFactory_afb70d82da7ea373c87a3cb8c2f6eb075}{mainFrame},\hyperlink{classGUIFactory_a244f5c63e4a280528e2b08316a652287}{queries},
+      \hyperlink{classGUIFactory_a76d0958fe1b53efd8953c3744fc9db01}{sidePanel},\hyperlink{classGUIFactory_aa9d579163a66ea0c377f2dc87f9449dd}{displayPanel},\hyperlink{classGUIFactory_a6f1a7d65f7a410b4a47ce24164e1d594}{q0});
+47         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(queryName.equalsIgnoreCase(\textcolor{stringliteral}{"Query3"}))\{
+48             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{classGuiQuery3}{GuiQuery3}(\hyperlink{classGUIFactory_afb70d82da7ea373c87a3cb8c2f6eb075}{mainFrame},\hyperlink{classGUIFactory_a244f5c63e4a280528e2b08316a652287}{queries},
+      \hyperlink{classGUIFactory_a76d0958fe1b53efd8953c3744fc9db01}{sidePanel},\hyperlink{classGUIFactory_aa9d579163a66ea0c377f2dc87f9449dd}{displayPanel},\hyperlink{classGUIFactory_a6f1a7d65f7a410b4a47ce24164e1d594}{q0});
+49         \}
+50         \textcolor{keywordflow}{return} null;
+51     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{G\+U\+I\+Factory@{G\+U\+I\+Factory}!display\+Panel@{display\+Panel}}
+\index{display\+Panel@{display\+Panel}!G\+U\+I\+Factory@{G\+U\+I\+Factory}}
+\subsubsection[{\texorpdfstring{display\+Panel}{displayPanel}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Panel G\+U\+I\+Factory.\+display\+Panel\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUIFactory_aa9d579163a66ea0c377f2dc87f9449dd}{}\label{classGUIFactory_aa9d579163a66ea0c377f2dc87f9449dd}
+\index{G\+U\+I\+Factory@{G\+U\+I\+Factory}!main\+Frame@{main\+Frame}}
+\index{main\+Frame@{main\+Frame}!G\+U\+I\+Factory@{G\+U\+I\+Factory}}
+\subsubsection[{\texorpdfstring{main\+Frame}{mainFrame}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Frame G\+U\+I\+Factory.\+main\+Frame\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUIFactory_afb70d82da7ea373c87a3cb8c2f6eb075}{}\label{classGUIFactory_afb70d82da7ea373c87a3cb8c2f6eb075}
+\index{G\+U\+I\+Factory@{G\+U\+I\+Factory}!q0@{q0}}
+\index{q0@{q0}!G\+U\+I\+Factory@{G\+U\+I\+Factory}}
+\subsubsection[{\texorpdfstring{q0}{q0}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Query\+Facade} G\+U\+I\+Factory.\+q0 =null\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUIFactory_a6f1a7d65f7a410b4a47ce24164e1d594}{}\label{classGUIFactory_a6f1a7d65f7a410b4a47ce24164e1d594}
+\index{G\+U\+I\+Factory@{G\+U\+I\+Factory}!queries@{queries}}
+\index{queries@{queries}!G\+U\+I\+Factory@{G\+U\+I\+Factory}}
+\subsubsection[{\texorpdfstring{queries}{queries}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Combo\+Box$<$String$>$ G\+U\+I\+Factory.\+queries\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUIFactory_a244f5c63e4a280528e2b08316a652287}{}\label{classGUIFactory_a244f5c63e4a280528e2b08316a652287}
+\index{G\+U\+I\+Factory@{G\+U\+I\+Factory}!side\+Panel@{side\+Panel}}
+\index{side\+Panel@{side\+Panel}!G\+U\+I\+Factory@{G\+U\+I\+Factory}}
+\subsubsection[{\texorpdfstring{side\+Panel}{sidePanel}}]{\setlength{\rightskip}{0pt plus 5cm}J\+Panel G\+U\+I\+Factory.\+side\+Panel\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGUIFactory_a76d0958fe1b53efd8953c3744fc9db01}{}\label{classGUIFactory_a76d0958fe1b53efd8953c3744fc9db01}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{GUIFactory_8java}{G\+U\+I\+Factory.\+java}\end{DoxyCompactItemize}

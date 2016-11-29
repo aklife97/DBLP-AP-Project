@@ -1,0 +1,84 @@
+\hypertarget{classDatabase}{}\section{Database Class Reference}
+\label{classDatabase}\index{Database@{Database}}
+
+
+Collaboration diagram for Database\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=139pt]{classDatabase__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDatabase_a5383fafec5ba098dc8c0415fab61ad84}{Database} (String filename, \hyperlink{interfaceQuery13}{Query13} \+\_\+query)
+\item 
+void \hyperlink{classDatabase_a3e1bf8d878423f430f63263f22e30013}{check} (\hyperlink{classDataRecords}{Data\+Records} d)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+S\+A\+X\+Parser \hyperlink{classDatabase_a484efd6d296ceb5ae434253519632980}{parser}
+\item 
+\hyperlink{interfaceQuery13}{Query13} \hyperlink{classDatabase_ae6f7784250367e1154d766eb3192e38f}{query}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This Class helps extracting relevant data 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Database@{Database}!Database@{Database}}
+\index{Database@{Database}!Database@{Database}}
+\subsubsection[{\texorpdfstring{Database(\+String filename, Query13 \+\_\+query)}{Database(String filename, Query13 _query)}}]{\setlength{\rightskip}{0pt plus 5cm}Database.\+Database (
+\begin{DoxyParamCaption}
+\item[{String}]{filename, }
+\item[{{\bf Query13}}]{\+\_\+query}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classDatabase_a5383fafec5ba098dc8c0415fab61ad84}{}\label{classDatabase_a5383fafec5ba098dc8c0415fab61ad84}
+
+\begin{DoxyCode}
+16                                                     \{
+17         \textcolor{keywordflow}{try}\{
+18             \hyperlink{classDatabase_ae6f7784250367e1154d766eb3192e38f}{query} = \_query;
+19             SAXParserFactory factory = SAXParserFactory.newInstance();
+20             \hyperlink{classDatabase_a484efd6d296ceb5ae434253519632980}{parser} = factory.newSAXParser();
+21             Handler handle = \textcolor{keyword}{new} Handler(\textcolor{keyword}{this});
+22             \hyperlink{classDatabase_a484efd6d296ceb5ae434253519632980}{parser}.parse(filename, handle);
+23         \}
+24         \textcolor{keywordflow}{catch}(Exception e)\{
+25             e.printStackTrace();
+26         \}
+27     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{Database@{Database}!check@{check}}
+\index{check@{check}!Database@{Database}}
+\subsubsection[{\texorpdfstring{check(\+Data\+Records d)}{check(DataRecords d)}}]{\setlength{\rightskip}{0pt plus 5cm}void Database.\+check (
+\begin{DoxyParamCaption}
+\item[{{\bf Data\+Records}}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classDatabase_a3e1bf8d878423f430f63263f22e30013}{}\label{classDatabase_a3e1bf8d878423f430f63263f22e30013}
+
+\begin{DoxyCode}
+28                                     \{
+29         \hyperlink{classDatabase_ae6f7784250367e1154d766eb3192e38f}{query}.\hyperlink{interfaceQuery13_aa8625da54bbd25beb6968df65fe05e57}{check}(d);
+30     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{Database@{Database}!parser@{parser}}
+\index{parser@{parser}!Database@{Database}}
+\subsubsection[{\texorpdfstring{parser}{parser}}]{\setlength{\rightskip}{0pt plus 5cm}S\+A\+X\+Parser Database.\+parser\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDatabase_a484efd6d296ceb5ae434253519632980}{}\label{classDatabase_a484efd6d296ceb5ae434253519632980}
+\index{Database@{Database}!query@{query}}
+\index{query@{query}!Database@{Database}}
+\subsubsection[{\texorpdfstring{query}{query}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Query13} Database.\+query\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDatabase_ae6f7784250367e1154d766eb3192e38f}{}\label{classDatabase_ae6f7784250367e1154d766eb3192e38f}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Database_8java}{Database.\+java}\end{DoxyCompactItemize}
