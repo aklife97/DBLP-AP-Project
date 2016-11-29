@@ -1,3 +1,9 @@
+/**
+*@file GuiQuery1Author.java
+*This file contains GUI Query1 w.r.t Search by Author implementation
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
-
+/**Creates the GUI Query1 search by author panel*/
 public class GuiQuery1Author extends GuiQuery1
 {
     private final JRadioButton sinceYear = new JRadioButton("For Since year");
@@ -56,7 +62,6 @@ public class GuiQuery1Author extends GuiQuery1
 		displayPanel.add(totalResults);
     	displayPanel.add(dispTable);
     	displayPanel.add(next);
-    	// displayPanel.add(back);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
 	 	tableWorking=0;
@@ -86,8 +91,7 @@ public class GuiQuery1Author extends GuiQuery1
 			});
 	}
 
-    public void setQueryAuthor()
-    {
+    public void setQueryAuthor(){
 		submit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				warning.setText(" ");

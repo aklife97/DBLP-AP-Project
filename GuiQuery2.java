@@ -1,3 +1,9 @@
+/**
+*@file GuiQuery2.java
+*This file contains GUI Query2 implementation
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
-
+/**Creates the GUI needed for supporting Query2*/
 public class GuiQuery2 extends GUIQuery
 {
 	private int flag=0,flag2=0,tableWorking=0,pages=0;

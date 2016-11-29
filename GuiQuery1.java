@@ -1,3 +1,9 @@
+/**
+*@file GuiQuery1.java
+*This file contains GUI Query1 implementation
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
-
+/**Creates the GUI needed for supporting Query1*/
 public class GuiQuery1 extends GUIQuery
 {
 	protected DefaultTableModel query1Table= new DefaultTableModel();
@@ -109,7 +115,6 @@ public class GuiQuery1 extends GUIQuery
     	sidePanel.removeAll();
     	displayPanel.removeAll();
     	queries.setBounds(50,20,100,20);
-    	//----	
     	sidePanel.add(searchBy);
     	sidePanel.add(queries);
     	mainFrame.revalidate();

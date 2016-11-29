@@ -1,3 +1,9 @@
+/**
+*@file GUIFactory.java
+*This file contains class for implementing Factory Design Pattern in GUI
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -11,6 +17,7 @@ import org.xml.sax.helpers.*;
 import java.util.*;
 import java.io.*;
 
+/**GUIFactory returns insatce according to type specified, i.e. implements Factory Design Pattern*/
 public class GUIFactory
 {
 	private JFrame mainFrame;

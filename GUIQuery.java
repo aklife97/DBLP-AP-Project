@@ -1,3 +1,9 @@
+/**
+*@file GUIQuery.java
+*This file contains GUI Query
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
-
+/**Provides Template Design Pattern*/
 public abstract class GUIQuery
 {
 	protected JFrame mainFrame;

@@ -1,3 +1,9 @@
+/**
+*@file GuiQuery1Control.java
+*This file contains GUI Query1 Controls
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
-
+/**Controls how Query1 functions*/
 public class GuiQuery1Control extends GUIQuery
 {
 	private JComboBox<String> searchBy = new JComboBox<String>();

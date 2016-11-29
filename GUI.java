@@ -1,3 +1,9 @@
+/**
+*@file GUI.java
+*This file contains class to initiate GUI making
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
-
+/**Contains the base GUI class that loads the frame, also contains the projects main*/
 public class GUI
 {
 	private JFrame mainFrame;
@@ -95,7 +101,6 @@ public class GUI
 		mainFrame.add(displayPanel);
 		mainFrame.setVisible(true); 
 		gFactory = new GUIFactory(mainFrame,queries,sidePanel,displayPanel,q0);
-		//---
 		queries.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent event) {

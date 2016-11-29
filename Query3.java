@@ -1,6 +1,6 @@
 /**
 *@file Query3.java
-*This file contains backend Query1 implementation
+*This file contains backend Query3 implementation
 *@author Abhinav Khattar 2015120
 *@author Tushar Arora 2015107
 */

@@ -1,3 +1,9 @@
+/**
+*@file GuiQuery1Title.java
+*This file contains GUI Query1 w.r.t Search by Title implementation
+*@author Abhinav Khattar 2015120
+*@author Tushar Arora 2015107
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
-
+/**Creates the GUI Query1 search by title panel*/
 public class GuiQuery1Title extends GuiQuery1
 {
 	private final JRadioButton sortRel = new JRadioButton("Sort by Relevance");
@@ -68,7 +74,6 @@ public class GuiQuery1Title extends GuiQuery1
     	displayPanel.add(totalResults);
     	displayPanel.add(dispTable);
     	displayPanel.add(next);
-    	// displayPanel.add(back);
     	mainFrame.revalidate();
 	 	mainFrame.repaint();
 	 	tableWorking=0;
