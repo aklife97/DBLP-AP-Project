@@ -126,7 +126,7 @@ public class GuiQuery2 extends GUIQuery
 		            		count++;}
 		            	pages=1;
 		            } else{
-		            	warning.setText("Year field should be numbers"); }
+		            	warning.setText("Publications should be numbers"); }
 				}
 			});	
 		next.addActionListener(new ActionListener(){

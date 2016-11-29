@@ -103,7 +103,10 @@ public class GuiQuery3 extends GUIQuery
 			            	q.queryThreeFind(Integer.parseInt(predYear.getText()),authName.getText());
 			            	tableWorking=1;
 			            	double a =q.queryThreeGetData();
-			            	query3Table.addRow(new Object[]{1,authName.getText(),a});
+			            	if(a==-1.0){
+			            		warning.setText("No result Found");
+			            	} else{
+			            	query3Table.addRow(new Object[]{1,authName.getText(),a});}
 			            }
 			            else {
 			            	warning.setText("Year field should be numbers");}

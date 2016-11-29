@@ -67,7 +67,26 @@ public class Query3 implements Query13{
 	/**This method gives back data one element at a time returning null when finished*/
 	public double getData()
 	{
+		initArrays();
+		if(pubCountTemp.length==0){
+			return -1.0;
+		}
 		return linearRegression(year+1);
+	}
+
+	public int getDegree()
+	{
+		int upCount=0,downCount=0;
+		double upLimit=1.333,downLimit=0.666;
+		for(int i=1;i<pubCountTemp.length;i++){
+			if(pubCountTemp[i]<(int)downLimit*pubCountTemp[i-1]){
+				downCount++;
+			}
+			else if(pubCountTemp[i]>(int)upLimit*pubCountTemp[i-1]){
+				upCount++;
+			}
+		}
+		return upCount+downCount;
 	}
 
 	private int startIndex()
