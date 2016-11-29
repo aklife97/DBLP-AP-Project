@@ -125,6 +125,7 @@ public class GUI
 		System.setProperty("jdk.xml.entityExpansionLimit", "0");
 		AuthorManager.addFile("dblp.xml");
 		GuiLoading gl = new GuiLoading();
+		gl.start();
 		AuthorManager.createMap();
 		gl.stop();
 		GUI a = new GUI();
