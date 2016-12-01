@@ -110,7 +110,7 @@ public class Query3 implements Query13{
 		int sum=0;
 		for(int i=startIndex();i<arr.length;i++)
 		{
-			sum+=pubCount[i];
+			sum+=arr[i];
 		}
 		try
 		{
@@ -136,7 +136,7 @@ public class Query3 implements Query13{
 		long mulSum=0;
 		for(int j=i;j<a.length;j++)
 		{
-			mulSum+=a[i]*b[i];
+			mulSum+=a[j]*b[j];
 		}
 		return mulSum;
 	}
@@ -145,6 +145,7 @@ public class Query3 implements Query13{
 		long numerator=0;
 		long denomenator=0;
 		int n=yearReg.length-this.startIndex();
+		System.out.println("n*="+n);
 		int idx=this.startIndex();
 		long num1=n*calcMulSum(yearReg,pubCount,idx);
 		long num2=calcSum(yearReg,idx)*calcSum(pubCount,idx);
@@ -170,11 +171,21 @@ public class Query3 implements Query13{
 
 	private double linearRegression(int xGiven)
 	{
+
+		for(int k=0;k<(year-1900+1);k++)
+		{
+			System.out.print(yearReg[k]+"=="+pubCount[k]+"##");
+		}
+		System.out.println("startIndex = "+this.startIndex());
 		double xMean= mean(yearReg);
+		System.out.println("xMean = "+xMean);
 		double yMean= mean(pubCount);
+		System.out.println("yMean = "+yMean);
 		double slope= findSlope();
+		System.out.println("slope = "+slope);
 		double yIntercept= yIntercept(xMean,yMean,slope); 
-		double yToFind=yIntercept + slope*xGiven;
+		System.out.println("yIntercept = "+yIntercept);
+		double yToFind=yIntercept + slope*(xGiven);
 
 		return yToFind;
 	}
