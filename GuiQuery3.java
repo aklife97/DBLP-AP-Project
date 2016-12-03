@@ -75,6 +75,7 @@ public class GuiQuery3 extends GUIQuery
 					warning.setText("");
 					authName.setText("");
 					predYear.setText("");
+					query3Table.setRowCount(0);
 				}
 			});
 	}
